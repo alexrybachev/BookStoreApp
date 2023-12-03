@@ -19,6 +19,7 @@
 		285A91512B1CCB4B008C26D9 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285A91502B1CCB4B008C26D9 /* HomeView.swift */; };
 		285A91532B1CCB55008C26D9 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285A91522B1CCB55008C26D9 /* WelcomeView.swift */; };
 		285A91582B1CF4B6008C26D9 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 285A91572B1CF4B6008C26D9 /* Kingfisher */; };
+		FA4C31192B1D038F00501B2D /* PictureTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4C31182B1D038F00501B2D /* PictureTextView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		285A914E2B1CCB42008C26D9 /* CategoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesView.swift; sourceTree = "<group>"; };
 		285A91502B1CCB4B008C26D9 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		285A91522B1CCB55008C26D9 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
+		FA4C31182B1D038F00501B2D /* PictureTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureTextView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				285A914C2B1CCB39008C26D9 /* ProductView.swift */,
+				FA4C31182B1D038F00501B2D /* PictureTextView.swift */,
 			);
 			path = ProductScreen;
 			sourceTree = "<group>";
@@ -232,6 +235,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				285A914D2B1CCB39008C26D9 /* ProductView.swift in Sources */,
+				FA4C31192B1D038F00501B2D /* PictureTextView.swift in Sources */,
 				285A91512B1CCB4B008C26D9 /* HomeView.swift in Sources */,
 				285A91492B1CCB26008C26D9 /* AccountView.swift in Sources */,
 				285A91532B1CCB55008C26D9 /* WelcomeView.swift in Sources */,
