@@ -11,6 +11,7 @@
 		285A91352B1CC4E9008C26D9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285A91342B1CC4E9008C26D9 /* ContentView.swift */; };
 		285A91372B1CC4EB008C26D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 285A91362B1CC4EB008C26D9 /* Assets.xcassets */; };
 		285A913A2B1CC4EB008C26D9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 285A91392B1CC4EB008C26D9 /* Preview Assets.xcassets */; };
+		285A91412B1CC757008C26D9 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 285A91402B1CC757008C26D9 /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		285A91342B1CC4E9008C26D9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		285A91362B1CC4EB008C26D9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		285A91392B1CC4EB008C26D9 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		285A91402B1CC757008C26D9 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +37,7 @@
 		285A91262B1CC4E9008C26D9 = {
 			isa = PBXGroup;
 			children = (
+				285A91402B1CC757008C26D9 /* README.md */,
 				285A91312B1CC4E9008C26D9 /* BookStoreApp */,
 				285A91302B1CC4E9008C26D9 /* Products */,
 			);
@@ -125,6 +128,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				285A91412B1CC757008C26D9 /* README.md in Resources */,
 				285A913A2B1CC4EB008C26D9 /* Preview Assets.xcassets in Resources */,
 				285A91372B1CC4EB008C26D9 /* Assets.xcassets in Resources */,
 			);
