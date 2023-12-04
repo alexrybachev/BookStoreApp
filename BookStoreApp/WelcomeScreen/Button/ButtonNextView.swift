@@ -8,11 +8,18 @@
 import SwiftUI
 
 struct ButtonNextView: View {
+    @Binding var currentTab: Int
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Button("Next") {
+            withAnimation {
+                currentTab += 1
+            }
+        }
+        .customButton()
     }
 }
 
 #Preview {
-    ButtonNextView()
+    ButtonNextView(currentTab: .constant(0))
 }

@@ -8,8 +8,15 @@
 import SwiftUI
 
 struct HomeView: View {
+    @AppStorage("isOnboarding") var isOnboarding: Bool?
+    
     var body: some View {
         Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        
+        Button("true") {
+            isOnboarding = true
+        }
+        .buttonStyle(.borderedProminent)
     }
 }
 

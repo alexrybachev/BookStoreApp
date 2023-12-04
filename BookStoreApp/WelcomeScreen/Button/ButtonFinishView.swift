@@ -8,8 +8,16 @@
 import SwiftUI
 
 struct ButtonFinishView: View {
+  
+    @AppStorage("isOnboarding") var isOnboarding: Bool?
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Button("Finish") {
+            withAnimation {
+                isOnboarding = false
+            }
+        }
+        .customButton()
     }
 }
 

@@ -7,12 +7,22 @@
 
 import SwiftUI
 
-struct ButtonStyle: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
+struct CustomButtonModifier: ViewModifier {
+  func body(content: Content) -> some View {
+    content
+          .frame(maxWidth: .infinity)
+         //.fontWeight(.semibold)
+          .foregroundColor(.white)
+          .padding()
+          .background(.black)
+          .foregroundStyle(.white)
+          .clipShape(RoundedRectangle(cornerRadius: 5))
+          .padding(.top, 20)
+  }
 }
 
-#Preview {
-    ButtonStyle()
+extension View {
+  func customButton() -> some View {
+    modifier(CustomButtonModifier())
+  }
 }
