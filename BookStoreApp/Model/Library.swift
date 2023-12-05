@@ -7,8 +7,6 @@
 
 import Foundation
 
-import Foundation
-
 struct Library: Decodable, Identifiable {
     var id: Int?
     let numFound: Int
@@ -27,14 +25,15 @@ struct Docs: Decodable {
     let key: String
     let title: String
     let authorName: [String]?
+    let isbn: [String]?
 //    let editions: Editions
 
-    enum CodingKeys: String, CodingKey {
-        case key
-        case title
-        case authorName = "author_name"
-//        case editions
-    }
+//    enum CodingKeys: String, CodingKey {
+//        case key
+//        case title
+//        case authorName
+////        case editions
+//    }
 }
 
 // MARK: - Editions

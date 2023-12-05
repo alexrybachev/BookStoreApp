@@ -11,7 +11,7 @@ import SwiftUI
 struct BookStoreAppApp: App {
     var body: some Scene {
         WindowGroup {
-            SwiftUITestScreen(image: "", textinput: "")
+            SwiftUITestScreen(image: "", networkAggregateModel: NetworkAggregateModel(), textinput: "")
         }
     }
 }

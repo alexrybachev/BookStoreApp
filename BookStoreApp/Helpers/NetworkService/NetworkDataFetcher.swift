@@ -8,10 +8,30 @@
 import Foundation
 
 final class NetworkDataFetcher {
+    
     func searchQuery(search: String) async throws -> Library {
         let data = try await NetworkService.shared.getPosts(query: .getSearchQuery(search))
         let decodedData = try decodeJSON(type: Library.self, from: data)
         return decodedData
+    }
+    
+    
+//    func fetchISBN(isbnArray: [Library]) async throws -> [String] {
+//        
+//    }
+//    
+    func fetchCoverImages(isbnArray: [Docs]) async throws -> [String] {
+        var array = [String]()
+        for libraryItem in isbnArray {
+            if let isbn = libraryItem.isbn {
+                array.append(isbn.first ?? "")
+            }
+        }
+        
+        for isbnElement in array {
+            _ = try await NetworkService.shared.getPosts(query: .getCoverImage(isbnElement))
+        }
+        return array
     }
 }
 

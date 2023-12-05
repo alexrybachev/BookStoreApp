@@ -7,25 +7,38 @@
 
 import Foundation
 
-import Foundation
-
 enum Endpoint {
     case getSearchQuery(String)
+    case getCoverImage(String)
 }
 
 final class NetworkService {
     static let shared = NetworkService()
     private init() {}
     
-    func getSearchQuery(search: String) -> URLComponents {
+    func searcQueryComponents(search: String) -> URLComponents {
         var urlComponents = URLComponents()
         urlComponents.scheme = "https"
         urlComponents.host = "openlibrary.org"
         urlComponents.path = "/search.json"
-        urlComponents.query = search
+//        urlComponents.query = search
         urlComponents.queryItems = [
             URLQueryItem(name: "q", value: search)
         ]
+        return urlComponents
+    }
+    
+    func getCoverComponents(id isbn: String) -> URLComponents {
+        var urlComponents = URLComponents()
+        urlComponents.scheme = "https"
+        urlComponents.host = "covers.openlibrary.org"
+        urlComponents.path = "/b/isbn/\(isbn)-L.jpg"
+//        urlComponents.query = ID
+//        urlComponents.queryItems = [
+////            URLQueryItem(name: "key", value: "isbn"),
+//            URLQueryItem(name: "value", value: isbn),
+//            URLQueryItem(name: "size", value: "-M")
+//        ]
         return urlComponents
     }
     
@@ -33,7 +46,9 @@ final class NetworkService {
         var urlComponents = URLComponents()
         switch query {
         case let .getSearchQuery(searchQuery):
-            urlComponents = getSearchQuery(search: searchQuery)
+            urlComponents = searcQueryComponents(search: searchQuery)
+        case let .getCoverImage(id):
+            urlComponents = getCoverComponents(id: id)
         }
         
         guard let url = urlComponents.url else {
@@ -42,7 +57,7 @@ final class NetworkService {
         
         do {
             var request = URLRequest(url: url)
-            request.httpMethod = "GET"
+            request.httpMethod = RequestMethod.get.rawValue
             
             let (data, response) = try await URLSession.shared.data(for: request)
             print("REQUEST: - \(request)")
