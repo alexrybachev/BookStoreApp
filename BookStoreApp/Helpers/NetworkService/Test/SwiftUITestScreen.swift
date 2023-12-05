@@ -19,15 +19,16 @@ struct SwiftUITestScreen: View {
         VStack {
             TextField("Search", text: $textinput)
             List {
-                ForEach(networkAggregateModel.searchBooksList, id: \.id) { library in
-                    ForEach(library.docs, id: \.isbn) { libraryDocs in
-                        Text(libraryDocs.title )
-                        let isbn = libraryDocs.isbn?.first ?? ""
+                ForEach(networkAggregateModel.searchBooksList, id: \.key) { doc in
+//                    ForEach(library.docs, id: \.isbn) { libraryDocs in
+                    HStack {
+                        let isbn = doc.isbn?.first ?? ""
 //                        ForEach(libraryDocs.isbn ?? [""], id: \.self) { isbn in
                             KFImage(URL(string: "https://covers.openlibrary.org/b/isbn/\(isbn)-L.jpg"))
                                 .resizable()
                                 .scaledToFit()
                                 .frame(width: 120, height: 120)
+                            Text(doc.title)
                             
                         }
                 }
@@ -45,14 +46,14 @@ struct SwiftUITestScreen: View {
         .task {
             do {
                 let data = try await network.searchQuery(search: "harry potter")
-                networkAggregateModel.searchBooksList.append(data)
+                networkAggregateModel.searchBooksList.append(contentsOf: data.docs)
 //                                    print("Model \(networkAggregateModel.searchBooksList)")
-                do {
-                    let data = try await network.fetchCoverImages(isbnArray:  networkAggregateModel.searchBooksList)
-                    networkAggregateModel.coverIdList.append(contentsOf: data)
-                } catch {
-                    print("Error fetching cover images: \(error.localizedDescription)")
-                }
+//                do {
+//                    let data = try await network.fetchCoverImages(isbnArray:  networkAggregateModel.searchBooksList)
+//                    networkAggregateModel.coverIdList.append(contentsOf: data)
+//                } catch {
+//                    print("Error fetching cover images: \(error.localizedDescription)")
+//                }
             } catch {
                 print("Error: \(error)")
             }

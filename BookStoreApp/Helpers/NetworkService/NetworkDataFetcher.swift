@@ -20,19 +20,19 @@ final class NetworkDataFetcher {
 //        
 //    }
 //    
-    func fetchCoverImages(isbnArray: [Docs]) async throws -> [String] {
-        var array = [String]()
-        for libraryItem in isbnArray {
-            if let isbn = libraryItem.isbn {
-                array.append(isbn.first ?? "")
-            }
-        }
-        
-        for isbnElement in array {
-            _ = try await NetworkService.shared.getPosts(query: .getCoverImage(isbnElement))
-        }
-        return array
-    }
+//    func fetchCoverImages(isbnArray: [Docs]) async throws -> [String] {
+//        var array = [String]()
+//        for libraryItem in isbnArray {
+//            if let isbn = libraryItem.isbn {
+//                array.append(isbn.first ?? "")
+//            }
+//        }
+//        
+//        for isbnElement in array {
+//            _ = try await NetworkService.shared.getPosts(query: .getCoverImage(isbnElement))
+//        }
+//        return array
+//    }
 }
 
 extension NetworkDataFetcher {
