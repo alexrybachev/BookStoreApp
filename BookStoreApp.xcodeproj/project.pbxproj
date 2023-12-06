@@ -38,6 +38,8 @@
 		D3CCB7352B1E38AB006E4723 /* FinishView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3CCB7342B1E38AB006E4723 /* FinishView.swift */; };
 		D3CCB7372B1E45DA006E4723 /* ButtonFinishView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3CCB7362B1E45DA006E4723 /* ButtonFinishView.swift */; };
 		FA4C31192B1D038F00501B2D /* PictureTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4C31182B1D038F00501B2D /* PictureTextView.swift */; };
+		FA6D055E2B208D20004EA553 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6D055D2B208D20004EA553 /* WebView.swift */; };
+		FA6D05602B2097A3004EA553 /* MockDataProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6D055F2B2097A3004EA553 /* MockDataProductView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +64,8 @@
 		D3CCB7342B1E38AB006E4723 /* FinishView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishView.swift; sourceTree = "<group>"; };
 		D3CCB7362B1E45DA006E4723 /* ButtonFinishView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonFinishView.swift; sourceTree = "<group>"; };
 		FA4C31182B1D038F00501B2D /* PictureTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureTextView.swift; sourceTree = "<group>"; };
+		FA6D055D2B208D20004EA553 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
+		FA6D055F2B2097A3004EA553 /* MockDataProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDataProductView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +167,8 @@
 			children = (
 				285A914C2B1CCB39008C26D9 /* ProductView.swift */,
 				FA4C31182B1D038F00501B2D /* PictureTextView.swift */,
+				FA6D055D2B208D20004EA553 /* WebView.swift */,
+				FA6D055F2B2097A3004EA553 /* MockDataProductView.swift */,
 			);
 			path = ProductScreen;
 			sourceTree = "<group>";
@@ -316,6 +322,7 @@
 			files = (
 				D3CCB72E2B1E3659006E4723 /* ButtonStyle.swift in Sources */,
 				285A914D2B1CCB39008C26D9 /* ProductView.swift in Sources */,
+				FA6D055E2B208D20004EA553 /* WebView.swift in Sources */,
 				D3CCB7332B1E3754006E4723 /* FeatureCard.swift in Sources */,
 				D3CCB72C2B1E363E006E4723 /* ButtonNextView.swift in Sources */,
 				FA4C31192B1D038F00501B2D /* PictureTextView.swift in Sources */,
@@ -329,6 +336,7 @@
 				D3CCB7352B1E38AB006E4723 /* FinishView.swift in Sources */,
 				285A91352B1CC4E9008C26D9 /* ContentView.swift in Sources */,
 				285A914B2B1CCB2F008C26D9 /* CartView.swift in Sources */,
+				FA6D05602B2097A3004EA553 /* MockDataProductView.swift in Sources */,
 				285A91332B1CC4E9008C26D9 /* BookStoreAppApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -388,7 +396,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -445,7 +453,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
