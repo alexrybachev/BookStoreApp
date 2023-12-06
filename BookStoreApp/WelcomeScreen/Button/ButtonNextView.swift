@@ -11,10 +11,13 @@ struct ButtonNextView: View {
     @Binding var currentTab: Int
     
     var body: some View {
-        Button("Next") {
+        Button {
             withAnimation {
                 currentTab += 1
             }
+        }label: {
+            Text("Next")
+                .frame(maxWidth: .infinity)
         }
         .customButton()
     }

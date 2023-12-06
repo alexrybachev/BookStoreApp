@@ -32,8 +32,6 @@ struct HomeView: View {
                         .background(.blue)
                         .foregroundColor(.white)
                         .cornerRadius(10)
-                    
-                    
                 }
             }
         }

@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct CaruselBooksView: View {
+    
+    
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack{

@@ -12,18 +12,15 @@ struct FeatureView: View {
     
     var body: some View {
         VStack(spacing: 30) {
-            Text("Features")
-                .font(.title)
-                .fontWeight(.semibold)
-                .padding(.bottom)
-                .padding(.top, 100)
             
-            FeatureCard(iconName: "person.2.crop.square.stack.fill",
-                        description: "A multiline description about a feature paired with the image.")
-            
-            FeatureCard(iconName: "quote.bubble.fill", description: "А large number of books")
+            Image(.iPhoneFeaturedView)
+                .resizable()
+                .scaledToFit()
+
             Spacer()
             
+            FeatureCard(iconName: "quote.bubble.fill", description: "An incredible amount of books")
+   
             ButtonNextView(currentTab: $currentTab)
         }
         .padding()

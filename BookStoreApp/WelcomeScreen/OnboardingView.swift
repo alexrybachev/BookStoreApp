@@ -16,16 +16,19 @@ struct OnboardingView: View {
     @State private var currentTab = 0
     
     var body: some View {
-        TabView(selection: $currentTab,
-                content: {
-            WelcomeView(currentTab: $currentTab)
-                .tag(0)
-            FeatureView(currentTab: $currentTab)
-                .tag(1)
-            FinishView()
-                .tag(2)
-        })
-        .background(Gradient(colors: gradientColors))
+        ZStack {
+            LinearGradient(colors: gradientColors, startPoint: .top, endPoint: .bottom)
+            
+            TabView(selection: $currentTab,
+                    content: {
+                WelcomeView(currentTab: $currentTab)
+                    .tag(0)
+                FeatureView(currentTab: $currentTab)
+                    .tag(1)
+                FinishView()
+                    .tag(2)
+            })
+        }
         .tabViewStyle(.page)
         .foregroundStyle(.white)
         .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))

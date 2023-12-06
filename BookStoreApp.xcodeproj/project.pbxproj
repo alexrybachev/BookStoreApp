@@ -149,8 +149,8 @@
 		285A91432B1CCADA008C26D9 /* HomeScreen */ = {
 			isa = PBXGroup;
 			children = (
-				D3DAC9422B20A6E0001E6E47 /* CaruselBooksView */,
 				285A91502B1CCB4B008C26D9 /* HomeView.swift */,
+				D3DAC9422B20A6E0001E6E47 /* CaruselBooksView */,
 			);
 			path = HomeScreen;
 			sourceTree = "<group>";
