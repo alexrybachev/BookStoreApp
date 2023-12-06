@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct TestCategories: View {
     var network = NetworkDataFetcher()
@@ -13,15 +14,21 @@ struct TestCategories: View {
     var body: some View {
         List {
             ForEach(networkAggregateModel.categoriesList, id: \.key) { books in
-                ForEach(books.works, id: \.key) { book in
-                    Text(book.title)
+                HStack {
+                    KFImage(URL(string: "https://covers.openlibrary.org/b/id/\(books.coverId)-L.jpg"))
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 120, height: 160)
+                    Text(books.title)
+                        .font(.system(size: 20))
+                        
                 }
             }
         }
         .task {
             do {
                 let data = try await network.getCategories(name: "love")
-                networkAggregateModel.categoriesList.append(data)
+                networkAggregateModel.categoriesList.append(contentsOf: data.works)
             } catch {
                 print("No response categories")
             }
