@@ -16,7 +16,7 @@ struct HomeView: View {
     var body: some View {
         NavigationView {
             VStack {
-                Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+                Text("Hello, World!")
                 
                 Button("true") {
                     isOnboarding = true
