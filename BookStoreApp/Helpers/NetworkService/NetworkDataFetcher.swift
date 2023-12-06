@@ -9,30 +9,19 @@ import Foundation
 
 final class NetworkDataFetcher {
     
-    func searchQuery(search: String) async throws -> Library {
+    func searchQuery(search: String) async throws -> LibraryBooks {
         let data = try await NetworkService.shared.getPosts(query: .getSearchQuery(search))
-        let decodedData = try decodeJSON(type: Library.self, from: data)
+        let decodedData = try decodeJSON(type: LibraryBooks.self, from: data)
+        return decodedData
+    }
+    
+    func getCategories(name: String) async throws -> Categories {
+        let data = try await NetworkService.shared.getPosts(query: .getCategories(name))
+        let decodedData = try decodeJSON(type: Categories.self, from: data)
         return decodedData
     }
     
     
-//    func fetchISBN(isbnArray: [Library]) async throws -> [String] {
-//        
-//    }
-//    
-//    func fetchCoverImages(isbnArray: [Docs]) async throws -> [String] {
-//        var array = [String]()
-//        for libraryItem in isbnArray {
-//            if let isbn = libraryItem.isbn {
-//                array.append(isbn.first ?? "")
-//            }
-//        }
-//        
-//        for isbnElement in array {
-//            _ = try await NetworkService.shared.getPosts(query: .getCoverImage(isbnElement))
-//        }
-//        return array
-//    }
 }
 
 extension NetworkDataFetcher {
