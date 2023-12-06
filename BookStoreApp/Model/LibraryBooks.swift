@@ -20,7 +20,7 @@ struct Docs: Decodable {
     let key: String
     let title: String
     let authorName: [String]?
-    let isbn: [String]?
+    var isbn: [String]?
 
 }
 
