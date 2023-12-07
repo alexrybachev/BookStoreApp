@@ -19,6 +19,7 @@ struct FeatureCard: View {
                 .padding(.trailing, 10)
             
             Text(description)
+                .multilineTextAlignment(.center)
             
             Spacer()
         }

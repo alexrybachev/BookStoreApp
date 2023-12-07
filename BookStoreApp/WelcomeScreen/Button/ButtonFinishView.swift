@@ -12,12 +12,16 @@ struct ButtonFinishView: View {
     @AppStorage("isOnboarding") var isOnboarding: Bool?
     
     var body: some View {
-        Button("Finish") {
+        Button {
             withAnimation {
                 isOnboarding = false
             }
+        }label: {
+            Text("Finish")
+                .frame(maxWidth: .infinity)
         }
         .customButton()
+        //.buttonStyle(.borderedProminent)
     }
 }
 

@@ -9,7 +9,18 @@ import SwiftUI
 
 struct FinishView: View {
     var body: some View {
-        ButtonFinishView()
+        VStack {
+            Image(.iPhoneFinishView)
+                .resizable()
+                .scaledToFill()
+
+            Spacer()
+            
+            FeatureCard(iconName: "person.2.crop.square.stack.fill",
+                        description: "A complete description of the book with information about the author, genre and rating of the book.")
+            ButtonFinishView()
+        }
+        .padding()
     }
 }
 

@@ -37,6 +37,8 @@
 		D3CCB7332B1E3754006E4723 /* FeatureCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3CCB7322B1E3754006E4723 /* FeatureCard.swift */; };
 		D3CCB7352B1E38AB006E4723 /* FinishView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3CCB7342B1E38AB006E4723 /* FinishView.swift */; };
 		D3CCB7372B1E45DA006E4723 /* ButtonFinishView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3CCB7362B1E45DA006E4723 /* ButtonFinishView.swift */; };
+		D3DAC9442B20A6F6001E6E47 /* CaruselBooksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DAC9432B20A6F6001E6E47 /* CaruselBooksView.swift */; };
+		D3DAC9462B20A716001E6E47 /* BookCaruselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DAC9452B20A716001E6E47 /* BookCaruselView.swift */; };
 		FA4C31192B1D038F00501B2D /* PictureTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4C31182B1D038F00501B2D /* PictureTextView.swift */; };
 		FA6D055E2B208D20004EA553 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6D055D2B208D20004EA553 /* WebView.swift */; };
 		FA6D05602B2097A3004EA553 /* MockDataProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6D055F2B2097A3004EA553 /* MockDataProductView.swift */; };
@@ -63,6 +65,8 @@
 		D3CCB7322B1E3754006E4723 /* FeatureCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureCard.swift; sourceTree = "<group>"; };
 		D3CCB7342B1E38AB006E4723 /* FinishView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishView.swift; sourceTree = "<group>"; };
 		D3CCB7362B1E45DA006E4723 /* ButtonFinishView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonFinishView.swift; sourceTree = "<group>"; };
+		D3DAC9432B20A6F6001E6E47 /* CaruselBooksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaruselBooksView.swift; sourceTree = "<group>"; };
+		D3DAC9452B20A716001E6E47 /* BookCaruselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCaruselView.swift; sourceTree = "<group>"; };
 		FA4C31182B1D038F00501B2D /* PictureTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureTextView.swift; sourceTree = "<group>"; };
 		FA6D055D2B208D20004EA553 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		FA6D055F2B2097A3004EA553 /* MockDataProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDataProductView.swift; sourceTree = "<group>"; };
@@ -150,6 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				285A91502B1CCB4B008C26D9 /* HomeView.swift */,
+				D3DAC9422B20A6E0001E6E47 /* CaruselBooksView */,
 			);
 			path = HomeScreen;
 			sourceTree = "<group>";
@@ -229,6 +234,15 @@
 				D3CCB7322B1E3754006E4723 /* FeatureCard.swift */,
 			);
 			path = Card;
+			sourceTree = "<group>";
+		};
+		D3DAC9422B20A6E0001E6E47 /* CaruselBooksView */ = {
+			isa = PBXGroup;
+			children = (
+				D3DAC9432B20A6F6001E6E47 /* CaruselBooksView.swift */,
+				D3DAC9452B20A716001E6E47 /* BookCaruselView.swift */,
+			);
+			path = CaruselBooksView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -322,6 +336,7 @@
 			files = (
 				D3CCB72E2B1E3659006E4723 /* ButtonStyle.swift in Sources */,
 				285A914D2B1CCB39008C26D9 /* ProductView.swift in Sources */,
+				D3DAC9442B20A6F6001E6E47 /* CaruselBooksView.swift in Sources */,
 				FA6D055E2B208D20004EA553 /* WebView.swift in Sources */,
 				D3CCB7332B1E3754006E4723 /* FeatureCard.swift in Sources */,
 				D3CCB72C2B1E363E006E4723 /* ButtonNextView.swift in Sources */,
@@ -333,6 +348,7 @@
 				D3CCB7372B1E45DA006E4723 /* ButtonFinishView.swift in Sources */,
 				285A914F2B1CCB42008C26D9 /* CategoriesView.swift in Sources */,
 				D3CCB7292B1E34CC006E4723 /* FeatureView.swift in Sources */,
+				D3DAC9462B20A716001E6E47 /* BookCaruselView.swift in Sources */,
 				D3CCB7352B1E38AB006E4723 /* FinishView.swift in Sources */,
 				285A91352B1CC4E9008C26D9 /* ContentView.swift in Sources */,
 				285A914B2B1CCB2F008C26D9 /* CartView.swift in Sources */,

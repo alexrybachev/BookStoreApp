@@ -12,21 +12,24 @@ struct WelcomeView: View {
     
     var body: some View {
         VStack {
-            ZStack {
+            VStack {
                 Image(.books)
-                    .offset(x: -20, y: -180)
-                    .scaledToFill()
+                    .scaledToFit()
+             //      .offset(x: -20, y: -180)
 //                    .containerRelativeFrame(.vertical) {width, axis in
 //                        width * 0.4
 //                    }
                 Image(.logo)
-                    .offset(y: 50)
+                    .offset(y: -100)
             }
-            
-            
-            Text("Read more and stress less with our online book shopping app. Shop from anywhere you are and discover titles that you love. Happy reading!")
-                .padding(.horizontal, 20)
-                .multilineTextAlignment(.center)
+            .frame(width: 250, height: 250)
+            .scaledToFill()
+            Spacer()
+            FeatureCard(iconName: "person.2.crop.square.stack.fill",
+                        description: "Read more and stress less with our online book shopping app. Shop from anywhere you are and discover titles that you love. Happy reading!")
+//            Text("Read more and stress less with our online book shopping app. Shop from anywhere you are and discover titles that you love. Happy reading!")
+//                .padding(.horizontal, 20)
+//                .multilineTextAlignment(.center)
             
             ButtonNextView(currentTab: $currentTab)
         }
