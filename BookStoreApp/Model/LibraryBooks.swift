@@ -58,3 +58,22 @@ struct Authors: Decodable {
     let key: String
     let name: String
 }
+
+struct DetailBook: Decodable {
+    let title: String
+    let key: String
+    let description: String
+}
+
+//MARK: - Top Trending
+struct TopTrends: Decodable {
+    let query: String
+    let works: [WorksTrends]
+}
+
+struct WorksTrends: Decodable {
+    let key: String
+    let title: String
+    let authorName: [String]?
+    let ia: [String]?
+}

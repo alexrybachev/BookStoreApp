@@ -21,6 +21,12 @@ final class NetworkDataFetcher {
         return decodedData
     }
     
+    func getTopTrends(trend: SortTrend) async throws -> TopTrends {
+        let data = try await NetworkService.shared.getPosts(query: .getTopTrends(trend.perfomLogic()))
+        let decodedData = try decodeJSON(type: TopTrends.self, from: data)
+        return decodedData
+    }
+    
     
 }
 

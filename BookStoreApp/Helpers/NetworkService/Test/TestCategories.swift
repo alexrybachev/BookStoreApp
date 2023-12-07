@@ -19,16 +19,28 @@ struct TestCategories: View {
                         .resizable()
                         .scaledToFill()
                         .frame(width: 120, height: 160)
+                    VStack(alignment: .leading) {
+                        Text(books.title)
+                            .font(.system(size: 20))
+                        Text(String(books.firstPublishYear))
+                            .font(.system(size: 20))
+                    }
+                }
+            }
+            ForEach(networkAggregateModel.topTrends, id: \.query) { topBooks in
+                ForEach(topBooks.works, id: \.key) { books in
                     Text(books.title)
-                        .font(.system(size: 20))
-                        
+                    
                 }
             }
         }
         .task {
             do {
-                let data = try await network.getCategories(name: "love")
+                let data = try await network.getCategories(name: "Classic")
                 networkAggregateModel.categoriesList.append(contentsOf: data.works)
+                let topData = try await network.getTopTrends(trend: .daily)
+                networkAggregateModel.topTrends.append(topData)
+//
             } catch {
                 print("No response categories")
             }
