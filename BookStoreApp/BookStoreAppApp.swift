@@ -26,7 +26,7 @@ struct BookStoreAppApp: App {
             if isOnboarding {
                 OnboardingView()
             } else {
-                HomeView()
+                ContentView()
             }
         }
     }
