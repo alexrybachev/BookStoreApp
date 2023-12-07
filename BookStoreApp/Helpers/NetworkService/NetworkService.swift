@@ -12,30 +12,27 @@ enum Endpoint {
     case getCategories(String)
     case getDetailBook(String)
     case getTopTrends(String)
+//    case getSearchId(String)
 }
-
-enum SortTrend: String {
+enum SortTrends: String {
     case now
     case daily
-    case weekly
-    case monthly
-    case yearly
-    case forever
+    case thisWeek
+    case thisMounth
+    case thisYear
     
-    func perfomLogic() -> String {
+    func switchTrends() -> String {
         switch self {
         case .now:
             "now"
         case .daily:
             "daily"
-        case .weekly:
+        case .thisWeek:
             "weekly"
-        case .monthly:
+        case .thisMounth:
             "monthly"
-        case .yearly:
+        case .thisYear:
             "yearly"
-        case .forever:
-            "forever"
         }
     }
 }
@@ -49,10 +46,8 @@ final class NetworkService {
         urlComponents.scheme = "https"
         urlComponents.host = "openlibrary.org"
         urlComponents.path = "/search.json"
-//        urlComponents.query = search
         urlComponents.queryItems = [
             URLQueryItem(name: "q", value: "\(search)"),
-//            URLQueryItem(name: "fields", value: "10,availability"),
             URLQueryItem(name: "limit", value: "10")
         ]
         return urlComponents
@@ -82,6 +77,14 @@ final class NetworkService {
         return urlComponents
     }
     
+    func getSearchIDComponents(id: String) -> URLComponents {
+        var urlComponents = URLComponents()
+        urlComponents.scheme = "https"
+        urlComponents.host = "openlibrary.org"
+        urlComponents.path = "/works/\(id).json"
+        return urlComponents
+    }
+    
     func getPosts(query: Endpoint) async throws -> Data {
         var urlComponents = URLComponents()
         switch query {
@@ -93,6 +96,8 @@ final class NetworkService {
             urlComponents = getDetailBookComponents(id: id)
         case let .getTopTrends(topTrends):
             urlComponents = getTopBooksComponents(trend: topTrends)
+//        case let .getSearchId(id):
+//            <#code#>
         }
         
         guard let url = urlComponents.url else {

@@ -9,28 +9,42 @@ import Foundation
 
 final class NetworkDataFetcher {
     
+    //MARK: - request Search
     func searchQuery(search: String) async throws -> LibraryBooks {
         let data = try await NetworkService.shared.getPosts(query: .getSearchQuery(search))
         let decodedData = try decodeJSON(type: LibraryBooks.self, from: data)
         return decodedData
     }
     
+    //MARK: - request Categories
     func getCategories(name: String) async throws -> Categories {
         let data = try await NetworkService.shared.getPosts(query: .getCategories(name))
         let decodedData = try decodeJSON(type: Categories.self, from: data)
         return decodedData
     }
     
-    func getTopTrends(trend: SortTrend) async throws -> TopTrends {
-        let data = try await NetworkService.shared.getPosts(query: .getTopTrends(trend.perfomLogic()))
+    //MARK: - request TopTrends
+    func getTopTrends(trend: SortTrends) async throws -> TopTrends {
+        let data = try await NetworkService.shared.getPosts(query: .getTopTrends(trend.switchTrends()))
         let decodedData = try decodeJSON(type: TopTrends.self, from: data)
         return decodedData
     }
     
+    //MARK: - request Detail Book by Identifier
+    func getDetailBook(id: String) async throws -> DetailBook {
+        let data = try await NetworkService.shared.getPosts(query: .getDetailBook(id))
+        let decodedData = try decodeJSON(type: DetailBook.self, from: data)
+        return decodedData
+    }
     
+    //MARK: - request by Identifier
+    func getSearchById(id: String) {
+        
+    }
 }
 
 extension NetworkDataFetcher {
+    
     private func decodeJSON<T: Decodable>(type: T.Type, from data: Data) throws -> T {
         let decoder = JSONDecoder()
         decoder.keyDecodingStrategy = .convertFromSnakeCase

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D6925282B22636D00247E4C /* TestDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6925272B22636D00247E4C /* TestDetailView.swift */; };
 		0D940B7B2B1CF98600FAA484 /* NetworkErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D940B7A2B1CF98600FAA484 /* NetworkErrors.swift */; };
 		0D940B7D2B1CF9AB00FAA484 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D940B7C2B1CF9AB00FAA484 /* NetworkService.swift */; };
 		0D940B7F2B1CF9BD00FAA484 /* NetworkDataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D940B7E2B1CF9BD00FAA484 /* NetworkDataFetcher.swift */; };
@@ -30,6 +31,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0D6925272B22636D00247E4C /* TestDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestDetailView.swift; sourceTree = "<group>"; };
 		0D940B7A2B1CF98600FAA484 /* NetworkErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkErrors.swift; sourceTree = "<group>"; };
 		0D940B7C2B1CF9AB00FAA484 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		0D940B7E2B1CF9BD00FAA484 /* NetworkDataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDataFetcher.swift; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 			children = (
 				0D940B852B1CFBB200FAA484 /* SwiftUITestScreen.swift */,
 				0DBBD9B22B2087A700B8BB7A /* TestCategories.swift */,
+				0D6925272B22636D00247E4C /* TestDetailView.swift */,
 			);
 			path = Test;
 			sourceTree = "<group>";
@@ -282,6 +285,7 @@
 				0D940B862B1CFBB200FAA484 /* SwiftUITestScreen.swift in Sources */,
 				0D940B8B2B1EF25200FAA484 /* NetworkAgregateModel.swift in Sources */,
 				285A91492B1CCB26008C26D9 /* AccountView.swift in Sources */,
+				0D6925282B22636D00247E4C /* TestDetailView.swift in Sources */,
 				285A91532B1CCB55008C26D9 /* WelcomeView.swift in Sources */,
 				285A914F2B1CCB42008C26D9 /* CategoriesView.swift in Sources */,
 				285A91352B1CC4E9008C26D9 /* ContentView.swift in Sources */,

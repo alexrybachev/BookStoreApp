@@ -60,9 +60,14 @@ struct Authors: Decodable {
 }
 
 struct DetailBook: Decodable {
-    let title: String
+    let title: String?
     let key: String
-    let description: String
+    let description: [Description]?
+}
+
+struct Description: Decodable {
+    let type: String
+    let value: String
 }
 
 //MARK: - Top Trending
@@ -77,3 +82,47 @@ struct WorksTrends: Decodable {
     let authorName: [String]?
     let ia: [String]?
 }
+
+////MARK: - Search By ISBN
+//struct SearchID: Codable {
+//    let identifiers: Identifiers
+//    let title: String
+//    let authors: [TypeElement]
+//    let publishDate: String
+//    let publishers: [String]
+//    let covers: [Int]
+//    let contributions: [String]
+//    let languages: [TypeElement]
+//    let sourceRecords, localID: [String]
+//    let type: TypeElement
+//    let firstSentence: Created
+//    let key: String
+//    let numberOfPages: Int
+//    let works: [TypeElement]
+//    let classifications: Classifications
+//    let ocaid: String
+//    let isbn10, isbn13: [String]
+//    let latestRevision, revision: Int
+//    let created, lastModified: Created
+//
+//}
+//
+//// MARK: - TypeElement
+//struct TypeElement: Codable {
+//    let key: String
+//}
+//
+//// MARK: - Classifications
+//struct Classifications: Codable {
+//}
+//
+//// MARK: - Created
+//struct Created: Codable {
+//    let type, value: String
+//}
+//
+//// MARK: - Identifiers
+//struct Identifiers: Codable {
+//    let goodreads, librarything: [String]
+//}
+

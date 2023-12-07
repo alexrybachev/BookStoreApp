@@ -11,10 +11,7 @@ import Foundation
 class NetworkAggregateModel: ObservableObject {
     
     @Published var searchBooksList: [Docs] = []
-//    @Published var coverIdList: [String] = []
     @Published var categoriesList: [Works] = []
     @Published var detailBooks: [DetailBook] = []
     @Published var topTrends: [TopTrends] = []
-    
-    
 }

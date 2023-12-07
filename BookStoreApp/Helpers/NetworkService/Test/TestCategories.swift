@@ -30,7 +30,6 @@ struct TestCategories: View {
             ForEach(networkAggregateModel.topTrends, id: \.query) { topBooks in
                 ForEach(topBooks.works, id: \.key) { books in
                     Text(books.title)
-                    
                 }
             }
         }
@@ -38,7 +37,7 @@ struct TestCategories: View {
             do {
                 let data = try await network.getCategories(name: "Classic")
                 networkAggregateModel.categoriesList.append(contentsOf: data.works)
-                let topData = try await network.getTopTrends(trend: .daily)
+                let topData = try await network.getTopTrends(trend: .thisWeek)
                 networkAggregateModel.topTrends.append(topData)
 //
             } catch {
