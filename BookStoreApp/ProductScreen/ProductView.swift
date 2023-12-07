@@ -10,6 +10,8 @@ import SwiftUI
 struct ProductView: View {
 
     @Environment(\.presentationMode) var presentationMode
+    @EnvironmentObject private var viewModel: BookAppViewModel
+
     @State private var isWebViewPresented = false
     var isUserLoggedIn = true
     // static data
@@ -29,6 +31,13 @@ struct ProductView: View {
             VStack {
                 Text(bookNameText)
                     .font(.system(size: 24, weight: .semibold))
+                // Перенести на экран настроек - start
+                Button(action: {
+                    viewModel.changeApperance.toggle()
+                }) {
+                    Text("Toggle Mode")
+                }
+                // - end
                 PictureTextView {
                     openWebView()
                 }
@@ -62,6 +71,7 @@ struct ProductView: View {
                 EmptyView()
             }
             .padding()
+            .preferredColorScheme(viewModel.changeApperance ? .light : .dark)
         }
     }
 
