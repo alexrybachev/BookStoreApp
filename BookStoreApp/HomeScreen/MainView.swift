@@ -8,8 +8,33 @@
 import SwiftUI
 
 struct MainView: View {
+    @State private var selectedPicker = 1
+    
+    @State var seeMoreTop: Bool = true
+    @State var seeMoreRecent: Bool = true
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            VStack {
+                TitleView(text: "Top Books", seeMore: $seeMoreTop)
+                PickerView(selectedIndex: $selectedPicker)
+                if seeMoreTop {
+                    CaruselBooksView()
+                } else {
+                    GridBooksView()
+                }
+            }
+            
+            VStack {
+                TitleView(text: "Recent Books", seeMore: $seeMoreRecent)
+                
+                if seeMoreRecent {
+                    CaruselBooksView()
+                } else {
+                    GridBooksView()
+                }
+            }
+        }
     }
 }
 

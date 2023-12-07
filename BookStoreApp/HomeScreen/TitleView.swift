@@ -8,11 +8,26 @@
 import SwiftUI
 
 struct TitleView: View {
+    
+    @State var text: String
+    @Binding var seeMore: Bool
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        HStack {
+            Text(text)
+                .font(.title)
+                .fontWeight(.bold)
+            Spacer()
+            Button {
+                seeMore.toggle()
+            }label: {
+                Text("see more")
+                    .tint(.secondary)
+            }
+        }
     }
 }
 
 #Preview {
-    TitleView()
+    TitleView(text: "Top Books", seeMore: .constant(true))
 }

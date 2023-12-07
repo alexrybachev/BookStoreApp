@@ -30,14 +30,12 @@ struct BookCaruselView: View {
                         .font(.caption)
                 }
                 .padding(.vertical, 10)
-                .padding(.horizontal, 5)
-                .frame(maxWidth: .infinity)
-                .frame(height: 100)
+                .frame(width: 176)
             }
             .background(.backgroundTextBooks)
             .foregroundStyle(.white)
         }
-        .frame(width: 176, height: 232)
+        //.frame(width: 176, height: 232)
         .background(.backgroundBooks)
         .clipShape(RoundedRectangle(cornerRadius: 10))
     }

@@ -6,3 +6,18 @@
 //
 
 import Foundation
+
+var Categories: [Category] = []
+var lastIndex: Int = 0
+
+struct Category: Hashable {
+    let id: Int
+    var title: String
+    var selected: Bool
+    
+    init (id: Int, title: String, selected: Bool) {
+        self.id = id
+        self.title = title
+        self.selected = selected
+    }
+}

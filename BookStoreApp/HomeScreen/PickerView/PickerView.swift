@@ -8,26 +8,10 @@
 
 import SwiftUI
 
-var Categories: [Category] = []
-var lastIndex: Int = 0
-
-struct Category: Hashable {
-    let id: Int
-    var title: String
-    var selected: Bool
-    
-    init (id: Int, title: String, selected: Bool) {
-        self.id = id
-        self.title = title
-        self.selected = selected
-    }
-}
-
-struct CustomPickerView: View {
+struct PickerView: View {
     
     @Binding var selectedIndex: Int
     @State private var currentIndex: Int = 0
-    @Namespace private var ns
     
     init(selectedIndex: Binding<Int>) {
         _selectedIndex = selectedIndex
@@ -42,7 +26,7 @@ struct CustomPickerView: View {
         VStack {
             ScrollView(.horizontal, showsIndicators: false) {
                 ScrollViewReader { scrollView in
-                    HStack(spacing: 25) {
+                    HStack(spacing: 15) {
                         ForEach(Categories, id: \.self) { item in
                             if item.id == currentIndex {
                                 Text(item.title)
@@ -55,13 +39,16 @@ struct CustomPickerView: View {
                                     .clipShape(RoundedRectangle(cornerRadius: 5))
                             } else {
                                 Text(item.title)
-                                    .border(.yellow)
+                                    .bold()
+                                    .padding(10)
+                                    .border(.white)
+                                    .clipShape(RoundedRectangle(cornerRadius: 4))
                                     .onTapGesture {
-                                       // withAnimation {
+                                        withAnimation {
                                             currentIndex = item.id
                                             selectedIndex = currentIndex
                                             scrollView.scrollTo(item)
-                                        //}
+                                        }
                                     }
                             }
                         }
@@ -74,5 +61,5 @@ struct CustomPickerView: View {
 }
 
 #Preview {
-    CustomPickerView(selectedIndex: .constant(0))
+    PickerView(selectedIndex: .constant(0))
 }

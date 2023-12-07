@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct EmptyView: View {
+struct EmptyViewSearch: View {
     
     @Binding var query: String
     
@@ -17,5 +17,5 @@ struct EmptyView: View {
 }
 
 #Preview {
-    EmptyView(query: .constant("asasd"))
+    EmptyViewSearch(query: .constant("asasd"))
 }
