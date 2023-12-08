@@ -7,7 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D6925282B22636D00247E4C /* TestDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6925272B22636D00247E4C /* TestDetailView.swift */; };
+		0D940B7B2B1CF98600FAA484 /* NetworkErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D940B7A2B1CF98600FAA484 /* NetworkErrors.swift */; };
+		0D940B7D2B1CF9AB00FAA484 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D940B7C2B1CF9AB00FAA484 /* NetworkService.swift */; };
+		0D940B7F2B1CF9BD00FAA484 /* NetworkDataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D940B7E2B1CF9BD00FAA484 /* NetworkDataFetcher.swift */; };
+		0D940B812B1CFB5200FAA484 /* LibraryBooks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D940B802B1CFB5200FAA484 /* LibraryBooks.swift */; };
+		0D940B862B1CFBB200FAA484 /* SwiftUITestScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D940B852B1CFBB200FAA484 /* SwiftUITestScreen.swift */; };
+		0D940B892B1E448A00FAA484 /* RequestMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D940B882B1E448A00FAA484 /* RequestMethod.swift */; };
+		0D940B8B2B1EF25200FAA484 /* NetworkAgregateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D940B8A2B1EF25200FAA484 /* NetworkAgregateModel.swift */; };
+		0DBBD9B32B2087A700B8BB7A /* TestCategories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DBBD9B22B2087A700B8BB7A /* TestCategories.swift */; };
+		285A91332B1CC4E9008C26D9 /* BookStoreAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285A91322B1CC4E9008C26D9 /* BookStoreAppApp.swift */; };
 		285A91352B1CC4E9008C26D9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285A91342B1CC4E9008C26D9 /* ContentView.swift */; };
+		285A91352B1CC4E9008C26D9 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285A91342B1CC4E9008C26D9 /* TabBarView.swift */; };
 		285A91372B1CC4EB008C26D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 285A91362B1CC4EB008C26D9 /* Assets.xcassets */; };
 		285A913A2B1CC4EB008C26D9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 285A91392B1CC4EB008C26D9 /* Preview Assets.xcassets */; };
 		285A91412B1CC757008C26D9 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 285A91402B1CC757008C26D9 /* README.md */; };
@@ -52,8 +63,17 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0D6925272B22636D00247E4C /* TestDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestDetailView.swift; sourceTree = "<group>"; };
+		0D940B7A2B1CF98600FAA484 /* NetworkErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkErrors.swift; sourceTree = "<group>"; };
+		0D940B7C2B1CF9AB00FAA484 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		0D940B7E2B1CF9BD00FAA484 /* NetworkDataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDataFetcher.swift; sourceTree = "<group>"; };
+		0D940B802B1CFB5200FAA484 /* LibraryBooks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryBooks.swift; sourceTree = "<group>"; };
+		0D940B852B1CFBB200FAA484 /* SwiftUITestScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUITestScreen.swift; sourceTree = "<group>"; };
+		0D940B882B1E448A00FAA484 /* RequestMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestMethod.swift; sourceTree = "<group>"; };
+		0D940B8A2B1EF25200FAA484 /* NetworkAgregateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkAgregateModel.swift; sourceTree = "<group>"; };
+		0DBBD9B22B2087A700B8BB7A /* TestCategories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCategories.swift; sourceTree = "<group>"; };
 		285A912F2B1CC4E9008C26D9 /* BookStoreApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BookStoreApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		285A91342B1CC4E9008C26D9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		285A91342B1CC4E9008C26D9 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		285A91362B1CC4EB008C26D9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		285A91392B1CC4EB008C26D9 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		285A91402B1CC757008C26D9 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -108,6 +128,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0D940B822B1CFB5A00FAA484 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0D940B802B1CFB5200FAA484 /* LibraryBooks.swift */,
+				0D940B8A2B1EF25200FAA484 /* NetworkAgregateModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		0D940B872B1CFF4400FAA484 /* Test */ = {
+			isa = PBXGroup;
+			children = (
+				0D940B852B1CFBB200FAA484 /* SwiftUITestScreen.swift */,
+				0DBBD9B22B2087A700B8BB7A /* TestCategories.swift */,
+				0D6925272B22636D00247E4C /* TestDetailView.swift */,
+			);
+			path = Test;
+			sourceTree = "<group>";
+		};
 		285A91262B1CC4E9008C26D9 = {
 			isa = PBXGroup;
 			children = (
@@ -130,15 +169,16 @@
 			isa = PBXGroup;
 			children = (
 				28AE56022B2243E0009D2C3B /* BookStoreAppApp.swift */,
-				285A91342B1CC4E9008C26D9 /* ContentView.swift */,
+				285A91342B1CC4E9008C26D9 /* TabBarView.swift */,
 				285A91422B1CCAC1008C26D9 /* WelcomeScreen */,
 				285A91432B1CCADA008C26D9 /* HomeScreen */,
 				285A91442B1CCAEE008C26D9 /* CategoriesScreen */,
 				285A91452B1CCAFA008C26D9 /* ProductScreen */,
 				285A91462B1CCB08008C26D9 /* CartScreen */,
 				285A91472B1CCB11008C26D9 /* AccountScreen */,
-				285A91542B1CCB5D008C26D9 /* NetworkService */,
 				285A91552B1CCB6F008C26D9 /* Helpers */,
+				0D940B822B1CFB5A00FAA484 /* Model */,
+				285A91542B1CCB5D008C26D9 /* NetworkService */,
 				285A91362B1CC4EB008C26D9 /* Assets.xcassets */,
 				285A91382B1CC4EB008C26D9 /* Preview Content */,
 			);
@@ -211,8 +251,14 @@
 		285A91542B1CCB5D008C26D9 /* NetworkService */ = {
 			isa = PBXGroup;
 			children = (
+				0D940B7C2B1CF9AB00FAA484 /* NetworkService.swift */,
+				0D940B7E2B1CF9BD00FAA484 /* NetworkDataFetcher.swift */,
+				0D940B882B1E448A00FAA484 /* RequestMethod.swift */,
+				0D940B7A2B1CF98600FAA484 /* NetworkErrors.swift */,
+				0D940B872B1CFF4400FAA484 /* Test */,
 			);
-			path = NetworkService;
+			name = NetworkService;
+			path = Helpers/NetworkService;
 			sourceTree = "<group>";
 		};
 		285A91552B1CCB6F008C26D9 /* Helpers */ = {
@@ -381,6 +427,7 @@
 			files = (
 				D3CCB72E2B1E3659006E4723 /* ButtonStyle.swift in Sources */,
 				D3B5F0C72B226267007AC332 /* MainView.swift in Sources */,
+				0D940B7D2B1CF9AB00FAA484 /* NetworkService.swift in Sources */,
 				285A914D2B1CCB39008C26D9 /* ProductView.swift in Sources */,
 				D3DAC9442B20A6F6001E6E47 /* CaruselBooksView.swift in Sources */,
 				FA6D055E2B208D20004EA553 /* WebView.swift in Sources */,
@@ -392,7 +439,14 @@
 				FA4C31192B1D038F00501B2D /* PictureTextView.swift in Sources */,
 				285A91512B1CCB4B008C26D9 /* HomeView.swift in Sources */,
 				D3CCB7272B1E34C5006E4723 /* OnboardingView.swift in Sources */,
+				0D940B812B1CFB5200FAA484 /* LibraryBooks.swift in Sources */,
+				0D940B892B1E448A00FAA484 /* RequestMethod.swift in Sources */,
+				0DBBD9B32B2087A700B8BB7A /* TestCategories.swift in Sources */,
+				0D940B7F2B1CF9BD00FAA484 /* NetworkDataFetcher.swift in Sources */,
+				0D940B862B1CFBB200FAA484 /* SwiftUITestScreen.swift in Sources */,
+				0D940B8B2B1EF25200FAA484 /* NetworkAgregateModel.swift in Sources */,
 				285A91492B1CCB26008C26D9 /* AccountView.swift in Sources */,
+				0D6925282B22636D00247E4C /* TestDetailView.swift in Sources */,
 				285A91532B1CCB55008C26D9 /* WelcomeView.swift in Sources */,
 				D3CCB7372B1E45DA006E4723 /* ButtonFinishView.swift in Sources */,
 				285A914F2B1CCB42008C26D9 /* CategoriesView.swift in Sources */,
@@ -404,8 +458,11 @@
 				D3B5F0CA2B2265CB007AC332 /* GridBooksView.swift in Sources */,
 				D3B5F0C52B225951007AC332 /* EmptyViewSearch.swift in Sources */,
 				285A91352B1CC4E9008C26D9 /* ContentView.swift in Sources */,
+				285A91352B1CC4E9008C26D9 /* TabBarView.swift in Sources */,
 				285A914B2B1CCB2F008C26D9 /* CartView.swift in Sources */,
 				FA6D05602B2097A3004EA553 /* MockDataProductView.swift in Sources */,
+				285A91332B1CC4E9008C26D9 /* BookStoreAppApp.swift in Sources */,
+				0D940B7B2B1CF98600FAA484 /* NetworkErrors.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
