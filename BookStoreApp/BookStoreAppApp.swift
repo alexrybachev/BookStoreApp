@@ -30,8 +30,7 @@ struct BookStoreAppApp: App {
             if isOnboarding {
                 OnboardingView()
             } else {
-                HomeView()
-                    .environmentObject(viewModel)
+                TabBarView()
             }
         }
     }

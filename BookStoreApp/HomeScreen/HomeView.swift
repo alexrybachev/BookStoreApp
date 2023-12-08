@@ -5,36 +5,27 @@
 //  Created by Aleksandr Rybachev on 03.12.2023.
 //
 
-
-
-
 import SwiftUI
 
 struct HomeView: View {
     @AppStorage("isOnboarding") var isOnboarding: Bool?
+    @State private var search = ""
     
     var body: some View {
         NavigationView {
-            VStack {
-                Text("Hello, World!")
-                
-                Button("true") {
-                    isOnboarding = true
-                }
-                .buttonStyle(.borderedProminent)
-                
-                NavigationLink {
-                    AccountView()
-                } label: {
-                    
-                    Text("Go to account View")
-                        .padding()
-                        .background(.blue)
-                        .foregroundColor(.white)
-                        .cornerRadius(10)
+            ScrollView(showsIndicators: false) {
+                SearchView(searchText: $search)
+                if search.isEmpty {
+                    MainView()
+                } else {
+                    EmptyViewSearch(query: $search)
                 }
             }
+            .padding()
+            .background(.backgroundApp)
+            
         }
+
     }
 }
 

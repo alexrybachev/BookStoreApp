@@ -17,7 +17,6 @@ struct CaruselBooksView: View {
                     BookCaruselView()
                 }
             }
-            .padding(10)
         }
     }
 }
