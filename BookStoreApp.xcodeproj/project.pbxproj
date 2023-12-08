@@ -60,6 +60,7 @@
 		FA4C31192B1D038F00501B2D /* PictureTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4C31182B1D038F00501B2D /* PictureTextView.swift */; };
 		FA6D055E2B208D20004EA553 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6D055D2B208D20004EA553 /* WebView.swift */; };
 		FA6D05602B2097A3004EA553 /* MockDataProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6D055F2B2097A3004EA553 /* MockDataProductView.swift */; };
+		FA6D056A2B22736C004EA553 /* BookAppViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6D05692B22736C004EA553 /* BookAppViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -104,6 +105,7 @@
 		FA4C31182B1D038F00501B2D /* PictureTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureTextView.swift; sourceTree = "<group>"; };
 		FA6D055D2B208D20004EA553 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		FA6D055F2B2097A3004EA553 /* MockDataProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDataProductView.swift; sourceTree = "<group>"; };
+		FA6D05692B22736C004EA553 /* BookAppViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookAppViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +170,7 @@
 		285A91312B1CC4E9008C26D9 /* BookStoreApp */ = {
 			isa = PBXGroup;
 			children = (
+				FA6D05662B227110004EA553 /* BookAppViewModel */,
 				28AE56022B2243E0009D2C3B /* BookStoreAppApp.swift */,
 				285A91342B1CC4E9008C26D9 /* TabBarView.swift */,
 				285A91422B1CCAC1008C26D9 /* WelcomeScreen */,
@@ -336,6 +339,14 @@
 			path = CaruselBooksView;
 			sourceTree = "<group>";
 		};
+		FA6D05662B227110004EA553 /* BookAppViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				FA6D05692B22736C004EA553 /* BookAppViewModel.swift */,
+			);
+			path = BookAppViewModel;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -433,6 +444,7 @@
 				FA6D055E2B208D20004EA553 /* WebView.swift in Sources */,
 				D3B5F0C32B225807007AC332 /* SearchView.swift in Sources */,
 				D3CCB7332B1E3754006E4723 /* FeatureCard.swift in Sources */,
+				FA6D056A2B22736C004EA553 /* BookAppViewModel.swift in Sources */,
 				D3CCB72C2B1E363E006E4723 /* ButtonNextView.swift in Sources */,
 				28AE56032B2243E0009D2C3B /* BookStoreAppApp.swift in Sources */,
 				D3B5F0C02B2253B3007AC332 /* ModelPickerView.swift in Sources */,

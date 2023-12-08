@@ -20,13 +20,18 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 struct BookStoreAppApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     @AppStorage("isOnboarding") var isOnboarding: Bool = true
-    
+    @StateObject private var viewModel = BookAppViewModel()
+    var appearanceSwitch: ColorScheme? {
+        viewModel.appearanceSelection ? .light : .dark
+    }
+
     var body: some Scene {
         WindowGroup {
             if isOnboarding {
                 OnboardingView()
             } else {
                 TabBarView()
+                    .environmentObject(viewModel)
             }
         }
     }
