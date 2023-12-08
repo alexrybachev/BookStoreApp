@@ -22,7 +22,7 @@ struct BookStoreAppApp: App {
     @AppStorage("isOnboarding") var isOnboarding: Bool = true
     @StateObject private var viewModel = BookAppViewModel()
     var appearanceSwitch: ColorScheme? {
-        viewModel.appearanceSelection ? .light : .dark
+        viewModel.isLightTheme ? .light : .dark
     }
 
     var body: some Scene {
