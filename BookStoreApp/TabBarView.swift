@@ -9,29 +9,38 @@ import SwiftUI
 
 struct TabBarView: View {
     
+    @State private var selectedTab = 0
+    
     var body: some View {
-        TabView {
+        TabView(selection: $selectedTab) {
             HomeView()
                 .tabItem {
-                    Label("Home", image: "home")
+                    Image(selectedTab == 0 ? "homeActive" : "homeInactive")
                 }
+                .tag(0)
+            
             CategoriesView()
                 .tabItem {
-                    Label("Categories", image: "categories")
+                    Image(selectedTab == 1 ? "categoryActive" : "categoryInactive")
                 }
+                .tag(1)
+            
             CartView()
                 .tabItem {
-                    Label("Likes", image: "likes")
+                    Image(selectedTab == 2 ? "likesActive" : "likesInactive")
                 }
+                .tag(2)
+            
             AccountView()
                 .tabItem {
-                    Label("Account", image: "account")
+                    Image(selectedTab == 3 ? "accountActive" : "accountInactive")
                 }
+                .tag(3)
         }
         .tint(.black)
     }
 }
 
-#Preview {
-    TabBarView()
-}
+//#Preview {
+//    TabBarView()
+//}
