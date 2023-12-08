@@ -15,19 +15,19 @@ struct PickerView: View {
     
     init(selectedIndex: Binding<Int>) {
         _selectedIndex = selectedIndex
-        Categories.removeAll()
-        Categories.append(Category(id: 0, title: "Today", selected: true))
-        Categories.append(Category(id: 1, title: "This Week", selected: false))
-        Categories.append(Category(id: 2, title: "This Month", selected: false))
-        Categories.append(Category(id: 3, title: "This Year", selected: false))
-        Categories.append(Category(id: 4, title: "All Times", selected: false))
+        categoriesPicker.removeAll()
+        categoriesPicker.append(Category(id: 0, title: "Today", selected: true))
+        categoriesPicker.append(Category(id: 1, title: "This Week", selected: false))
+        categoriesPicker.append(Category(id: 2, title: "This Month", selected: false))
+        categoriesPicker.append(Category(id: 3, title: "This Year", selected: false))
+        categoriesPicker.append(Category(id: 4, title: "All Times", selected: false))
     }
     var body: some View {
         VStack {
             ScrollView(.horizontal, showsIndicators: false) {
                 ScrollViewReader { scrollView in
                     HStack(spacing: 15) {
-                        ForEach(Categories, id: \.self) { item in
+                        ForEach(categoriesPicker, id: \.self) { item in
                             if item.id == currentIndex {
                                 Text(item.title)
                                     .bold()
