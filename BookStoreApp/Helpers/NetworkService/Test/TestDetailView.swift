@@ -12,6 +12,7 @@ struct TestDetailView: View {
     let id: String
     var network = NetworkDataFetcher()
     @StateObject var networkAggregateModel: NetworkAggregateModel
+    
     var body: some View {
         VStack {
             List {
@@ -19,7 +20,7 @@ struct TestDetailView: View {
                         HStack {
                             
         
-                            Text(doc.title)
+                            Text(doc.title ?? "")
                                 .frame(height: 40)
                         }
                     }
