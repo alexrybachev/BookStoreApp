@@ -31,6 +31,7 @@ struct BookStoreAppApp: App {
                 OnboardingView()
             } else {
                 TabBarView()
+                    .environmentObject(viewModel)
             }
         }
     }
