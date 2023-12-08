@@ -7,7 +7,7 @@
 
 import Foundation
 
-var Categories: [Category] = []
+var categories: [Category] = []
 var lastIndex: Int = 0
 
 struct Category: Hashable {
