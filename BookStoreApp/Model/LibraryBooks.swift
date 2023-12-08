@@ -7,6 +7,7 @@
 
 import Foundation
 
+// MARK: - SearchBooks
 struct LibraryBooks: Decodable, Identifiable {
     var id: Int?
     let numFound: Int
@@ -59,17 +60,48 @@ struct Authors: Decodable {
     let name: String
 }
 
+//MARK: - DetailBook
 struct DetailBook: Decodable {
-    let title: String?
-    let key: String
-    let description: [Description]?
+    let description: Created
+    let links: [Link]
+    let title: String
+    let covers: [Int]
+    let subjectPlaces, subjects, subjectPeople: [String]
+    let key: String?
+    let authors: [Author]
+    let excerpts: [Excerpt]
+    let latestRevision, revision: Int
+    let created, lastModified: Created
 }
 
-struct Description: Decodable {
-    let type: String
-    let value: String
+// MARK: - Author
+struct Author: Decodable {
+    let author, type: TypeClass
 }
 
+// MARK: - TypeClass
+struct TypeClass: Decodable {
+    let key: String?
+}
+
+// MARK: - Created
+struct Created: Decodable {
+    let type, value: String
+}
+
+// MARK: - Excerpt
+struct Excerpt: Decodable {
+    let comment: String
+    let author: TypeClass
+    let excerpt: String
+}
+
+// MARK: - Link
+struct Link: Decodable {
+    let url: String
+    let title: String
+    let type: TypeClass
+}
 //MARK: - Top Trending
 struct TopTrends: Decodable {
     let query: String

@@ -15,21 +15,19 @@ struct TestDetailView: View {
     var body: some View {
         VStack {
             List {
-                ForEach(networkAggregateModel.searchBooksList, id: \.key) { doc in
-                    HStack {
-                        let isbn = doc.isbn?.first ?? ""
-                        
-                        KFImage(URL(string: "https://covers.openlibrary.org/b/isbn/\(isbn)-L.jpg"))
-                            .resizable()
-                            .scaledToFill()
-                            .frame(width: 120, height: 160)
-                        Text(doc.title)
+                ForEach(networkAggregateModel.detailBooks, id:\.key) { doc in
+                        HStack {
+                            
+        
+                            Text(doc.title)
+                                .frame(height: 40)
+                        }
                     }
                 }
             }
             .task {
                 do {
-                    let data = try await network.getDetailBook(id: "9798532071964")
+                    let data = try await network.getDetailBook(id: id)
                     networkAggregateModel.detailBooks.append(data)
                 } catch {
                     //
@@ -37,8 +35,8 @@ struct TestDetailView: View {
             }
         }
     }
-}
+
 
 #Preview {
-    TestDetailView(id: "someID", networkAggregateModel: NetworkAggregateModel())
+    TestDetailView(id: "OL82586W", networkAggregateModel: NetworkAggregateModel())
 }
