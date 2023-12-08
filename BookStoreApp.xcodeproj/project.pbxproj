@@ -56,6 +56,7 @@
 		D3CCB7372B1E45DA006E4723 /* ButtonFinishView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3CCB7362B1E45DA006E4723 /* ButtonFinishView.swift */; };
 		D3DAC9442B20A6F6001E6E47 /* CaruselBooksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DAC9432B20A6F6001E6E47 /* CaruselBooksView.swift */; };
 		D3DAC9462B20A716001E6E47 /* BookCaruselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DAC9452B20A716001E6E47 /* BookCaruselView.swift */; };
+		FA3B69442B233F23006DB1E7 /* CategoryDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3B69432B233F23006DB1E7 /* CategoryDetailsView.swift */; };
 		FA4C31192B1D038F00501B2D /* PictureTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4C31182B1D038F00501B2D /* PictureTextView.swift */; };
 		FA6D055E2B208D20004EA553 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6D055D2B208D20004EA553 /* WebView.swift */; };
 		FA6D05602B2097A3004EA553 /* MockDataProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6D055F2B2097A3004EA553 /* MockDataProductView.swift */; };
@@ -101,6 +102,7 @@
 		D3CCB7362B1E45DA006E4723 /* ButtonFinishView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonFinishView.swift; sourceTree = "<group>"; };
 		D3DAC9432B20A6F6001E6E47 /* CaruselBooksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaruselBooksView.swift; sourceTree = "<group>"; };
 		D3DAC9452B20A716001E6E47 /* BookCaruselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCaruselView.swift; sourceTree = "<group>"; };
+		FA3B69432B233F23006DB1E7 /* CategoryDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryDetailsView.swift; sourceTree = "<group>"; };
 		FA4C31182B1D038F00501B2D /* PictureTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureTextView.swift; sourceTree = "<group>"; };
 		FA6D055D2B208D20004EA553 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		FA6D055F2B2097A3004EA553 /* MockDataProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDataProductView.swift; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 				285A91422B1CCAC1008C26D9 /* WelcomeScreen */,
 				285A91432B1CCADA008C26D9 /* HomeScreen */,
 				285A91442B1CCAEE008C26D9 /* CategoriesScreen */,
+				FA3B69422B233EF3006DB1E7 /* CategoryDetailsView */,
 				285A91452B1CCAFA008C26D9 /* ProductScreen */,
 				285A91462B1CCB08008C26D9 /* CartScreen */,
 				285A91472B1CCB11008C26D9 /* AccountScreen */,
@@ -338,6 +341,14 @@
 			path = CaruselBooksView;
 			sourceTree = "<group>";
 		};
+		FA3B69422B233EF3006DB1E7 /* CategoryDetailsView */ = {
+			isa = PBXGroup;
+			children = (
+				FA3B69432B233F23006DB1E7 /* CategoryDetailsView.swift */,
+			);
+			path = CategoryDetailsView;
+			sourceTree = "<group>";
+		};
 		FA6D05662B227110004EA553 /* BookAppViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -462,6 +473,7 @@
 				D3CCB7372B1E45DA006E4723 /* ButtonFinishView.swift in Sources */,
 				285A914F2B1CCB42008C26D9 /* CategoriesView.swift in Sources */,
 				D3CCB7292B1E34CC006E4723 /* FeatureView.swift in Sources */,
+				FA3B69442B233F23006DB1E7 /* CategoryDetailsView.swift in Sources */,
 				D3DAC9462B20A716001E6E47 /* BookCaruselView.swift in Sources */,
 				D3B5F0BD2B224E3A007AC332 /* PickerView.swift in Sources */,
 				D3CCB7352B1E38AB006E4723 /* FinishView.swift in Sources */,
