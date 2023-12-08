@@ -61,11 +61,11 @@ final class NetworkService {
         return urlComponents
     }
     
-    func getDetailBookComponents(id isbn: String) -> URLComponents {
+    func getDetailBookComponents(id key: String) -> URLComponents {
         var urlComponents = URLComponents()
         urlComponents.scheme = "https"
         urlComponents.host = "openlibrary.org"
-        urlComponents.path = "/works/\(isbn).json"
+        urlComponents.path = "\(key).json"
         return urlComponents
     }
     

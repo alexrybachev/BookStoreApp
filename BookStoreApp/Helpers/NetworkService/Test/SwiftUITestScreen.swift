@@ -22,7 +22,7 @@ struct SwiftUITestScreen: View {
                 TextField("Search", text: $textinput)
                 List {
                     ForEach(networkAggregateModel.searchBooksList, id: \.key) { doc in
-                        NavigationLink(destination: TestDetailView(id: "", networkAggregateModel: NetworkAggregateModel())) {
+                        NavigationLink(destination: TestDetailView(id: doc.key, networkAggregateModel: NetworkAggregateModel())) {
                             HStack {
                                 let isbn = doc.isbn?.first ?? ""
                                 

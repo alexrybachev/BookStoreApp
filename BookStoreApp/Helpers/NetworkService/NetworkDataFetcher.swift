@@ -10,9 +10,9 @@ import Foundation
 final class NetworkDataFetcher {
     
     //MARK: - request Search
-    func searchQuery(search: String) async throws -> LibraryBooks {
+    func searchQuery(search: String) async throws -> SearchBooks {
         let data = try await NetworkService.shared.getPosts(query: .getSearchQuery(search))
-        let decodedData = try decodeJSON(type: LibraryBooks.self, from: data)
+        let decodedData = try decodeJSON(type: SearchBooks.self, from: data)
         return decodedData
     }
     
@@ -30,7 +30,7 @@ final class NetworkDataFetcher {
         return decodedData
     }
     
-    //MARK: - request Detail Book by Identifier
+    //MARK: - request DetailBook by Identifier
     func getDetailBook(id: String) async throws -> DetailBook {
         let data = try await NetworkService.shared.getPosts(query: .getDetailBook(id))
         let decodedData = try decodeJSON(type: DetailBook.self, from: data)

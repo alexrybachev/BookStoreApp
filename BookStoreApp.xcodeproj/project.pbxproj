@@ -11,7 +11,7 @@
 		0D940B7B2B1CF98600FAA484 /* NetworkErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D940B7A2B1CF98600FAA484 /* NetworkErrors.swift */; };
 		0D940B7D2B1CF9AB00FAA484 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D940B7C2B1CF9AB00FAA484 /* NetworkService.swift */; };
 		0D940B7F2B1CF9BD00FAA484 /* NetworkDataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D940B7E2B1CF9BD00FAA484 /* NetworkDataFetcher.swift */; };
-		0D940B812B1CFB5200FAA484 /* LibraryBooks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D940B802B1CFB5200FAA484 /* LibraryBooks.swift */; };
+		0D940B812B1CFB5200FAA484 /* SearchBooks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D940B802B1CFB5200FAA484 /* SearchBooks.swift */; };
 		0D940B862B1CFBB200FAA484 /* SwiftUITestScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D940B852B1CFBB200FAA484 /* SwiftUITestScreen.swift */; };
 		0D940B892B1E448A00FAA484 /* RequestMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D940B882B1E448A00FAA484 /* RequestMethod.swift */; };
 		0D940B8B2B1EF25200FAA484 /* NetworkAgregateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D940B8A2B1EF25200FAA484 /* NetworkAgregateModel.swift */; };
@@ -68,7 +68,7 @@
 		0D940B7A2B1CF98600FAA484 /* NetworkErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkErrors.swift; sourceTree = "<group>"; };
 		0D940B7C2B1CF9AB00FAA484 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		0D940B7E2B1CF9BD00FAA484 /* NetworkDataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDataFetcher.swift; sourceTree = "<group>"; };
-		0D940B802B1CFB5200FAA484 /* LibraryBooks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryBooks.swift; sourceTree = "<group>"; };
+		0D940B802B1CFB5200FAA484 /* SearchBooks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBooks.swift; sourceTree = "<group>"; };
 		0D940B852B1CFBB200FAA484 /* SwiftUITestScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUITestScreen.swift; sourceTree = "<group>"; };
 		0D940B882B1E448A00FAA484 /* RequestMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestMethod.swift; sourceTree = "<group>"; };
 		0D940B8A2B1EF25200FAA484 /* NetworkAgregateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkAgregateModel.swift; sourceTree = "<group>"; };
@@ -134,7 +134,7 @@
 		0D940B822B1CFB5A00FAA484 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				0D940B802B1CFB5200FAA484 /* LibraryBooks.swift */,
+				0D940B802B1CFB5200FAA484 /* SearchBooks.swift */,
 				0D940B8A2B1EF25200FAA484 /* NetworkAgregateModel.swift */,
 			);
 			path = Model;
@@ -461,7 +461,7 @@
 				FA4C31192B1D038F00501B2D /* PictureTextView.swift in Sources */,
 				285A91512B1CCB4B008C26D9 /* HomeView.swift in Sources */,
 				D3CCB7272B1E34C5006E4723 /* OnboardingView.swift in Sources */,
-				0D940B812B1CFB5200FAA484 /* LibraryBooks.swift in Sources */,
+				0D940B812B1CFB5200FAA484 /* SearchBooks.swift in Sources */,
 				0D940B892B1E448A00FAA484 /* RequestMethod.swift in Sources */,
 				0DBBD9B32B2087A700B8BB7A /* TestCategories.swift in Sources */,
 				0D940B7F2B1CF9BD00FAA484 /* NetworkDataFetcher.swift in Sources */,
