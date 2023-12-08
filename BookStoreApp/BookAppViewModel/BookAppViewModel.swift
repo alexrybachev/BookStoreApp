@@ -9,11 +9,11 @@ import SwiftUI
 
 class BookAppViewModel: ObservableObject {
 
-    @AppStorage("appearanceSelection") var appearanceSelection: Bool = true
+    @AppStorage("appearanceSelection") var isLightThemeStorage: Bool = true
 
-    var changeApperance: Bool {
-        get { appearanceSelection }
-        set { appearanceSelection = newValue }
+    var isLightTheme: Bool {
+        get { isLightThemeStorage }
+        set { isLightThemeStorage = newValue }
     }
 
 }

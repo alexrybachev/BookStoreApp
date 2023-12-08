@@ -33,7 +33,7 @@ struct ProductView: View {
                     .font(.system(size: 24, weight: .semibold))
                 // Перенести на экран настроек - start
                 Button(action: {
-                    viewModel.changeApperance.toggle()
+                    viewModel.isLightTheme.toggle()
                 }) {
                     Text("Toggle Mode")
                 }
@@ -71,7 +71,7 @@ struct ProductView: View {
                 EmptyView()
             }
             .padding()
-            .preferredColorScheme(viewModel.changeApperance ? .light : .dark)
+            .preferredColorScheme(viewModel.isLightTheme ? .light : .dark)
         }
     }
 
@@ -84,7 +84,9 @@ struct ProductView: View {
 }
 
 #Preview {
-    ProductView()
+    let viewModel = BookAppViewModel()
+    return ProductView()
+        .environmentObject(viewModel)
 }
 
 struct CustomNavButton: View {
