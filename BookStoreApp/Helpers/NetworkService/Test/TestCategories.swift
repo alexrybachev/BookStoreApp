@@ -15,7 +15,7 @@ struct TestCategories: View {
         List {
             ForEach(networkAggregateModel.categoriesList, id: \.key) { books in
                 HStack {
-                    KFImage(URL(string: "https://covers.openlibrary.org/b/id/\(books.coverId)-L.jpg"))
+                    KFImage(URL(string: Kf.path(value: books.coverId, path: .id)))
                         .resizable()
                         .scaledToFill()
                         .frame(width: 120, height: 160)

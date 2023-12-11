@@ -15,6 +15,7 @@
 		0D940B862B1CFBB200FAA484 /* SwiftUITestScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D940B852B1CFBB200FAA484 /* SwiftUITestScreen.swift */; };
 		0D940B892B1E448A00FAA484 /* RequestMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D940B882B1E448A00FAA484 /* RequestMethod.swift */; };
 		0D940B8B2B1EF25200FAA484 /* NetworkAgregateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D940B8A2B1EF25200FAA484 /* NetworkAgregateModel.swift */; };
+		0D9BBAF62B27247B00EC1B2B /* KingFisher Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9BBAF52B27247B00EC1B2B /* KingFisher Extension.swift */; };
 		0DBBD9B32B2087A700B8BB7A /* TestCategories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DBBD9B22B2087A700B8BB7A /* TestCategories.swift */; };
 		285A91332B1CC4E9008C26D9 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		285A91352B1CC4E9008C26D9 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285A91342B1CC4E9008C26D9 /* TabBarView.swift */; };
@@ -74,6 +75,7 @@
 		0D940B852B1CFBB200FAA484 /* SwiftUITestScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUITestScreen.swift; sourceTree = "<group>"; };
 		0D940B882B1E448A00FAA484 /* RequestMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestMethod.swift; sourceTree = "<group>"; };
 		0D940B8A2B1EF25200FAA484 /* NetworkAgregateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkAgregateModel.swift; sourceTree = "<group>"; };
+		0D9BBAF52B27247B00EC1B2B /* KingFisher Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KingFisher Extension.swift"; sourceTree = "<group>"; };
 		0DBBD9B22B2087A700B8BB7A /* TestCategories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCategories.swift; sourceTree = "<group>"; };
 		285A912F2B1CC4E9008C26D9 /* BookStoreApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BookStoreApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		285A91342B1CC4E9008C26D9 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
@@ -275,6 +277,7 @@
 		285A91552B1CCB6F008C26D9 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				0D9BBAF52B27247B00EC1B2B /* KingFisher Extension.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -475,6 +478,7 @@
 				0D940B862B1CFBB200FAA484 /* SwiftUITestScreen.swift in Sources */,
 				0D940B8B2B1EF25200FAA484 /* NetworkAgregateModel.swift in Sources */,
 				285A91492B1CCB26008C26D9 /* AccountView.swift in Sources */,
+				0D9BBAF62B27247B00EC1B2B /* KingFisher Extension.swift in Sources */,
 				0D6925282B22636D00247E4C /* TestDetailView.swift in Sources */,
 				285A91532B1CCB55008C26D9 /* WelcomeView.swift in Sources */,
 				D3CCB7372B1E45DA006E4723 /* ButtonFinishView.swift in Sources */,
