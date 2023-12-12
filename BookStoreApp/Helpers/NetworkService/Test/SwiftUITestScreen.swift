@@ -26,7 +26,7 @@ struct SwiftUITestScreen: View {
                             HStack {
                                 let isbn = doc.isbn?.first ?? ""
                                 
-                                KFImage(URL(string: "https://covers.openlibrary.org/b/isbn/\(isbn)-L.jpg"))
+                                KFImage(URL(string: Kf.path(value: isbn, path: .isbn)))
                                     .resizable()
                                     .scaledToFill()
                                     .frame(width: 120, height: 160)
