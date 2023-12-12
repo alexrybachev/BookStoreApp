@@ -13,26 +13,35 @@ enum Endpoint {
     case getDetailBook(String)
     case getTopTrends(String)
 //    case getSearchId(String)
-}
-enum SortTrends: String {
-    case now
-    case daily
-    case thisWeek
-    case thisMounth
-    case thisYear
     
-    func switchTrends() -> String {
+    var path: String {
         switch self {
-        case .now:
-            "now"
-        case .daily:
-            "daily"
-        case .thisWeek:
-            "weekly"
-        case .thisMounth:
-            "monthly"
-        case .thisYear:
-            "yearly"
+        case .getSearchQuery(_):
+            "/search.json"
+        case .getCategories(let category):
+            "/subjects/\(category.lowercased()).json"
+        case .getDetailBook(let key):
+            "\(key).json"
+        case .getTopTrends(let trend):
+            "/trending/\(trend).json"
+        }
+    }
+}
+
+enum SortTrends: String, CaseIterable {
+    case now = "Now"
+    case daily = "Today"
+    case thisWeek = "This Week"
+    case thisMounth = "This Month"
+    case thisYear = "This Year"
+    
+    var switchTrends: String {
+        switch self {
+        case .now: "now"
+        case .daily: "daily"
+        case .thisWeek: "weekly"
+        case .thisMounth: "monthly"
+        case .thisYear: "yearly"
         }
     }
 }

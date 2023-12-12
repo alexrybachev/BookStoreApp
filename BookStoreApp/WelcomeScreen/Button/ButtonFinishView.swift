@@ -9,14 +9,14 @@ import SwiftUI
 
 struct ButtonFinishView: View {
   
-    @AppStorage("isOnboarding") var isOnboarding: Bool?
+    @ObservedObject var viewModel: BookAppViewModel
     
     var body: some View {
         Button {
             withAnimation {
-                isOnboarding = false
+                viewModel.isOnboarding = false
             }
-        }label: {
+        } label: {
             Text("Finish")
                 .frame(maxWidth: .infinity)
         }
@@ -26,5 +26,5 @@ struct ButtonFinishView: View {
 }
 
 #Preview {
-    ButtonFinishView()
+    ButtonFinishView(viewModel: BookAppViewModel())
 }

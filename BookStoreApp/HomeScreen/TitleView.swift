@@ -17,11 +17,13 @@ struct TitleView: View {
             Text(text)
                 .font(.title)
                 .fontWeight(.bold)
+            
             Spacer()
+            
             Button {
                 seeMore.toggle()
-            }label: {
-                Text("see more")
+            } label: {
+                Text(seeMore ? "see more" : "see less")
                     .tint(.secondary)
             }
         }

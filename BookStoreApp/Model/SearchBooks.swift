@@ -143,5 +143,22 @@ struct WorksTrends: Decodable {
     let authorName: [String]?
     let ia: [String]?
     let authorKey: [String]?
-    let coverI: Int
+    let coverI: Int?
+    let availability: Availability?
+    
+    var authorNames: String {
+        guard let authorName else { return "" }
+        let sets = Set(authorName)
+        return sets.joined(separator: ", ")
+    }
+    
+    var urlBook: String {
+        guard let availability else { return "" }
+        guard let isbn = availability.isbn else { return "" }
+        return "https://covers.openlibrary.org/b/isbn/\(isbn)-M.jpg"
+    }
+}
+
+struct Availability: Decodable {
+    let isbn: String?
 }

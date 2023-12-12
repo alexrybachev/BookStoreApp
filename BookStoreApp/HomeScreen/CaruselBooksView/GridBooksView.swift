@@ -9,6 +9,8 @@ import SwiftUI
 
 struct GridBooksView: View {
     
+    @ObservedObject var viewModel: BookAppViewModel
+    
     let columns = [
         GridItem(.adaptive(minimum: 150))
     ]
@@ -17,8 +19,8 @@ struct GridBooksView: View {
         NavigationView {
             ScrollView(showsIndicators: false) {
                 LazyVGrid(columns: columns) {
-                    ForEach(0..<8) {_ in 
-                        BookCaruselView()
+                    ForEach(viewModel.topTrends, id: \.key) { book in
+                        BookCaruselView(book: book)
                     }
                 }
                 .padding(.horizontal, 5)
@@ -29,5 +31,5 @@ struct GridBooksView: View {
 }
 
 #Preview {
-    GridBooksView()
+    GridBooksView(viewModel: BookAppViewModel())
 }

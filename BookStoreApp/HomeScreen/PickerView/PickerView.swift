@@ -10,56 +10,40 @@ import SwiftUI
 
 struct PickerView: View {
     
-    @Binding var selectedIndex: Int
-    @State private var currentIndex: Int = 0
+    @ObservedObject var viewModel: BookAppViewModel
+    @State private var selectedTrend: SortTrends = .daily
     
-    init(selectedIndex: Binding<Int>) {
-        _selectedIndex = selectedIndex
-        categoriesPicker.removeAll()
-        categoriesPicker.append(Category(id: 0, title: "Today", selected: true))
-        categoriesPicker.append(Category(id: 1, title: "This Week", selected: false))
-        categoriesPicker.append(Category(id: 2, title: "This Month", selected: false))
-        categoriesPicker.append(Category(id: 3, title: "This Year", selected: false))
-        categoriesPicker.append(Category(id: 4, title: "All Times", selected: false))
-    }
+    private let trends = SortTrends.allCases
+    
     var body: some View {
         VStack {
             ScrollView(.horizontal, showsIndicators: false) {
-                ScrollViewReader { scrollView in
-                    HStack(spacing: 15) {
-                        ForEach(categoriesPicker, id: \.self) { item in
-                            if item.id == currentIndex {
-                                Text(item.title)
-                                    .bold()
-                                    .padding(10)
-                                    .layoutPriority(1)
-                                    .border(.black)
-                                    .background(.black)
-                                    .foregroundStyle(.white)
-                                    .clipShape(RoundedRectangle(cornerRadius: 5))
-                            } else {
-                                Text(item.title)
-                                    .bold()
-                                    .padding(10)
-                                    .border(.white)
-                                    .clipShape(RoundedRectangle(cornerRadius: 4))
-                                    .onTapGesture {
-                                        withAnimation {
-                                            currentIndex = item.id
-                                            selectedIndex = currentIndex
-                                            scrollView.scrollTo(item)
-                                        }
-                                    }
-                            }
+                HStack(spacing: 10) {
+                    ForEach(trends, id: \.self) { trend in
+                        Button(action: {
+                            selectedTrend = trend
+                            viewModel.selectedTrend = trend
+                            viewModel.fetchTrendsBooks()
+                        }) {
+                            Text(trend.rawValue)
+                                .bold()
+                                .padding(10)
+                                .foregroundStyle(selectedTrend == trend ? .white : .black)
+                                .background(selectedTrend == trend ? .black : .clear)
+                                .border(selectedTrend == trend ? .clear : .black)
+                            // .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
                         }
                     }
                 }
             }
+        }
+        .onAppear {
+            selectedTrend = viewModel.selectedTrend
         }
     }
     
 }
 
 #Preview {
-    PickerView(selectedIndex: .constant(0))
+    PickerView(viewModel: BookAppViewModel())
 }

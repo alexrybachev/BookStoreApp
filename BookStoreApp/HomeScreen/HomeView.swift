@@ -8,15 +8,19 @@
 import SwiftUI
 
 struct HomeView: View {
-    @AppStorage("isOnboarding") var isOnboarding: Bool?
+    
+    @ObservedObject var viewModel: BookAppViewModel
+    
     @State private var search = ""
     
     var body: some View {
         NavigationView {
             ScrollView(showsIndicators: false) {
+                
                 SearchView(searchText: $search)
+                
                 if search.isEmpty {
-                    MainView()
+                    MainView(viewModel: viewModel)
                 } else {
                     EmptyViewSearch(query: $search)
                 }
@@ -25,10 +29,13 @@ struct HomeView: View {
             .background(.backgroundApp)
             
         }
-
+        .task {
+            viewModel.fetchTrendsBooks()
+        }
     }
+
 }
 
 #Preview {
-    HomeView()
+    HomeView(viewModel: BookAppViewModel())
 }
