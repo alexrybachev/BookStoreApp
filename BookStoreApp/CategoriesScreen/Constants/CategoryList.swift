@@ -9,7 +9,7 @@ import Foundation
 
 struct CategoryList {
     
-    static let categories = [
+    static let categories: Set = [
         "Architecture",
         "Dance",
         "Design",
@@ -53,7 +53,6 @@ struct CategoryList {
         "Women",
         "Composers",
         "Artists",
-        "Anthropology",
         "Religion",
         "Psychology",
         "Places",
@@ -67,7 +66,6 @@ struct CategoryList {
         "Algebra",
         "Education",
         "Science",
-        "Chemistry",
         "Physics",
         "English",
         "French",

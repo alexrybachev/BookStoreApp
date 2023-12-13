@@ -55,14 +55,14 @@ struct CategoryDetailsView: View {
     
 }
 
-//#Preview {
-//    let sampleBooks = [
-//        Book(image: "book_cover", description: "Описание книги"),
-//        Book(image: "book_cover", description: "Описание книги"),
-//        Book(image: "book_cover", description: "La la lalal alala alalla lala laLa la lalal alala alalla lala laLa la lalal alala alalla lala laLa la lalal alala alalla lala laLa la lalal alala alalla lala laLa la lalal alala alalla lala la")
-//    ]
-//
-//    let viewModel = BookAppViewModel()
-//    return CategoryDetailsView(books: sampleBooks)
-//        .environmentObject(viewModel)
-//}
+#Preview {
+    let sampleBooks = [
+        Book(image: "book_cover", description: "Описание книги"),
+        Book(image: "book_cover", description: "Описание книги"),
+        Book(image: "book_cover", description: "La la lalal alala alalla lala laLa la lalal alala alalla lala laLa la lalal alala alalla lala laLa la lalal alala alalla lala laLa la lalal alala alalla lala laLa la lalal alala alalla lala la")
+    ]
+
+    let viewModel = BookAppViewModel()
+    return CategoryDetailsView(viewModel: viewModel, category: sampleBooks.first?.description ?? "no description")
+        .environmentObject(viewModel)
+}

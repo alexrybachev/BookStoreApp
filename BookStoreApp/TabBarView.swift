@@ -17,25 +17,25 @@ struct TabBarView: View {
         TabView(selection: $selectedTab) {
             HomeView(viewModel: viewModel)
                 .tabItem {
-                    Image(selectedTab == 0 ? "homeActive" : "homeInactive")
+                    Label("Home", image: selectedTab == 0 ? "homeActive" : "homeInactive")
                 }
                 .tag(0)
             
             CategoriesView(viewModel: viewModel)
                 .tabItem {
-                    Image(selectedTab == 1 ? "categoryActive" : "categoryInactive")
+                    Label("Categories", image: selectedTab == 1 ? "categoryActive" : "categoryInactive")
                 }
                 .tag(1)
             
             CartView()
                 .tabItem {
-                    Image(selectedTab == 2 ? "likesActive" : "likesInactive")
+                    Label("Likes", image: selectedTab == 2 ? "likesActive" : "likesInactive")
                 }
                 .tag(2)
             
             AccountView()
                 .tabItem {
-                    Image(selectedTab == 3 ? "accountActive" : "accountInactive")
+                    Label("Account", image: selectedTab == 3 ? "accountActive" : "accountInactive")
                 }
                 .tag(3)
         }

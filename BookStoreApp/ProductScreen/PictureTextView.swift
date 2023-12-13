@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct PictureTextView: View {
 
@@ -13,9 +14,12 @@ struct PictureTextView: View {
     @State private var showSuccessAlert = false
     var isUserLoggedIn = true // vm
 
+    let coverId: String
+    let authorName: String
+    let category: String
+    
+
     let openWebViewAction: ()->()
-    let autor: String = "Oscar Wilde"
-    let category: String = "Classics"
     let rating: String = "4.11/5"
     let alertTitletoRead = "Добавили!"
     let alertTitle = "Уважаемый"
@@ -26,11 +30,21 @@ struct PictureTextView: View {
     var body: some View {
         VStack {
             HStack (alignment: .bottom , spacing: 22, content: {
-                Image("book_cover")
+                
+                KFImage(URL(string: Kf.path(value: coverId, path: .id)))
+                    .placeholder({
+                        ProgressView()
+                            .progressViewStyle(CircularProgressViewStyle(tint: .black))
+                            .scaleEffect(2.0, anchor: .center)
+                    })
+                    .resizable()
+                    .scaledToFit()
+                
+//                Image("book_cover")
                 VStack (alignment: .leading, spacing: 8, content: {
                     Text("Author: ")
                         .font(.system(size: 14)) +
-                    Text(autor)
+                    Text(authorName)
                         .font(.system(size: 14, weight: .bold))
                     Text("Category: ")
                         .font(.system(size: 14)) +
@@ -40,10 +54,12 @@ struct PictureTextView: View {
                         .font(.system(size: 14)) +
                     Text(rating)
                         .font(.system(size: 14, weight: .bold))
+                    
                     PictureTextViewCustomButton(title: "Add to list", color: .gray) {
                         !isUserLoggedIn ? showGoToLoginAlert() : showAddedToListAlert()
                     }
                     .padding(.top, 21)
+                    
                     PictureTextViewCustomButton(title: "Read", color: .black) {
                         !isUserLoggedIn ? showGoToLoginAlert() : openWebViewAction()
                     }
@@ -89,7 +105,7 @@ struct PictureTextView: View {
 }
 
 #Preview {
-    PictureTextView {}
+    PictureTextView(coverId: "test", authorName: "authorName", category: "category", openWebViewAction: {})
 }
 
 struct PictureTextViewCustomButton: View {

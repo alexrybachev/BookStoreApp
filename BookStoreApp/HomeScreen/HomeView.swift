@@ -27,7 +27,6 @@ struct HomeView: View {
             }
             .padding()
             .background(.backgroundApp)
-            
         }
         .task {
             viewModel.fetchTrendsBooks()
