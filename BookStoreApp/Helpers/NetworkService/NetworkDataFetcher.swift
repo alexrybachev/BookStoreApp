@@ -32,6 +32,7 @@ final class NetworkDataFetcher {
     
     //MARK: - request DetailBook by Identifier
     func getDetailBook(id: String) async throws -> DetailBook {
+        print(id)
         let data = try await NetworkService.shared.getPosts(query: .getDetailBook(id))
         let decodedData = try decodeJSON(type: DetailBook.self, from: data)
         return decodedData

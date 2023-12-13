@@ -14,7 +14,9 @@ struct ProductView: View {
 
     @State private var isWebViewPresented = false
     
-    let book: WorksTrends
+    let keyBook: String
+    let iaBook: String
+    let authorName: String
     
     var isUserLoggedIn = true
     // static data
@@ -22,18 +24,19 @@ struct ProductView: View {
     static let likeButtonImage = "heart"
     static let likeButtonImageFill = "heart.fill"
     static let descriptionText = "Description:"
-    // mock data
-    let bookNameText = MockDataProductView.bookNameText
-    let webViewURL = MockDataProductView.webViewURL
-    let title = MockDataProductView.navTitle
-    let fullDescriptionText = MockDataProductView.fullDescriptionText
+//    // mock data
+//    let bookNameText = MockDataProductView.bookNameText
+//    let webViewURL = MockDataProductView.webViewURL
+//    let title = MockDataProductView.navTitle
+//    let fullDescriptionText = MockDataProductView.fullDescriptionText
 
     var body: some View {
         ZStack {
             Color(.secondarySystemBackground).ignoresSafeArea()
             VStack {
-                Text(book.title)
+                Text(viewModel.detailBook?.title ?? "No name")
                     .font(.system(size: 24, weight: .semibold))
+                
                 // Перенести на экран настроек - start
                 Button(action: {
                     viewModel.isLightTheme.toggle()
@@ -41,22 +44,40 @@ struct ProductView: View {
                     Text("Toggle Mode")
                 }
                 // - end
-                PictureTextView {
+                
+                PictureTextView(
+                    coverId: String(viewModel.detailBook?.covers?.first ?? 0),
+                    authorName: authorName,
+                    category: viewModel.detailBook?.subjectNames ?? "No categories"
+                ) {
                     openWebView()
                 }
                 .padding(.top, 16)
+//                .sheet(isPresented: $isWebViewPresented) {
+//                    WebView(urlString: book.readUrl)
+//                }
+                
                 Text(Self.descriptionText)
+                
                     .font(.system(size: 14, weight: .semibold))
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding()
                 ScrollView {
-                    Text(fullDescriptionText)
-                        .font(.system(size: 14))
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .padding(.horizontal, 14)
+                    if let detailString = viewModel.detailBook?.description as? String {
+                        Text(detailString)
+                            .font(.system(size: 14))
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .padding(.horizontal, 14)
+                    } else if let detailArray = viewModel.detailBook?.description as? [String: String] {
+                        Text(detailArray["value"] ?? "No description")
+                            .font(.system(size: 14))
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .padding(.horizontal, 14)
+                    }
+                    
                 }
             }
-            .navigationTitle(title)
+//            .navigationTitle(viewModel.detailBook?.title ?? "No name")
             .navigationBarBackButtonHidden(true)
             .navigationBarItems(
                 leading: CustomNavButton(image: Self.backButtonIbage, action: {
@@ -68,7 +89,7 @@ struct ProductView: View {
                 }) : nil
             )
             NavigationLink(
-                destination: WebView(urlString: webViewURL),
+                destination: WebView(urlString: iaBook),
                 isActive: $isWebViewPresented
             ) {
                 EmptyView()
@@ -76,8 +97,7 @@ struct ProductView: View {
             .padding()
             .preferredColorScheme(viewModel.isLightTheme ? .light : .dark)
             .onAppear {
-                print(book)
-                viewModel.fetchDetailBook(id: book.key)
+                viewModel.fetchDetailBook(id: keyBook)
             }
         }
     }
@@ -90,11 +110,11 @@ struct ProductView: View {
     }
 }
 
-//#Preview {
-//    let viewModel = BookAppViewModel()
-//    return ProductView()
-//        .environmentObject(viewModel)
-//}
+#Preview {
+    let viewModel = BookAppViewModel()
+    return ProductView(keyBook: "keyBook", iaBook: "iaBook", authorName: "authorName")
+        .environmentObject(viewModel)
+}
 
 struct CustomNavButton: View {
 

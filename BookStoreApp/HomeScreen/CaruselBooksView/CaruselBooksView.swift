@@ -23,7 +23,7 @@ struct CaruselBooksView: View {
             //                }
             LazyHGrid(rows: rows, spacing: 20) {
                 ForEach(viewModel.topTrends, id: \.key) { book in
-                    NavigationLink(destination: ProductView(book: book)) {
+                    NavigationLink(destination: ProductView(keyBook: book.key, iaBook: book.urlBook, authorName: book.authorNames)) {
                         BookCaruselView(book: book)
                     }
                 }
