@@ -12,7 +12,7 @@ struct SearchTFView: View {
     @State var searchText: String
 
     var body: some View {
-        TextField("Search title/author/ISBN no", text: $searchText, onEditingChanged: { isEditing in
+        TextField("Search books by title/author", text: $searchText, onEditingChanged: { isEditing in
             // action
         }, onCommit: {
             print("onCommit")
@@ -32,3 +32,8 @@ struct SearchTFView: View {
         )
     }
 }
+
+#Preview {
+    SearchTFView(searchText: "text")
+}
+

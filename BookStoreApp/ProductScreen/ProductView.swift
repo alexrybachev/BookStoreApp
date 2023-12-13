@@ -13,6 +13,9 @@ struct ProductView: View {
     @EnvironmentObject private var viewModel: BookAppViewModel
 
     @State private var isWebViewPresented = false
+    
+    let book: WorksTrends
+    
     var isUserLoggedIn = true
     // static data
     static let backButtonIbage = "arrow.backward"
@@ -29,7 +32,7 @@ struct ProductView: View {
         ZStack {
             Color(.secondarySystemBackground).ignoresSafeArea()
             VStack {
-                Text(bookNameText)
+                Text(book.title)
                     .font(.system(size: 24, weight: .semibold))
                 // Перенести на экран настроек - start
                 Button(action: {
@@ -72,6 +75,10 @@ struct ProductView: View {
             }
             .padding()
             .preferredColorScheme(viewModel.isLightTheme ? .light : .dark)
+            .onAppear {
+                print(book)
+                viewModel.fetchDetailBook(id: book.key)
+            }
         }
     }
 
@@ -83,11 +90,11 @@ struct ProductView: View {
     }
 }
 
-#Preview {
-    let viewModel = BookAppViewModel()
-    return ProductView()
-        .environmentObject(viewModel)
-}
+//#Preview {
+//    let viewModel = BookAppViewModel()
+//    return ProductView()
+//        .environmentObject(viewModel)
+//}
 
 struct CustomNavButton: View {
 

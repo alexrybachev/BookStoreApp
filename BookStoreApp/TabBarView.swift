@@ -21,7 +21,7 @@ struct TabBarView: View {
                 }
                 .tag(0)
             
-            CategoriesView()
+            CategoriesView(viewModel: viewModel)
                 .tabItem {
                     Image(selectedTab == 1 ? "categoryActive" : "categoryInactive")
                 }

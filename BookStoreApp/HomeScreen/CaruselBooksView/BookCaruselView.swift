@@ -19,10 +19,11 @@ struct BookCaruselView: View {
             
             VStack(spacing: 0) {
                 
-                KFImage(URL(string: book.urlBook))
+                KFImage(URL(string: Kf.path(value: book.coverI ?? 0, path: .id)))
                     .placeholder({
-                        Image("book_cover")
-                            .resizable()
+                        ProgressView()
+                            .progressViewStyle(CircularProgressViewStyle(tint: .black))
+                            .scaleEffect(2.0, anchor: .center)
                     })
                     .resizable()
                     .scaledToFit()
@@ -35,6 +36,7 @@ struct BookCaruselView: View {
                         Text(book.title)
                             .font(.headline)
                             .fontWeight(.bold)
+                            .minimumScaleFactor(0.01)
                             
                         Text(book.authorNames)
                             .font(.caption)
