@@ -8,7 +8,10 @@
 import SwiftUI
 
 struct MainView: View {
-    @State private var selectedPicker = 1
+    
+    @ObservedObject var viewModel: BookAppViewModel
+    
+//    @State private var selectedPicker = 1
     
     @State var seeMoreTop: Bool = true
     @State var seeMoreRecent: Bool = true
@@ -16,12 +19,15 @@ struct MainView: View {
     var body: some View {
         VStack {
             VStack {
-                TitleView(text: "Top Books", seeMore: $seeMoreTop)
-                PickerView(selectedIndex: $selectedPicker)
+                TitleView(text: "Top Books", 
+                          seeMore: $seeMoreTop)
+                
+                PickerView(viewModel: viewModel)
+                
                 if seeMoreTop {
-                    CaruselBooksView()
+                    CaruselBooksView(viewModel: viewModel)
                 } else {
-                    GridBooksView()
+                    GridBooksView(viewModel: viewModel)
                 }
             }
             
@@ -29,9 +35,9 @@ struct MainView: View {
                 TitleView(text: "Recent Books", seeMore: $seeMoreRecent)
                 
                 if seeMoreRecent {
-                    CaruselBooksView()
+                    CaruselBooksView(viewModel: viewModel)
                 } else {
-                    GridBooksView()
+                    GridBooksView(viewModel: viewModel)
                 }
             }
         }
@@ -39,5 +45,5 @@ struct MainView: View {
 }
 
 #Preview {
-    MainView()
+    MainView(viewModel: BookAppViewModel())
 }

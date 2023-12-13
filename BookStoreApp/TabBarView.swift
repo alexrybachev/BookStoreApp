@@ -9,17 +9,19 @@ import SwiftUI
 
 struct TabBarView: View {
     
+    @ObservedObject var viewModel: BookAppViewModel
+    
     @State private var selectedTab = 0
     
     var body: some View {
         TabView(selection: $selectedTab) {
-            HomeView()
+            HomeView(viewModel: viewModel)
                 .tabItem {
                     Image(selectedTab == 0 ? "homeActive" : "homeInactive")
                 }
                 .tag(0)
             
-            CategoriesView()
+            CategoriesView(viewModel: viewModel)
                 .tabItem {
                     Image(selectedTab == 1 ? "categoryActive" : "categoryInactive")
                 }
@@ -41,6 +43,6 @@ struct TabBarView: View {
     }
 }
 
-//#Preview {
-//    TabBarView()
-//}
+#Preview {
+    TabBarView(viewModel: BookAppViewModel())
+}

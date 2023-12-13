@@ -17,6 +17,8 @@
 		0D940B8B2B1EF25200FAA484 /* NetworkAgregateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D940B8A2B1EF25200FAA484 /* NetworkAgregateModel.swift */; };
 		0D9BBAF62B27247B00EC1B2B /* KingFisher Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9BBAF52B27247B00EC1B2B /* KingFisher Extension.swift */; };
 		0DBBD9B32B2087A700B8BB7A /* TestCategories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DBBD9B22B2087A700B8BB7A /* TestCategories.swift */; };
+		2813373D2B25C18100FE1754 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2813373C2B25C18100FE1754 /* API.swift */; };
+		2813373F2B25FE6900FE1754 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2813373E2B25FE6900FE1754 /* NetworkManager.swift */; };
 		285A91332B1CC4E9008C26D9 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		285A91352B1CC4E9008C26D9 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285A91342B1CC4E9008C26D9 /* TabBarView.swift */; };
 		285A91372B1CC4EB008C26D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 285A91362B1CC4EB008C26D9 /* Assets.xcassets */; };
@@ -29,6 +31,7 @@
 		285A91512B1CCB4B008C26D9 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285A91502B1CCB4B008C26D9 /* HomeView.swift */; };
 		285A91532B1CCB55008C26D9 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285A91522B1CCB55008C26D9 /* WelcomeView.swift */; };
 		285A91582B1CF4B6008C26D9 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 285A91572B1CF4B6008C26D9 /* Kingfisher */; };
+		286184DE2B28CD5C000F4DFA /* CategoryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286184DD2B28CD5C000F4DFA /* CategoryList.swift */; };
 		28AE56032B2243E0009D2C3B /* BookStoreAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28AE56022B2243E0009D2C3B /* BookStoreAppApp.swift */; };
 		6F2AF8F12B206BBD00D80C3C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6F2AF8F02B206BBD00D80C3C /* GoogleService-Info.plist */; };
 		6F2AF8F42B2071FC00D80C3C /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 6F2AF8F32B2071FC00D80C3C /* FirebaseAuth */; };
@@ -77,6 +80,8 @@
 		0D940B8A2B1EF25200FAA484 /* NetworkAgregateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkAgregateModel.swift; sourceTree = "<group>"; };
 		0D9BBAF52B27247B00EC1B2B /* KingFisher Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KingFisher Extension.swift"; sourceTree = "<group>"; };
 		0DBBD9B22B2087A700B8BB7A /* TestCategories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCategories.swift; sourceTree = "<group>"; };
+		2813373C2B25C18100FE1754 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		2813373E2B25FE6900FE1754 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		285A912F2B1CC4E9008C26D9 /* BookStoreApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BookStoreApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		285A91342B1CC4E9008C26D9 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		285A91362B1CC4EB008C26D9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -88,6 +93,7 @@
 		285A914E2B1CCB42008C26D9 /* CategoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesView.swift; sourceTree = "<group>"; };
 		285A91502B1CCB4B008C26D9 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		285A91522B1CCB55008C26D9 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
+		286184DD2B28CD5C000F4DFA /* CategoryList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryList.swift; sourceTree = "<group>"; };
 		28AE56022B2243E0009D2C3B /* BookStoreAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookStoreAppApp.swift; sourceTree = "<group>"; };
 		6F2AF8F02B206BBD00D80C3C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D3B5F0BA2B2246DD007AC332 /* TitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
@@ -227,6 +233,7 @@
 		285A91442B1CCAEE008C26D9 /* CategoriesScreen */ = {
 			isa = PBXGroup;
 			children = (
+				286184DC2B28CD4B000F4DFA /* Constants */,
 				285A914E2B1CCB42008C26D9 /* CategoriesView.swift */,
 				FA3B69452B264D21006DB1E7 /* CategoryCell.swift */,
 				FA3B69472B264D3F006DB1E7 /* SearchTFView.swift */,
@@ -264,10 +271,12 @@
 		285A91542B1CCB5D008C26D9 /* NetworkService */ = {
 			isa = PBXGroup;
 			children = (
+				2813373E2B25FE6900FE1754 /* NetworkManager.swift */,
 				0D940B7C2B1CF9AB00FAA484 /* NetworkService.swift */,
 				0D940B7E2B1CF9BD00FAA484 /* NetworkDataFetcher.swift */,
 				0D940B882B1E448A00FAA484 /* RequestMethod.swift */,
 				0D940B7A2B1CF98600FAA484 /* NetworkErrors.swift */,
+				2813373C2B25C18100FE1754 /* API.swift */,
 				0D940B872B1CFF4400FAA484 /* Test */,
 			);
 			name = NetworkService;
@@ -280,6 +289,14 @@
 				0D9BBAF52B27247B00EC1B2B /* KingFisher Extension.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		286184DC2B28CD4B000F4DFA /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				286184DD2B28CD5C000F4DFA /* CategoryList.swift */,
+			);
+			path = Constants;
 			sourceTree = "<group>";
 		};
 		D3B5F0BE2B2253A6007AC332 /* PickerView */ = {
@@ -479,7 +496,9 @@
 				0D940B8B2B1EF25200FAA484 /* NetworkAgregateModel.swift in Sources */,
 				285A91492B1CCB26008C26D9 /* AccountView.swift in Sources */,
 				0D9BBAF62B27247B00EC1B2B /* KingFisher Extension.swift in Sources */,
+				2813373D2B25C18100FE1754 /* API.swift in Sources */,
 				0D6925282B22636D00247E4C /* TestDetailView.swift in Sources */,
+				2813373F2B25FE6900FE1754 /* NetworkManager.swift in Sources */,
 				285A91532B1CCB55008C26D9 /* WelcomeView.swift in Sources */,
 				D3CCB7372B1E45DA006E4723 /* ButtonFinishView.swift in Sources */,
 				285A914F2B1CCB42008C26D9 /* CategoriesView.swift in Sources */,
@@ -494,6 +513,7 @@
 				285A91352B1CC4E9008C26D9 /* TabBarView.swift in Sources */,
 				285A91352B1CC4E9008C26D9 /* TabBarView.swift in Sources */,
 				285A914B2B1CCB2F008C26D9 /* CartView.swift in Sources */,
+				286184DE2B28CD5C000F4DFA /* CategoryList.swift in Sources */,
 				FA6D05602B2097A3004EA553 /* MockDataProductView.swift in Sources */,
 				285A91332B1CC4E9008C26D9 /* (null) in Sources */,
 				FA3B69482B264D3F006DB1E7 /* SearchTFView.swift in Sources */,

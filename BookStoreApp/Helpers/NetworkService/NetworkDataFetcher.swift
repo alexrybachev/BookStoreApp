@@ -25,7 +25,7 @@ final class NetworkDataFetcher {
     
     //MARK: - request TopTrends
     func getTopTrends(trend: SortTrends) async throws -> TopTrends {
-        let data = try await NetworkService.shared.getPosts(query: .getTopTrends(trend.switchTrends()))
+        let data = try await NetworkService.shared.getPosts(query: .getTopTrends(trend.switchTrends))
         let decodedData = try decodeJSON(type: TopTrends.self, from: data)
         return decodedData
     }

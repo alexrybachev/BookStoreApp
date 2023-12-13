@@ -8,9 +8,9 @@
 import SwiftUI
 import FirebaseCore
 
-class AppDelegate: NSObject, UIApplicationDelegate {
+final class AppDelegate: NSObject, UIApplicationDelegate {
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool {
-        
         FirebaseApp.configure()
         return true
     }
@@ -18,9 +18,13 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 
 @main
 struct BookStoreAppApp: App {
+    
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
+    
     @AppStorage("isOnboarding") var isOnboarding: Bool = true
+    
     @StateObject private var viewModel = BookAppViewModel()
+    
     var appearanceSwitch: ColorScheme? {
         viewModel.isLightTheme ? .light : .dark
     }
@@ -28,9 +32,9 @@ struct BookStoreAppApp: App {
     var body: some Scene {
         WindowGroup {
             if isOnboarding {
-                OnboardingView()
+                OnboardingView(viewModel: viewModel)
             } else {
-                TabBarView()
+                TabBarView(viewModel: viewModel)
                     .environmentObject(viewModel)
             }
         }

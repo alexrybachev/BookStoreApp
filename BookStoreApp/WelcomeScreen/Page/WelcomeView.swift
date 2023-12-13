@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct WelcomeView: View {
+    
     @Binding var currentTab: Int
     
     var body: some View {
@@ -24,7 +25,9 @@ struct WelcomeView: View {
             }
             .frame(width: 250, height: 250)
             .scaledToFill()
+            
             Spacer()
+            
             FeatureCard(iconName: "person.2.crop.square.stack.fill",
                         description: "Read more and stress less with our online book shopping app. Shop from anywhere you are and discover titles that you love. Happy reading!")
 //            Text("Read more and stress less with our online book shopping app. Shop from anywhere you are and discover titles that you love. Happy reading!")

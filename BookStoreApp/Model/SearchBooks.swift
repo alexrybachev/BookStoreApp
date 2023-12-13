@@ -37,12 +37,12 @@ struct Categories: Decodable {
 struct CategoriesBooks: Decodable {
     let key: String
     let title: String
-    let coverId: Int
+    let coverId: Int?
     let subject: [String]
     let iaCollection: [String]
     let authors: [Authors]
     let firstPublishYear: Int
-    let ia: String
+    let ia: String?
 }
 
 struct Authors: Decodable {
@@ -52,17 +52,17 @@ struct Authors: Decodable {
 
 //MARK: - DetailBook
 struct DetailBook: Decodable {
-    let description: [String: AnyObject]
-    let links: [Link]
-    let title: String?
-    let covers: [Int]
-    let subjectPlaces: [String]
-    let subjects: [String]
-    let subjectPeople: [String]
     let key: String?
-    let authors: [Author]
-    let excerpts: [Excerpt]
-    let created: Created
+    let title: String?
+    let description: [String: AnyObject]?
+    let links: [Link]?
+    let covers: [Int]?
+    let subjectPlaces: [String]?
+    let subjects: [String]?
+    let subjectPeople: [String]?
+    let authors: [Author]?
+    let excerpts: [Excerpt]?
+    let created: Created?
     
     private enum CodingKeys: String, CodingKey {
             case description
@@ -143,5 +143,22 @@ struct WorksTrends: Decodable {
     let authorName: [String]?
     let ia: [String]?
     let authorKey: [String]?
-    let coverI: Int
+    let coverI: Int?
+    let availability: Availability?
+    
+    var authorNames: String {
+        guard let authorName else { return "" }
+        let sets = Set(authorName)
+        return sets.joined(separator: ", ")
+    }
+    
+    var urlBook: String {
+        guard let availability else { return "" }
+        guard let isbn = availability.isbn else { return "" }
+        return "https://covers.openlibrary.org/b/isbn/\(isbn)-M.jpg"
+    }
+}
+
+struct Availability: Decodable {
+    let isbn: String?
 }

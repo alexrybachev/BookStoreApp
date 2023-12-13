@@ -16,13 +16,13 @@ struct SearchView: View {
                 .font(.title)
                 .foregroundColor(.black)
                 .padding(10)
-            TextField("Search title/author", text: $searchText)
+            TextField("Search books by title/author", text: $searchText)
                 .font(Font.system(size: 21))
                 .foregroundStyle(.black)
                 .padding(.vertical, 18)
         }
         .background(.backgroundSearchBar)
-        .cornerRadius(5)
+        .cornerRadius(10)
  
     }
 }
