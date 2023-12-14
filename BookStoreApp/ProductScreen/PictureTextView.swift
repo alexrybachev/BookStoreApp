@@ -17,10 +17,10 @@ struct PictureTextView: View {
     let coverId: String
     let authorName: String
     let category: String
+    let rating: String
     
 
     let openWebViewAction: ()->()
-    let rating: String = "4.11/5"
     let alertTitletoRead = "Добавили!"
     let alertTitle = "Уважаемый"
     let alertMessage = "Войдите в аккаунт или зарегистрируйтесь"
@@ -29,7 +29,7 @@ struct PictureTextView: View {
 
     var body: some View {
         VStack {
-            HStack (alignment: .bottom , spacing: 22, content: {
+            HStack (alignment: .bottom , spacing: 22) {
                 
                 KFImage(URL(string: Kf.path(value: coverId, path: .id)))
                     .placeholder({
@@ -80,7 +80,8 @@ struct PictureTextView: View {
                 .alert(isPresented: $showSuccessAlert) {
                     Alert(title: Text(alertTitletoRead))
                 }
-            })
+            }
+            .padding()
         }
     }
 
@@ -105,7 +106,13 @@ struct PictureTextView: View {
 }
 
 #Preview {
-    PictureTextView(coverId: "test", authorName: "authorName", category: "category", openWebViewAction: {})
+    PictureTextView(
+        coverId: "test",
+        authorName: "authorName",
+        category: "category",
+        rating: "4/5",
+        openWebViewAction: {}
+    )
 }
 
 struct PictureTextViewCustomButton: View {

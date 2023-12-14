@@ -99,7 +99,7 @@ struct DetailBook: Decodable {
             // Декодируем остальные свойства
 //            links = try container.decode([Link].self, forKey: .links)
             title = try container.decodeIfPresent(String.self, forKey: .title)
-            covers = try container.decode([Int].self, forKey: .covers)
+//            covers = try container.decode([Int].self, forKey: .covers)
 //            subjectPlaces = try container.decode([String].self, forKey: .subjectPlaces)
 //            subjects = try container.decode([String].self, forKey: .subjects)
 //            subjectPeople = try container.decode([String].self, forKey: .subjectPeople)
@@ -115,6 +115,13 @@ struct DetailBook: Decodable {
                 subjectPlaces = subjectPlacesArray
             } else {
                 subjectPlaces = []
+            }
+            
+            // Декодируем covers
+            if let covers = try? container.decode([Int].self, forKey: .covers) {
+                self.covers = covers
+            } else {
+                covers = nil
             }
             
             // Декодируем subjects
@@ -209,4 +216,21 @@ struct WorksTrends: Decodable {
 
 struct Availability: Decodable {
     let isbn: String?
+}
+
+// MARK: - Rating
+
+struct Rating: Decodable {
+    let summary: FieldsRating?
+    
+    var rating: String {
+        guard let rating = summary?.average else { return " 0/5"}
+        let result = String(format: "%.2f", rating)
+        return "\(result)/5"
+    }
+}
+
+struct FieldsRating: Decodable {
+    let average: Double?
+    let sortable: Double?
 }

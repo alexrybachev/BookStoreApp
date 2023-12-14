@@ -48,7 +48,8 @@ struct ProductView: View {
                 PictureTextView(
                     coverId: String(viewModel.detailBook?.covers?.first ?? 0),
                     authorName: authorName,
-                    category: viewModel.detailBook?.subjectNames ?? "No categories"
+                    category: viewModel.detailBook?.subjectNames ?? "No categories",
+                    rating: viewModel.ratingBook?.rating ?? "No rating"
                 ) {
                     openWebView()
                 }
@@ -98,6 +99,11 @@ struct ProductView: View {
             .preferredColorScheme(viewModel.isLightTheme ? .light : .dark)
             .onAppear {
                 viewModel.fetchDetailBook(id: keyBook)
+                viewModel.fetchRatingBook(id: keyBook)
+            }
+            .onDisappear {
+                viewModel.detailBook = nil
+                viewModel.ratingBook = nil
             }
         }
     }
