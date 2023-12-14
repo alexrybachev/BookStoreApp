@@ -17,19 +17,21 @@ struct HomeView: View {
         NavigationView {
             ScrollView(showsIndicators: false) {
                 
-                SearchView(searchText: $search)
+                SearchView(searchText: $search, viewModel: viewModel)
                 
                 if search.isEmpty {
                     MainView(viewModel: viewModel)
                 } else {
-                    EmptyViewSearch(query: $search)
+                    EmptyViewSearch(query: $search, viewModel: viewModel)
                 }
             }
             .padding()
             .background(.backgroundApp)
         }
         .task {
-            viewModel.fetchTrendsBooks()
+            withAnimation{
+                viewModel.fetchTrendsBooks()
+            }
         }
     }
 

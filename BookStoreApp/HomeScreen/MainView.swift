@@ -25,7 +25,14 @@ struct MainView: View {
                 PickerView(viewModel: viewModel)
                 
                 if seeMoreTop {
-                    CaruselBooksView(viewModel: viewModel)
+                    if viewModel.topTrends.isEmpty {
+                        ProgressView()
+                            .frame(width: 176, height: 232)
+                            .progressViewStyle(CircularProgressViewStyle(tint: .black))
+                            .scaleEffect(2.0, anchor: .center)
+                    } else {
+                        CaruselBooksView(viewModel: viewModel)
+                    }
                 } else {
                     GridBooksView(viewModel: viewModel)
                 }

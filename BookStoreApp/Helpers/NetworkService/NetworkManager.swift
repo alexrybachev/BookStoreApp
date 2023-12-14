@@ -22,7 +22,7 @@ final class NetworkManager {
             if let query = query {
                 parameters["q"] = "\(query)"
                 parameters["fields"] = "*,availability"
-                parameters["limit"] = "10"
+                parameters["limit"] = "20"
             }
         case .getTopTrends(_):
             parameters["fields"] = "*,availability"
