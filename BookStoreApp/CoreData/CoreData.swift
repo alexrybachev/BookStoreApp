@@ -5,18 +5,17 @@
 //  Created by Daniil Kulikovskiy on 12/14/23.
 //
 
-import Foundation
 import CoreData
 
 class CoreData: ObservableObject {
     let container: NSPersistentContainer
-    @Published var savedRecentBooks: [RecentBooks] = []
+    @Published var savedRecentBooks: [BooksEntity] = []
     
     init() {
-        container = NSPersistentContainer(name: "RecentBooks")
-        container.loadPersistentStores { description, error in
+        container = NSPersistentContainer(name: "Container")
+        container.loadPersistentStores { (description, error) in
             if let error = error {
-                print("Error Loading Core Data - \(error)")
+                print("Error Loading Core Data - \(error.localizedDescription)")
             } else {
                 print("Successfully loaded Core Data")
             }
@@ -25,7 +24,7 @@ class CoreData: ObservableObject {
     }
     
     func fetchRecentBooks() {
-        let request = NSFetchRequest<RecentBooks>(entityName: "author")
+        let request = NSFetchRequest<BooksEntity>(entityName: "BooksEntity")
         do {
            savedRecentBooks = try container.viewContext.fetch(request)
         } catch let error {
@@ -34,8 +33,8 @@ class CoreData: ObservableObject {
     }
     
     func addBook(name: String) {
-        let newBook = RecentBooks(context: container.viewContext)
-        newBook.author = name
+        let newBook = BooksEntity(context: container.viewContext)
+        newBook.name = name
     }
     
     func saveData() {

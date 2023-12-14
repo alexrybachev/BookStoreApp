@@ -7,10 +7,13 @@
 
 import SwiftUI
 import Kingfisher
+//import CoreData
 
 struct TestDetailView: View {
+    @Environment(\.managedObjectContext) var data
     let id: String
     var network = NetworkDataFetcher()
+    @ObservedObject var coreData = CoreData()
     @StateObject var networkAggregateModel: NetworkAggregateModel
     
     var body: some View {
@@ -24,6 +27,7 @@ struct TestDetailView: View {
                                 .frame(height: 40)
                         }
                     }
+    
                 }
             }
             .task {
