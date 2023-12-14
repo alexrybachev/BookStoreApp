@@ -23,6 +23,7 @@ struct Docs: Decodable {
     let authorName: [String]?
     let isbn: [String]?
     let publishYear: [Int]
+    let ia: [String]?
     
     var authorNames: String {
         guard let authorName else { return "No authors"}
