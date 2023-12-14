@@ -43,6 +43,6 @@ struct ItemViewSearch: View {
 
 
 #Preview {
-    ItemViewSearch(book: Docs(key: "", title: "33", authorName: nil, isbn: nil, publishYear: [2003]))
+    ItemViewSearch(book: Docs(key: "", title: "33", authorName: nil, isbn: nil, publishYear: [2003], ia: ["ia"]))
                    
 }
