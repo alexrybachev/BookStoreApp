@@ -23,6 +23,7 @@ struct PickerView: View {
                         Button(action: {
                             selectedTrend = trend
                             viewModel.selectedTrend = trend
+                            viewModel.topTrends = []
                             viewModel.fetchTrendsBooks()
                         }) {
                             Text(trend.rawValue)

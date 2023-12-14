@@ -44,6 +44,7 @@
 		6F2AF9022B2071FC00D80C3C /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 6F2AF9012B2071FC00D80C3C /* FirebaseFirestoreSwift */; };
 		6F2AF9042B2071FC00D80C3C /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 6F2AF9032B2071FC00D80C3C /* FirebaseStorage */; };
 		6F2AF9062B2071FC00D80C3C /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 6F2AF9052B2071FC00D80C3C /* FirebaseStorageCombine-Community */; };
+		D3AC24782B2A61D2001B4F5A /* ItemViewSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3AC24772B2A61D2001B4F5A /* ItemViewSearch.swift */; };
 		D3B5F0BB2B2246DD007AC332 /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B5F0BA2B2246DD007AC332 /* TitleView.swift */; };
 		D3B5F0BD2B224E3A007AC332 /* PickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B5F0BC2B224E3A007AC332 /* PickerView.swift */; };
 		D3B5F0C02B2253B3007AC332 /* ModelPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B5F0BF2B2253B3007AC332 /* ModelPickerView.swift */; };
@@ -96,6 +97,7 @@
 		286184DD2B28CD5C000F4DFA /* CategoryList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryList.swift; sourceTree = "<group>"; };
 		28AE56022B2243E0009D2C3B /* BookStoreAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookStoreAppApp.swift; sourceTree = "<group>"; };
 		6F2AF8F02B206BBD00D80C3C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D3AC24772B2A61D2001B4F5A /* ItemViewSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemViewSearch.swift; sourceTree = "<group>"; };
 		D3B5F0BA2B2246DD007AC332 /* TitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
 		D3B5F0BC2B224E3A007AC332 /* PickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerView.swift; sourceTree = "<group>"; };
 		D3B5F0BF2B2253B3007AC332 /* ModelPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelPickerView.swift; sourceTree = "<group>"; };
@@ -313,6 +315,7 @@
 			children = (
 				D3B5F0C22B225807007AC332 /* SearchView.swift */,
 				D3B5F0C42B225951007AC332 /* EmptyViewSearch.swift */,
+				D3AC24772B2A61D2001B4F5A /* ItemViewSearch.swift */,
 			);
 			path = SearchView;
 			sourceTree = "<group>";
@@ -507,6 +510,7 @@
 				D3DAC9462B20A716001E6E47 /* BookCaruselView.swift in Sources */,
 				D3B5F0BD2B224E3A007AC332 /* PickerView.swift in Sources */,
 				D3CCB7352B1E38AB006E4723 /* FinishView.swift in Sources */,
+				D3AC24782B2A61D2001B4F5A /* ItemViewSearch.swift in Sources */,
 				D3B5F0BB2B2246DD007AC332 /* TitleView.swift in Sources */,
 				D3B5F0CA2B2265CB007AC332 /* GridBooksView.swift in Sources */,
 				D3B5F0C52B225951007AC332 /* EmptyViewSearch.swift in Sources */,
