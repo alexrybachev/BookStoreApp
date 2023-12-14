@@ -44,6 +44,9 @@
 		6F2AF9022B2071FC00D80C3C /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 6F2AF9012B2071FC00D80C3C /* FirebaseFirestoreSwift */; };
 		6F2AF9042B2071FC00D80C3C /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 6F2AF9032B2071FC00D80C3C /* FirebaseStorage */; };
 		6F2AF9062B2071FC00D80C3C /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 6F2AF9052B2071FC00D80C3C /* FirebaseStorageCombine-Community */; };
+		D33CF27A2B2B8408003ED10E /* SkeletonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33CF2792B2B8408003ED10E /* SkeletonView.swift */; };
+		D33CF27C2B2B848B003ED10E /* SkeletonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33CF27B2B2B848B003ED10E /* SkeletonItem.swift */; };
+		D37D183F2B2B94F800035144 /* SkeletonRectItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37D183E2B2B94F800035144 /* SkeletonRectItem.swift */; };
 		D3AC24782B2A61D2001B4F5A /* ItemViewSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3AC24772B2A61D2001B4F5A /* ItemViewSearch.swift */; };
 		D3B5F0BB2B2246DD007AC332 /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B5F0BA2B2246DD007AC332 /* TitleView.swift */; };
 		D3B5F0BD2B224E3A007AC332 /* PickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B5F0BC2B224E3A007AC332 /* PickerView.swift */; };
@@ -97,6 +100,9 @@
 		286184DD2B28CD5C000F4DFA /* CategoryList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryList.swift; sourceTree = "<group>"; };
 		28AE56022B2243E0009D2C3B /* BookStoreAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookStoreAppApp.swift; sourceTree = "<group>"; };
 		6F2AF8F02B206BBD00D80C3C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D33CF2792B2B8408003ED10E /* SkeletonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkeletonView.swift; sourceTree = "<group>"; };
+		D33CF27B2B2B848B003ED10E /* SkeletonItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkeletonItem.swift; sourceTree = "<group>"; };
+		D37D183E2B2B94F800035144 /* SkeletonRectItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkeletonRectItem.swift; sourceTree = "<group>"; };
 		D3AC24772B2A61D2001B4F5A /* ItemViewSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemViewSearch.swift; sourceTree = "<group>"; };
 		D3B5F0BA2B2246DD007AC332 /* TitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
 		D3B5F0BC2B224E3A007AC332 /* PickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerView.swift; sourceTree = "<group>"; };
@@ -188,6 +194,7 @@
 				FA6D05662B227110004EA553 /* BookAppViewModel */,
 				28AE56022B2243E0009D2C3B /* BookStoreAppApp.swift */,
 				285A91342B1CC4E9008C26D9 /* TabBarView.swift */,
+				D33CF2782B2B83D9003ED10E /* LoadindSkeletonView */,
 				285A91422B1CCAC1008C26D9 /* WelcomeScreen */,
 				285A91432B1CCADA008C26D9 /* HomeScreen */,
 				285A91442B1CCAEE008C26D9 /* CategoriesScreen */,
@@ -299,6 +306,16 @@
 				286184DD2B28CD5C000F4DFA /* CategoryList.swift */,
 			);
 			path = Constants;
+			sourceTree = "<group>";
+		};
+		D33CF2782B2B83D9003ED10E /* LoadindSkeletonView */ = {
+			isa = PBXGroup;
+			children = (
+				D33CF2792B2B8408003ED10E /* SkeletonView.swift */,
+				D33CF27B2B2B848B003ED10E /* SkeletonItem.swift */,
+				D37D183E2B2B94F800035144 /* SkeletonRectItem.swift */,
+			);
+			path = LoadindSkeletonView;
 			sourceTree = "<group>";
 		};
 		D3B5F0BE2B2253A6007AC332 /* PickerView */ = {
@@ -476,6 +493,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D3CCB72E2B1E3659006E4723 /* ButtonStyle.swift in Sources */,
+				D33CF27C2B2B848B003ED10E /* SkeletonItem.swift in Sources */,
 				D3B5F0C72B226267007AC332 /* MainView.swift in Sources */,
 				0D940B7D2B1CF9AB00FAA484 /* NetworkService.swift in Sources */,
 				285A914D2B1CCB39008C26D9 /* ProductView.swift in Sources */,
@@ -501,9 +519,11 @@
 				0D9BBAF62B27247B00EC1B2B /* KingFisher Extension.swift in Sources */,
 				2813373D2B25C18100FE1754 /* API.swift in Sources */,
 				0D6925282B22636D00247E4C /* TestDetailView.swift in Sources */,
+				D37D183F2B2B94F800035144 /* SkeletonRectItem.swift in Sources */,
 				2813373F2B25FE6900FE1754 /* NetworkManager.swift in Sources */,
 				285A91532B1CCB55008C26D9 /* WelcomeView.swift in Sources */,
 				D3CCB7372B1E45DA006E4723 /* ButtonFinishView.swift in Sources */,
+				D33CF27A2B2B8408003ED10E /* SkeletonView.swift in Sources */,
 				285A914F2B1CCB42008C26D9 /* CategoriesView.swift in Sources */,
 				D3CCB7292B1E34CC006E4723 /* FeatureView.swift in Sources */,
 				FA3B69442B233F23006DB1E7 /* CategoryDetailsView.swift in Sources */,

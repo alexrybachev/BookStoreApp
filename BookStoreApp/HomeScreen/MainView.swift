@@ -26,12 +26,11 @@ struct MainView: View {
                 
                 if seeMoreTop {
                     if viewModel.topTrends.isEmpty {
-                        ProgressView()
-                            .frame(width: 176, height: 232)
-                            .progressViewStyle(CircularProgressViewStyle(tint: .black))
-                            .scaleEffect(2.0, anchor: .center)
+                        SkeletonView()
                     } else {
-                        CaruselBooksView(viewModel: viewModel)
+                        withAnimation {
+                            CaruselBooksView(viewModel: viewModel)
+                        }
                     }
                 } else {
                     GridBooksView(viewModel: viewModel)
@@ -41,14 +40,18 @@ struct MainView: View {
             VStack {
                 TitleView(text: "Recent Books", seeMore: $seeMoreRecent)
                 
-                if seeMoreRecent {
-                    CaruselBooksView(viewModel: viewModel)
-                } else {
-                    GridBooksView(viewModel: viewModel)
-                }
+//                if seeMoreRecent {
+//                    CaruselBooksView(viewModel: viewModel)
+//                } else {
+//                    GridBooksView(viewModel: viewModel)
+//                }
             }
         }
+        .onAppear {
+            viewModel.searchBooksList = []
+        }
     }
+        
 }
 
 #Preview {

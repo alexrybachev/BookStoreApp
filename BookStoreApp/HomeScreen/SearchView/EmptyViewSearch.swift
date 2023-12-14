@@ -16,14 +16,14 @@ struct EmptyViewSearch: View {
     ]
 
     var body: some View {
-        Text("\(viewModel.searchBooksList.count)")
- 
         VStack {
             LazyVGrid(columns: columns, alignment: .center, spacing: 20) {
                 ForEach(viewModel.searchBooksList, id: \.isbn) { book in
-                    ItemViewSearch(book: book)
-                }
+                    NavigationLink(destination: ProductView(keyBook: book.key, iaBook: book.ia?[0] ?? "" , authorName: book.authorNames)) {
+                        ItemViewSearch(book: book)
+                    }
             }
+        }
         
 //        NavigationView {
 //            ScrollView(showsIndicators: false) {
@@ -42,5 +42,5 @@ struct EmptyViewSearch: View {
 
 
 #Preview {
-    EmptyViewSearch(query: .constant("asasd"), viewModel: BookAppViewModel())
+    EmptyViewSearch(query: .constant("harry potter"), viewModel: BookAppViewModel())
 }
