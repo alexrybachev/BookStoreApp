@@ -16,7 +16,6 @@ struct HomeView: View {
     var body: some View {
         NavigationView {
             ScrollView(showsIndicators: false) {
-                
                 SearchView(searchText: $search, viewModel: viewModel)
                 
                 if search.isEmpty {
@@ -33,6 +32,10 @@ struct HomeView: View {
                 viewModel.fetchTrendsBooks()
             }
         }
+    }
+    
+    func clearSearchList() {
+        viewModel.searchBooksList = []
     }
 
 }
