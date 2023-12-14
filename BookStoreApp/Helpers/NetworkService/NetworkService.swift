@@ -13,6 +13,7 @@ enum Endpoint {
     case getDetailBook(String)
     case getTopTrends(String)
 //    case getSearchId(String)
+    case getRating(String)
     
     var path: String {
         switch self {
@@ -24,6 +25,8 @@ enum Endpoint {
             "\(key).json"
         case .getTopTrends(let trend):
             "/trending/\(trend).json"
+        case .getRating(let key):
+            "\(key)/ratings.json"
         }
     }
 }
@@ -107,6 +110,8 @@ final class NetworkService {
             urlComponents = getTopBooksComponents(trend: topTrends)
 //        case let .getSearchId(id):
 //            <#code#>
+        default:
+            break
         }
         
         guard let url = urlComponents.url else {

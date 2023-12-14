@@ -128,6 +128,13 @@ extension NetworkManager {
         
     }
     
+    /// Request Rating
+    func getRatingById(id: String) async throws -> Rating {
+        let data = try await getPosts(endpoint: .getRating(id), with: id)
+        let decodedData = try decodeJSON(type: Rating.self, from: data)
+        return decodedData
+    }
+    
 }
 
 

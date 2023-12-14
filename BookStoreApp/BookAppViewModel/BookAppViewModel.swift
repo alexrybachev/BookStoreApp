@@ -18,20 +18,12 @@ final class BookAppViewModel: ObservableObject {
     @Published var categoriesList: [CategoriesBooks] = []
     @Published var searchBooksList: [Docs] = []
     @Published var detailBook: DetailBook?
+    @Published var ratingBook: Rating?
 
     var isLightTheme: Bool {
         get { isLightThemeStorage }
         set { isLightThemeStorage = newValue }
     }
-    
-#warning("удалить")
-    let mocData: [WorksTrends] = [
-        WorksTrends(key: "Key1 trends", title: "Title trends", authorName: ["Authorthrend"], ia: ["ia trends"], authorKey: ["authorKey thrends"], coverI: 10, availability: nil),
-        WorksTrends(key: "Key2 trends", title: "Title trends", authorName: ["Authorthrend"], ia: ["ia trends"], authorKey: ["authorKey thrends"], coverI: 10, availability: nil),
-        WorksTrends(key: "Key3 trends", title: "Title trends", authorName: ["Authorthrend"], ia: ["ia trends"], authorKey: ["authorKey thrends"], coverI: 10, availability: nil),
-        WorksTrends(key: "Key4 trends", title: "Title trends", authorName: ["Authorthrend"], ia: ["ia trends"], authorKey: ["authorKey thrends"], coverI: 10, availability: nil),
-        WorksTrends(key: "Key5 trends", title: "Title trends", authorName: ["Authorthrend"], ia: ["ia trends"], authorKey: ["authorKey thrends"], coverI: 10, availability: nil)
-    ]
     
     /// Поиск трендовых книг
     func fetchTrendsBooks() {
@@ -85,6 +77,21 @@ final class BookAppViewModel: ObservableObject {
                 DispatchQueue.main.async {
                     print("DETAIL BOOK:\n\(detailBook)")
                     self.detailBook = detailBook
+                }
+            } catch let error {
+                print("Fetch Trends Error: \(error.localizedDescription)")
+            }
+        }
+    }
+    
+    /// Метод для получения рейтинга
+    func fetchRatingBook(id: String) {
+        Task {
+            do {
+                let ratingBook = try await NetworkManager.shared.getRatingById(id: id)
+                DispatchQueue.main.async {
+                    print("RAITING BOOK:\n\(ratingBook)")
+                    self.ratingBook = ratingBook
                 }
             } catch let error {
                 print("Fetch Trends Error: \(error.localizedDescription)")
