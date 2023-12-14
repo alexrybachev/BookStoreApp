@@ -74,7 +74,7 @@ struct AccountView: View {
     
     var body: some View {
         NavigationView {
-            VStack{
+            VStack {
                 Image("account_circle")
                     .frame(width: 120, height: 120)
                     .padding()
@@ -91,6 +91,15 @@ struct AccountView: View {
                 .padding()
                 .background(Color(red: 0.87, green: 0.87, blue: 0.87))
                 .cornerRadius(5)
+                .padding(.bottom)
+               
+                NavigationLink {
+                    AccountListsView()
+                } label: {
+                    AccountButton(displayText: "My Lists")
+                        .foregroundColor(.primary)
+                }
+
                 
                 Spacer()
                 
