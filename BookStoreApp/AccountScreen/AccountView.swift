@@ -14,8 +14,8 @@ import FirebaseAuth
 struct AccountView: View {
     
     // MARK: - View params
-    @State var email = ""
-    @State var password = ""
+    @State var email = "1@2.ru"
+    @State var password = "123456"
     @State var userIsRegistered = false {
         didSet{
             if userIsRegistered == false {
@@ -94,7 +94,7 @@ struct AccountView: View {
                 .padding(.bottom)
                
                 NavigationLink {
-                    AccountListsView()
+                    AccountListsView(userMail: email)
                 } label: {
                     AccountButton(displayText: "My Lists")
                         .foregroundColor(.primary)
