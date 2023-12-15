@@ -10,7 +10,6 @@ import Kingfisher
 //import CoreData
 
 struct TestDetailView: View {
-    @Environment(\.managedObjectContext) var data
     let id: String
     var network = NetworkDataFetcher()
     @ObservedObject var coreData = CoreData()
@@ -20,26 +19,32 @@ struct TestDetailView: View {
         VStack {
             List {
                 ForEach(networkAggregateModel.detailBooks, id:\.key) { doc in
-                        HStack {
-                            
-        
-                            Text(doc.title ?? "")
-                                .frame(height: 40)
-                        }
-                    }
-    
+                        Text(doc.title ?? "")
+                            .frame(height: 40)
                 }
-            }
-            .task {
-                do {
-                    let data = try await network.getDetailBook(id: id)
-                    networkAggregateModel.detailBooks.append(data)
-                } catch {
-                    //
+                ForEach(coreData.savedRecentBooks) { books in
+                    HStack {
+                        Text(books.name ?? "")
+                            .frame(height: 40)
+                    }
                 }
             }
         }
+        .task {
+            do {
+                let data = try await network.getDetailBook(id: id)
+                networkAggregateModel.detailBooks.append(data)
+                coreData.addBooksFromDetailBooks(detailBooks: networkAggregateModel.detailBooks)
+            } catch {
+                //
+            }
+        }
+        .onDisappear() {
+//            coreData.addBooksFromDetailBooks(detailBooks: networkAggregateModel.detailBooks)
+            print("SavedRecentBooks - \(coreData.savedRecentBooks)")
+        }
     }
+}
 
 
 #Preview {

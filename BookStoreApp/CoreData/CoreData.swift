@@ -32,9 +32,21 @@ class CoreData: ObservableObject {
         }
     }
     
-    func addBook(name: String) {
+    func addBooksFromDetailBooks(detailBooks: [DetailBook]) {
+        for detailBook in detailBooks {
+            addBook(book: detailBook)
+        }
+    }
+    
+    func addBook(book: DetailBook) {
         let newBook = BooksEntity(context: container.viewContext)
-        newBook.name = name
+        newBook.key = book.key
+        newBook.name = book.subjectNames
+        newBook.title = book.title
+        for i in book.authors ?? [] {
+            newBook.author = i.author.key
+        }
+        saveData()
     }
     
     func saveData() {
