@@ -25,6 +25,7 @@ class CoreData: ObservableObject {
     
     func fetchRecentBooks() {
         let request = NSFetchRequest<BooksEntity>(entityName: "BooksEntity")
+//        request.returnsObjectsAsFaults = false
         do {
            savedRecentBooks = try container.viewContext.fetch(request)
         } catch let error {
@@ -34,18 +35,18 @@ class CoreData: ObservableObject {
     
     func addBooksFromDetailBooks(detailBooks: [DetailBook]) {
         for detailBook in detailBooks {
-            addBook(book: detailBook)
+            addBook(book: detailBook, iaBook: "", authorName: "")
         }
     }
+
     
-    func addBook(book: DetailBook) {
+    func addBook(book: DetailBook, iaBook: String, authorName: String) {
         let newBook = BooksEntity(context: container.viewContext)
         newBook.key = book.key
-        newBook.name = book.subjectNames
+//        newBook.name = book.subjectNames
         newBook.title = book.title
-        for i in book.authors ?? [] {
-            newBook.author = i.author.key
-        }
+        newBook.author = authorName
+        newBook.iaBooks = iaBook
         saveData()
     }
     

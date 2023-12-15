@@ -18,26 +18,29 @@ struct TestDetailView: View {
     var body: some View {
         VStack {
             List {
-                ForEach(networkAggregateModel.detailBooks, id:\.key) { doc in
-                        Text(doc.title ?? "")
-                            .frame(height: 40)
-                }
-                ForEach(coreData.savedRecentBooks) { books in
+//                ForEach(networkAggregateModel.detailBooks, id:\.key) { doc in
+//                        Text(doc.title ?? "")
+//                            .frame(height: 40)
+//                }
+                ForEach(coreData.savedRecentBooks, id: \.self) { books in
                     HStack {
-                        Text(books.name ?? "")
+                        Text(books.author ?? "")
                             .frame(height: 40)
                     }
                 }
             }
         }
-        .task {
-            do {
-                let data = try await network.getDetailBook(id: id)
-                networkAggregateModel.detailBooks.append(data)
-                coreData.addBooksFromDetailBooks(detailBooks: networkAggregateModel.detailBooks)
-            } catch {
-                //
-            }
+//        .task {
+//            do {
+//                let data = try await network.getDetailBook(id: id)
+//                networkAggregateModel.detailBooks.append(data)
+////                coreData.addBooksFromDetailBooks(detailBooks: networkAggregateModel.detailBook)
+//            } catch {
+//                //
+//            }
+//        }
+        .onAppear() {
+            coreData.fetchRecentBooks()
         }
         .onDisappear() {
 //            coreData.addBooksFromDetailBooks(detailBooks: networkAggregateModel.detailBooks)
