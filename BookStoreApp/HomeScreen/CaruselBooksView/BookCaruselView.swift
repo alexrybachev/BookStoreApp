@@ -36,8 +36,6 @@ struct BookCaruselView: View {
                         .padding(10)
                 }
                 
-               
-                
                 ZStack(alignment: .leading) {
                     Color.black
                     

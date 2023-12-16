@@ -10,6 +10,7 @@ import SwiftUI
 struct HomeView: View {
     
     @ObservedObject var viewModel: BookAppViewModel
+    @ObservedObject var data: CoreData
     
     @State private var search = ""
     
@@ -20,7 +21,7 @@ struct HomeView: View {
                 SearchView(searchText: $search, viewModel: viewModel)
                 
                 if search.isEmpty {
-                    MainView(viewModel: viewModel)
+                    MainView(viewModel: viewModel, coreData: data)
                 } else {
                     EmptyViewSearch(query: $search, viewModel: viewModel)
                 }
@@ -38,5 +39,5 @@ struct HomeView: View {
 }
 
 #Preview {
-    HomeView(viewModel: BookAppViewModel())
+    HomeView(viewModel: BookAppViewModel(), data: CoreData())
 }

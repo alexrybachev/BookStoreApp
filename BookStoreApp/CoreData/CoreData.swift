@@ -10,6 +10,7 @@ import CoreData
 class CoreData: ObservableObject {
     let container: NSPersistentContainer
     @Published var savedRecentBooks: [BooksEntity] = []
+    @Published var booksEntity: BooksEntity
     
     init() {
         container = NSPersistentContainer(name: "Container")
@@ -44,7 +45,7 @@ class CoreData: ObservableObject {
         let newBook = BooksEntity(context: container.viewContext)
         newBook.key = book.key
 //        newBook.name = book.subjectNames
-        newBook.title = book.title
+        newBook.titleName = book.title
         newBook.author = authorName
         newBook.iaBooks = iaBook
         saveData()

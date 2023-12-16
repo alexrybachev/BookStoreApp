@@ -10,6 +10,7 @@ import SwiftUI
 struct MainView: View {
     
     @ObservedObject var viewModel: BookAppViewModel
+    @ObservedObject var coreData: CoreData
     
 //    @State private var selectedPicker = 1
     
@@ -42,9 +43,9 @@ struct MainView: View {
                 TitleView(text: "Recent Books", seeMore: $seeMoreRecent)
                 
                 if seeMoreRecent {
-                    CaruselBooksView(viewModel: viewModel)
+                    RecentBookView(coreData: coreData)
                 } else {
-                    GridBooksView(viewModel: viewModel)
+                    GridRecentView(viewModel: coreData)
                 }
             }
         }
@@ -52,5 +53,5 @@ struct MainView: View {
 }
 
 #Preview {
-    MainView(viewModel: BookAppViewModel())
+    MainView(viewModel: BookAppViewModel(), coreData: CoreData())
 }
