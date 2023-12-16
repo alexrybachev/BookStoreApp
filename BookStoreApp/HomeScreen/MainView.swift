@@ -25,7 +25,13 @@ struct MainView: View {
                 PickerView(viewModel: viewModel)
                 
                 if seeMoreTop {
-                    CaruselBooksView(viewModel: viewModel)
+                    if viewModel.topTrends.isEmpty {
+                        SkeletonView()
+                    } else {
+                        withAnimation {
+                            CaruselBooksView(viewModel: viewModel)
+                        }
+                    }
                 } else {
                     GridBooksView(viewModel: viewModel)
                 }
@@ -34,14 +40,18 @@ struct MainView: View {
             VStack {
                 TitleView(text: "Recent Books", seeMore: $seeMoreRecent)
                 
-                if seeMoreRecent {
-                    CaruselBooksView(viewModel: viewModel)
-                } else {
-                    GridBooksView(viewModel: viewModel)
-                }
+//                if seeMoreRecent {
+//                    CaruselBooksView(viewModel: viewModel)
+//                } else {
+//                    GridBooksView(viewModel: viewModel)
+//                }
             }
         }
+        .onAppear {
+            viewModel.searchBooksList = []
+        }
     }
+        
 }
 
 #Preview {

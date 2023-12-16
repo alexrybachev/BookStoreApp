@@ -19,16 +19,22 @@ struct BookCaruselView: View {
             
             VStack(spacing: 0) {
                 
-                KFImage(URL(string: Kf.path(value: book.coverI ?? 0, path: .id)))
-                    .placeholder({
-                        ProgressView()
-                            .progressViewStyle(CircularProgressViewStyle(tint: .black))
-                            .scaleEffect(2.0, anchor: .center)
-                    })
-                    .resizable()
-                    .scaledToFit()
-                    .padding(10)
-                
+                if book.coverI == nil {
+                    Image(.bookDef)
+                        .resizable()
+                        .scaledToFit()
+                        .padding(10)
+                } else {
+                    KFImage(URL(string: Kf.path(value: book.coverI ?? 0, path: .id)))
+                        .placeholder({
+                            SkeletonRectItem()
+                                .frame(width: 90, height: 120)
+                        })
+                        .resizable()
+                        .scaledToFit()
+                        .padding(10)
+                }
+
                 ZStack(alignment: .leading) {
                     Color.black
                     

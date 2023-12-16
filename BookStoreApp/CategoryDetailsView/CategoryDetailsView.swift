@@ -22,24 +22,30 @@ struct CategoryDetailsView: View {
     var body: some View {
         List {
             ForEach(viewModel.categoriesList, id: \.key) { book in
-                HStack(spacing: 20) {
-                    KFImage(URL(string: Kf.path(value: book.coverId ?? 0, path: .id)))
-                        .placeholder({
-                            ProgressView()
-                                .progressViewStyle(CircularProgressViewStyle(tint: .black))
-                                .scaleEffect(2.0, anchor: .center)
-                        })
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 80, height: 120)
-                        .cornerRadius(10)
-                    
-                    Text(book.title)
-                        .padding(.vertical, 8)
-                        .lineLimit(5)
-                        .truncationMode(.tail)
+                NavigationLink(destination: ProductView(
+                    keyBook: book.key,
+                    iaBook: book.ia ?? "No iaBook",
+                    authorName: book.authorNames
+                )) {
+                    HStack(spacing: 20) {
+                        KFImage(URL(string: Kf.path(value: book.coverId ?? 0, path: .id)))
+                            .placeholder({
+                                ProgressView()
+                                    .progressViewStyle(CircularProgressViewStyle(tint: .black))
+                                    .scaleEffect(2.0, anchor: .center)
+                            })
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 80, height: 120)
+                            .cornerRadius(10)
+                        
+                        Text(book.title)
+                            .padding(.vertical, 8)
+                            .lineLimit(5)
+                            .truncationMode(.tail)
+                    }
+                    .shadow(color: Color.gray.opacity(0.5), radius: 5, x: 0, y: 2)
                 }
-                .shadow(color: Color.gray.opacity(0.5), radius: 5, x: 0, y: 2)
             }
         }
         .listStyle(InsetGroupedListStyle())
