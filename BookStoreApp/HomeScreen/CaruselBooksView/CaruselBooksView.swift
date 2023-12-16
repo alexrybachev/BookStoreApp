@@ -18,7 +18,7 @@ struct CaruselBooksView: View {
         ScrollView(.horizontal, showsIndicators: false) {
             LazyHGrid(rows: rows, spacing: 20) {
                 ForEach(viewModel.topTrends, id: \.key) { book in
-                    NavigationLink(destination: ProductView(keyBook: book.key, iaBook: book.urlBook, authorName: book.authorNames)) {
+                    NavigationLink(destination: ProductView(keyBook: book.key, iaBook: book.ia?.first ?? "", authorName: book.authorNames)) {
                         BookCaruselView(book: book)
                     }
                 }

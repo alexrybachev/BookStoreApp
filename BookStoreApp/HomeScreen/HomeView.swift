@@ -10,7 +10,7 @@ import SwiftUI
 struct HomeView: View {
     
     @ObservedObject var viewModel: BookAppViewModel
-    @ObservedObject var data: CoreData
+    @ObservedObject var coreData: CoreData
     @State private var searchText = ""
     @FocusState var isFocused: Bool
     
@@ -53,7 +53,7 @@ struct HomeView: View {
                     .animation(.bouncy, value: searchText)
    
                     if searchText.isEmpty {
-                        MainView(viewModel: viewModel)
+                        MainView(viewModel: viewModel, coreData: coreData)
                     } else {
                         EmptyViewSearch(query: $searchText, viewModel: viewModel)
                     }
@@ -79,5 +79,5 @@ struct HomeView: View {
 }
 
 #Preview {
-    HomeView(viewModel: BookAppViewModel(), data: CoreData())
+    HomeView(viewModel: BookAppViewModel(), coreData: CoreData())
 }

@@ -32,7 +32,9 @@ struct PickerView: View {
                                 .foregroundStyle(selectedTrend == trend ? .white : .black)
                                 .background(selectedTrend == trend ? .black : .clear)
                                 .border(selectedTrend == trend ? .clear : .black)
-                            // .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
+//                                .clipShape(selectedTrend == trend
+//                                           ? RoundedRectangle(cornerRadius: 10, style: .continuous)
+//                                           : RoundedRectangle(cornerRadius: 10, style: .continuous).stroke(Color.black, lineWidth: 1))
                         }
                     }
                 }

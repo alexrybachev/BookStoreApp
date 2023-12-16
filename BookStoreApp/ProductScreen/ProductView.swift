@@ -35,16 +35,17 @@ struct ProductView: View {
         ZStack {
             Color(.secondarySystemBackground).ignoresSafeArea()
             VStack {
-                Text(viewModel.detailBook?.title ?? "No name")
+                Text(viewModel.detailBook?.title ?? "Loading name...")
                     .font(.system(size: 24, weight: .semibold))
                 
-                // Перенести на экран настроек - start
-                Button(action: {
-                    viewModel.isLightTheme.toggle()
-                }) {
-                    Text("Toggle Mode")
-                }
-                // - end
+                #warning("УДАЛИТЬ ПОСЛЕ РЕАЛИЗАЦИИ")
+//                // Перенести на экран настроек - start
+//                Button(action: {
+//                    viewModel.isLightTheme.toggle()
+//                }) {
+//                    Text("Toggle Mode")
+//                }
+//                // - end
                 
                 PictureTextView(
                     coverId: String(viewModel.detailBook?.covers?.first ?? 0),

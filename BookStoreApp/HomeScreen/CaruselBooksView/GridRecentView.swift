@@ -11,7 +11,7 @@ struct GridRecentView: View {
     
     @ObservedObject var viewModel: CoreData
     
-    let columns = [
+    private let columns = [
         GridItem(.adaptive(minimum: 150))
     ]
     

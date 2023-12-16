@@ -10,13 +10,13 @@ import SwiftUI
 struct TabBarView: View {
     
     @ObservedObject var viewModel: BookAppViewModel
-    @ObservedObject var data: CoreData
+    @ObservedObject var coreData: CoreData
     
     @State private var selectedTab = 0
     
     var body: some View {
         TabView(selection: $selectedTab) {
-            HomeView(viewModel: viewModel, data: data)
+            HomeView(viewModel: viewModel, coreData: coreData)
                 .tabItem {
                     Label("Home", image: selectedTab == 0 ? "homeActive" : "homeInactive")
                 }
@@ -49,5 +49,5 @@ struct TabBarView: View {
 }
 
 #Preview {
-    TabBarView(viewModel: BookAppViewModel(), data: CoreData())
+    TabBarView(viewModel: BookAppViewModel(), coreData: CoreData())
 }

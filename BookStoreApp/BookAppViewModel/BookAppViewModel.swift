@@ -35,7 +35,7 @@ final class BookAppViewModel: ObservableObject {
                     self.topTrends = trendsQuery.works
                 }
             } catch let error {
-//                print("Fetch Trends Error: \(error.localizedDescription)")
+                print("Fetch Trends Error: \(error.localizedDescription)")
             }
         }
     }
@@ -50,7 +50,7 @@ final class BookAppViewModel: ObservableObject {
                     self.searchBooksList = searchBooks.docs
                 }
             } catch let error {
-//                print("Fetch Trends Error: \(error.localizedDescription)")
+                print("Fetch Search Books Error: \(error.localizedDescription)")
             }
         }
     }
@@ -65,11 +65,12 @@ final class BookAppViewModel: ObservableObject {
                     self.categoriesList = categories.works
                 }
             } catch let error {
-//                print("Fetch Trends Error: \(error.localizedDescription)")
+                print("Fetch Categories Error: \(error.localizedDescription)")
             }
         }
     }
     
+    /// Метод для получения детальной информации о книге
     func fetchDetailBook(id: String) {
         Task {
             do {
@@ -79,7 +80,7 @@ final class BookAppViewModel: ObservableObject {
                     self.detailBook = detailBook
                 }
             } catch let error {
-//                print("Fetch Trends Error: \(error.localizedDescription)")
+                print("Fetch Detail Book Error: \(error.localizedDescription)")
             }
         }
     }
@@ -94,7 +95,7 @@ final class BookAppViewModel: ObservableObject {
                     self.ratingBook = ratingBook
                 }
             } catch let error {
-//                print("Fetch Trends Error: \(error.localizedDescription)")
+                print("Fetch Rating Error: \(error.localizedDescription)")
             }
         }
     }
