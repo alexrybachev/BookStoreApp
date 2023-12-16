@@ -10,8 +10,8 @@ import SwiftUI
 struct HomeView: View {
     
     @ObservedObject var viewModel: BookAppViewModel
+    @ObservedObject var data: CoreData
     @State private var searchText = ""
-    
     @FocusState var isFocused: Bool
     
    // @State private var showingAlert: Bool = false
@@ -79,5 +79,5 @@ struct HomeView: View {
 }
 
 #Preview {
-    HomeView(viewModel: BookAppViewModel())
+    HomeView(viewModel: BookAppViewModel(), data: CoreData())
 }

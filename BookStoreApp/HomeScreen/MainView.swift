@@ -42,7 +42,7 @@ struct MainView: View {
             VStack {
                 TitleView(text: "Recent Books", seeMore: $seeMoreRecent)
                 
-if seeMoreRecent {
+                if seeMoreRecent {
                     CaruselRecentBooks(coreData: coreData)
                 } else {
                     GridRecentView(viewModel: coreData)
@@ -53,6 +53,7 @@ if seeMoreRecent {
             viewModel.searchBooksList = []
             coreData.fetchRecentBooks()
         }
+        
     }
         
 }

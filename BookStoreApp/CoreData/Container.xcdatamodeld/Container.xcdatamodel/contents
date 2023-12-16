@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22522" systemVersion="23C64" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithSwiftData="YES" userDefinedModelVersionIdentifier="">
+    <entity name="BooksEntity" representedClassName="BooksEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="author" optional="YES" attributeType="String"/>
+        <attribute name="coverId" optional="YES" attributeType="String"/>
+        <attribute name="iaBooks" optional="YES" attributeType="String"/>
+        <attribute name="key" optional="YES" attributeType="String"/>
+        <attribute name="titleName" optional="YES" attributeType="String"/>
+    </entity>
+</model>

@@ -9,17 +9,14 @@ import SwiftUI
 import Kingfisher
 
 struct SwiftUITestScreen: View {
-    var image: String
     var network = NetworkDataFetcher()
     @StateObject var networkAggregateModel: NetworkAggregateModel
-    @State var textinput: String = "World"
     @State var isbnArray = [Docs]()
     @State var isbn = ""
     
     var body: some View {
         NavigationView {
             VStack {
-                TextField("Search", text: $textinput)
                 List {
                     ForEach(networkAggregateModel.searchBooksList, id: \.key) { doc in
                         NavigationLink(destination: TestDetailView(id: doc.key, networkAggregateModel: NetworkAggregateModel())) {
@@ -53,6 +50,6 @@ struct SwiftUITestScreen: View {
 
 
 #Preview {
-    SwiftUITestScreen(image: "", networkAggregateModel: NetworkAggregateModel(), textinput: "")
+    SwiftUITestScreen(networkAggregateModel: NetworkAggregateModel())
 }
 

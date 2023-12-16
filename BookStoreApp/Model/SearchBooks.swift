@@ -156,7 +156,7 @@ struct DetailBook: Decodable {
 
 struct Author: Decodable {
     let author: TypeClass
-    let type: TypeClass
+//    let type: String
 }
 
 struct TypeClass: Decodable {
