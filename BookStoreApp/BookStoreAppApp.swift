@@ -41,7 +41,7 @@ struct BookStoreAppApp: App {
                 TabBarView(viewModel: viewModel, data: dataController)
                     .environmentObject(viewModel)
                     .environmentObject(user)
-//                    .environment(\.managedObjectContext, dataController.container.viewContext)
+                    .environmentObject(dataController)
             }
         }
     }

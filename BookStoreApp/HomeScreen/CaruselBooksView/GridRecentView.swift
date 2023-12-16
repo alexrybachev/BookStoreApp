@@ -19,13 +19,16 @@ struct GridRecentView: View {
         NavigationView {
             ScrollView(showsIndicators: false) {
                 LazyVGrid(columns: columns) {
-                    ForEach(viewModel.savedRecentBooks, id: \.self) { book in
-                        RecentBookView(coreData: viewModel)
+                    ForEach(viewModel.savedRecentBooks.reversed(), id: \.self) { book in
+                        RecentBook(coreData: viewModel, title: book.titleName ?? "", author: book.author ?? "", image: book.coverId ?? "")
                     }
                 }
                 .padding(.horizontal, 5)
             }
             .background(.backgroundApp)
+        }
+        .onAppear() {
+            viewModel.fetchRecentBooks()
         }
     }
 }

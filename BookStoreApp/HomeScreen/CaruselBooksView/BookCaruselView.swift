@@ -34,7 +34,7 @@ struct BookCaruselView: View {
                         .scaledToFit()
                         .padding(10)
                 }
-
+                
                 ZStack(alignment: .leading) {
                     Color.black
                     
@@ -42,12 +42,15 @@ struct BookCaruselView: View {
                         Text(book.title)
                             .font(.headline)
                             .fontWeight(.bold)
-                            .minimumScaleFactor(0.01)
-                            
+                            .multilineTextAlignment(.leading)
+                        //                            .minimumScaleFactor(0.01)
+                            .lineLimit(2)
+                        Spacer()
+                        
                         Text(book.authorNames)
                             .font(.caption)
-                        
-                        Spacer()
+                            .multilineTextAlignment(.leading)
+                            .padding(.bottom, 6)
                     }
                     .padding(10)
                     .foregroundStyle(.white)

@@ -5,7 +5,6 @@
         <attribute name="coverId" optional="YES" attributeType="String"/>
         <attribute name="iaBooks" optional="YES" attributeType="String"/>
         <attribute name="key" optional="YES" attributeType="String"/>
-        <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="titleName" optional="YES" attributeType="String"/>
     </entity>
 </model>

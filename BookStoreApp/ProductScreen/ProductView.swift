@@ -11,7 +11,7 @@ struct ProductView: View {
 
     @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject private var viewModel: BookAppViewModel
-    @StateObject var coreData = CoreData()
+    @ObservedObject var coreData = CoreData()
 
     @State private var isWebViewPresented = false
     
@@ -112,6 +112,7 @@ struct ProductView: View {
                 viewModel.ratingBook = nil
                 viewModel.detailBook = nil
                 print("SavedRecentBooks - \(coreData.savedRecentBooks)")
+                coreData.fetchRecentBooks()
             }
         }
     }
