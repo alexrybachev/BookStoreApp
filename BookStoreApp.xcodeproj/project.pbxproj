@@ -19,6 +19,10 @@
 		0DBBD9B32B2087A700B8BB7A /* TestCategories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DBBD9B22B2087A700B8BB7A /* TestCategories.swift */; };
 		280A76F82B2DD82C008340A3 /* AccountButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280A76F52B2DD82C008340A3 /* AccountButton.swift */; };
 		280A76F92B2DD82C008340A3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280A76F72B2DD82C008340A3 /* User.swift */; };
+		280A76FF2B2DF32D008340A3 /* AccountListNavigationBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280A76FE2B2DF32D008340A3 /* AccountListNavigationBarView.swift */; };
+		280A77012B2DF342008340A3 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280A77002B2DF342008340A3 /* Constants.swift */; };
+		280F5E1B2B2DF3C600AD92A5 /* AccountSelectedListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280F5E192B2DF3C600AD92A5 /* AccountSelectedListView.swift */; };
+		280F5E1C2B2DF3C600AD92A5 /* AccountListsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280F5E1A2B2DF3C600AD92A5 /* AccountListsView.swift */; };
 		2813373D2B25C18100FE1754 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2813373C2B25C18100FE1754 /* API.swift */; };
 		2813373F2B25FE6900FE1754 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2813373E2B25FE6900FE1754 /* NetworkManager.swift */; };
 		285A91332B1CC4E9008C26D9 /* (null) in Sources */ = {isa = PBXBuildFile; };
@@ -88,6 +92,10 @@
 		0DBBD9B22B2087A700B8BB7A /* TestCategories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCategories.swift; sourceTree = "<group>"; };
 		280A76F52B2DD82C008340A3 /* AccountButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountButton.swift; sourceTree = "<group>"; };
 		280A76F72B2DD82C008340A3 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		280A76FE2B2DF32D008340A3 /* AccountListNavigationBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountListNavigationBarView.swift; sourceTree = "<group>"; };
+		280A77002B2DF342008340A3 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		280F5E192B2DF3C600AD92A5 /* AccountSelectedListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountSelectedListView.swift; sourceTree = "<group>"; };
+		280F5E1A2B2DF3C600AD92A5 /* AccountListsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountListsView.swift; sourceTree = "<group>"; };
 		2813373C2B25C18100FE1754 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		2813373E2B25FE6900FE1754 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		285A912F2B1CC4E9008C26D9 /* BookStoreApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BookStoreApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -178,6 +186,7 @@
 			isa = PBXGroup;
 			children = (
 				280A76F52B2DD82C008340A3 /* AccountButton.swift */,
+				280A76FE2B2DF32D008340A3 /* AccountListNavigationBarView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -185,9 +194,19 @@
 		280A76F62B2DD82C008340A3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				280A77002B2DF342008340A3 /* Constants.swift */,
 				280A76F72B2DD82C008340A3 /* User.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		280F5E182B2DF3C600AD92A5 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				280F5E192B2DF3C600AD92A5 /* AccountSelectedListView.swift */,
+				280F5E1A2B2DF3C600AD92A5 /* AccountListsView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		285A91262B1CC4E9008C26D9 = {
@@ -292,6 +311,7 @@
 		285A91472B1CCB11008C26D9 /* AccountScreen */ = {
 			isa = PBXGroup;
 			children = (
+				280F5E182B2DF3C600AD92A5 /* Views */,
 				280A76F42B2DD82B008340A3 /* Components */,
 				280A76F62B2DD82C008340A3 /* Model */,
 				285A91482B1CCB26008C26D9 /* AccountView.swift */,
@@ -529,6 +549,7 @@
 				28AE56032B2243E0009D2C3B /* BookStoreAppApp.swift in Sources */,
 				D3B5F0C02B2253B3007AC332 /* ModelPickerView.swift in Sources */,
 				FA4C31192B1D038F00501B2D /* PictureTextView.swift in Sources */,
+				280A76FF2B2DF32D008340A3 /* AccountListNavigationBarView.swift in Sources */,
 				285A91512B1CCB4B008C26D9 /* HomeView.swift in Sources */,
 				D3CCB7272B1E34C5006E4723 /* OnboardingView.swift in Sources */,
 				0D940B812B1CFB5200FAA484 /* SearchBooks.swift in Sources */,
@@ -537,6 +558,7 @@
 				0DBBD9B32B2087A700B8BB7A /* TestCategories.swift in Sources */,
 				0D940B7F2B1CF9BD00FAA484 /* NetworkDataFetcher.swift in Sources */,
 				0D940B862B1CFBB200FAA484 /* SwiftUITestScreen.swift in Sources */,
+				280F5E1B2B2DF3C600AD92A5 /* AccountSelectedListView.swift in Sources */,
 				0D940B8B2B1EF25200FAA484 /* NetworkAgregateModel.swift in Sources */,
 				285A91492B1CCB26008C26D9 /* AccountView.swift in Sources */,
 				0D9BBAF62B27247B00EC1B2B /* KingFisher Extension.swift in Sources */,
@@ -544,6 +566,7 @@
 				280A76F82B2DD82C008340A3 /* AccountButton.swift in Sources */,
 				0D6925282B22636D00247E4C /* TestDetailView.swift in Sources */,
 				D37D183F2B2B94F800035144 /* SkeletonRectItem.swift in Sources */,
+				280F5E1C2B2DF3C600AD92A5 /* AccountListsView.swift in Sources */,
 				2813373F2B25FE6900FE1754 /* NetworkManager.swift in Sources */,
 				285A91532B1CCB55008C26D9 /* WelcomeView.swift in Sources */,
 				D3CCB7372B1E45DA006E4723 /* ButtonFinishView.swift in Sources */,
@@ -566,6 +589,7 @@
 				285A91332B1CC4E9008C26D9 /* (null) in Sources */,
 				FA3B69482B264D3F006DB1E7 /* SearchTFView.swift in Sources */,
 				0D940B7B2B1CF98600FAA484 /* NetworkErrors.swift in Sources */,
+				280A77012B2DF342008340A3 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
