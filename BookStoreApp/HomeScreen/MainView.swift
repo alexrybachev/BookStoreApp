@@ -27,12 +27,11 @@ struct MainView: View {
                 
                 if seeMoreTop {
                     if viewModel.topTrends.isEmpty {
-                        ProgressView()
-                            .frame(width: 176, height: 232)
-                            .progressViewStyle(CircularProgressViewStyle(tint: .black))
-                            .scaleEffect(2.0, anchor: .center)
+                        SkeletonView()
                     } else {
-                        CaruselBooksView(viewModel: viewModel)
+                        withAnimation {
+                            CaruselBooksView(viewModel: viewModel)
+                        }
                     }
                 } else {
                     GridBooksView(viewModel: viewModel)
@@ -49,7 +48,11 @@ struct MainView: View {
                 }
             }
         }
+        .onAppear {
+            viewModel.searchBooksList = []
+        }
     }
+        
 }
 
 #Preview {
