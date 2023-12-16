@@ -30,6 +30,10 @@ struct TabBarView: View {
             CartView()
                 .tabItem {
                     Label("Likes", image: selectedTab == 2 ? "likesActive" : "likesInactive")
+                        .foregroundStyle(.red)
+                        .tint(.red)
+                        .background(.red)
+                        .accentColor(.blue)
                 }
                 .tag(2)
             

@@ -18,7 +18,7 @@ struct ItemViewSearch: View {
             
             VStack(spacing: 0) {
                 ZStack(alignment: .leading) {
-                    Color.black
+                    Color.secondary
                     
                     VStack(alignment: .leading) {
                         Text(book.title)

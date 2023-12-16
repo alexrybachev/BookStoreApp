@@ -46,6 +46,8 @@
 		6F2AF9062B2071FC00D80C3C /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 6F2AF9052B2071FC00D80C3C /* FirebaseStorageCombine-Community */; };
 		D33CF27A2B2B8408003ED10E /* SkeletonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33CF2792B2B8408003ED10E /* SkeletonView.swift */; };
 		D33CF27C2B2B848B003ED10E /* SkeletonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33CF27B2B2B848B003ED10E /* SkeletonItem.swift */; };
+		D35665302B2D864300ABE51C /* CategoryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D356652F2B2D864300ABE51C /* CategoryListView.swift */; };
+		D35665322B2E272100ABE51C /* PickerViewDarkTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35665312B2E272100ABE51C /* PickerViewDarkTheme.swift */; };
 		D37D183F2B2B94F800035144 /* SkeletonRectItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37D183E2B2B94F800035144 /* SkeletonRectItem.swift */; };
 		D3AC24782B2A61D2001B4F5A /* ItemViewSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3AC24772B2A61D2001B4F5A /* ItemViewSearch.swift */; };
 		D3B5F0BB2B2246DD007AC332 /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B5F0BA2B2246DD007AC332 /* TitleView.swift */; };
@@ -102,6 +104,8 @@
 		6F2AF8F02B206BBD00D80C3C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D33CF2792B2B8408003ED10E /* SkeletonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkeletonView.swift; sourceTree = "<group>"; };
 		D33CF27B2B2B848B003ED10E /* SkeletonItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkeletonItem.swift; sourceTree = "<group>"; };
+		D356652F2B2D864300ABE51C /* CategoryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListView.swift; sourceTree = "<group>"; };
+		D35665312B2E272100ABE51C /* PickerViewDarkTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerViewDarkTheme.swift; sourceTree = "<group>"; };
 		D37D183E2B2B94F800035144 /* SkeletonRectItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkeletonRectItem.swift; sourceTree = "<group>"; };
 		D3AC24772B2A61D2001B4F5A /* ItemViewSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemViewSearch.swift; sourceTree = "<group>"; };
 		D3B5F0BA2B2246DD007AC332 /* TitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
@@ -246,6 +250,7 @@
 				285A914E2B1CCB42008C26D9 /* CategoriesView.swift */,
 				FA3B69452B264D21006DB1E7 /* CategoryCell.swift */,
 				FA3B69472B264D3F006DB1E7 /* SearchTFView.swift */,
+				D356652F2B2D864300ABE51C /* CategoryListView.swift */,
 			);
 			path = CategoriesScreen;
 			sourceTree = "<group>";
@@ -323,6 +328,7 @@
 			children = (
 				D3B5F0BC2B224E3A007AC332 /* PickerView.swift */,
 				D3B5F0BF2B2253B3007AC332 /* ModelPickerView.swift */,
+				D35665312B2E272100ABE51C /* PickerViewDarkTheme.swift */,
 			);
 			path = PickerView;
 			sourceTree = "<group>";
@@ -506,6 +512,7 @@
 				28AE56032B2243E0009D2C3B /* BookStoreAppApp.swift in Sources */,
 				D3B5F0C02B2253B3007AC332 /* ModelPickerView.swift in Sources */,
 				FA4C31192B1D038F00501B2D /* PictureTextView.swift in Sources */,
+				D35665322B2E272100ABE51C /* PickerViewDarkTheme.swift in Sources */,
 				285A91512B1CCB4B008C26D9 /* HomeView.swift in Sources */,
 				D3CCB7272B1E34C5006E4723 /* OnboardingView.swift in Sources */,
 				0D940B812B1CFB5200FAA484 /* SearchBooks.swift in Sources */,
@@ -522,6 +529,7 @@
 				D37D183F2B2B94F800035144 /* SkeletonRectItem.swift in Sources */,
 				2813373F2B25FE6900FE1754 /* NetworkManager.swift in Sources */,
 				285A91532B1CCB55008C26D9 /* WelcomeView.swift in Sources */,
+				D35665302B2D864300ABE51C /* CategoryListView.swift in Sources */,
 				D3CCB7372B1E45DA006E4723 /* ButtonFinishView.swift in Sources */,
 				D33CF27A2B2B8408003ED10E /* SkeletonView.swift in Sources */,
 				285A914F2B1CCB42008C26D9 /* CategoriesView.swift in Sources */,

@@ -10,63 +10,54 @@ import SwiftUI
 struct CategoriesView: View {
     
     @ObservedObject var viewModel: BookAppViewModel
-    @State private var searchText = ""
     @State private var isFiltered = false
+    @State private var searchText = ""
     
-    private let columns = [
-        GridItem(.flexible(), spacing: 20),
-        GridItem(.flexible(), spacing: 20)
-    ]
-    
-    let image = "category_pic"
-    
-    //    let categories = MockDataProductView.categories
-    let categoriesList = CategoryList.categories
+    @FocusState var isFocused: Bool
     
     var body: some View {
-        VStack {
-            VStack {
+        
+        NavigationView {
+            ScrollView(showsIndicators: false) {
                 HStack {
-                    SearchTFView(searchText: searchText)
-                        .padding(.leading, 20)
-                    Button {
-                        // action
-                        print("tap button")
-                        isFiltered.toggle()
-                    } label: {
-                        Image(systemName: "line.3.horizontal.decrease.circle")
-                            .rotationEffect(.degrees(isFiltered ? 0 : 180))
-                            .foregroundColor(.black)
-                            .frame(width: 56, height: 56)
-                            .background(Color.gray.opacity(0.3))
-                            .cornerRadius(4)
-                            .padding(.trailing, 20)
-                    }
-                }.padding(.top, 32)
-                
-                HStack {
-                    Text("Categories")
-                        .font(.system(size: 20, weight: .heavy))
-                    Spacer()
-                }
-                .padding(.leading, 20)
-                .padding(.top, 32)
-                
-                NavigationView {
-                    ScrollView {
-                        LazyVGrid(columns: columns, alignment: .center, spacing: 20) {
-                            ForEach(isFiltered 
-                                    ? categoriesList.sorted(by: <)
-                                    : categoriesList.sorted(by: >), id: \.self) { category in
-                                NavigationLink(destination: CategoryDetailsView(viewModel: viewModel, category: category)) {
-                                    CategoryCell(category: category, image: image)
-                                        .cornerRadius(8)
-                                }
-                            }
+                    
+                    SearchView(searchText: $searchText,
+                               viewModel: viewModel,
+                               focusField: $isFocused)
+                    
+                    if isFocused {
+                        Button {
+                            viewModel.fetchSearchBooks(query: searchText)
+                        } label: {
+                            Image(systemName: "magnifyingglass")
+                                .foregroundColor(viewModel.isLightTheme ? .black : .gray)
+                                .frame(width: 56, height: 56)
+                                .background(Color.gray.opacity(0.3))
+                                .cornerRadius(4)
+                        }
+                    } else {
+                        Button {
+                            isFiltered.toggle()
+                        } label: {
+                            Image(systemName: "line.3.horizontal.decrease.circle")
+                                .rotationEffect(.degrees(isFiltered ? 0 : 180))
+                                .foregroundColor(viewModel.isLightTheme ? .black : .gray)
+                                .frame(width: 56, height: 56)
+                                .background(Color.gray.opacity(0.3))
+                                .cornerRadius(4)
                         }
                     }
-                    .padding()
                 }
+                
+                if searchText.isEmpty {
+                    CategoryListView(viewModel: viewModel, isFiltered: $isFiltered)
+                } else {
+                    EmptyViewSearch(query: $searchText, viewModel: viewModel)
+                }
+            }
+            .padding()
+            .onTapGesture {
+                isFocused = false
             }
         }
     }
