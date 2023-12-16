@@ -11,6 +11,7 @@ struct ProductView: View {
 
     @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject private var viewModel: BookAppViewModel
+    @ObservedObject var coreData = CoreData()
 
     @State private var isWebViewPresented = false
     
@@ -102,8 +103,16 @@ struct ProductView: View {
                 viewModel.fetchRatingBook(id: keyBook)
             }
             .onDisappear {
-                viewModel.detailBook = nil
+                if let detailBook = viewModel.detailBook {
+                    print("Print DETAIL - \(detailBook)")
+                    coreData.addBook(book: detailBook, iaBook: iaBook, authorName: authorName)
+//                    print("SavedRecentBooks - \(coreData.savedRecentBooks)")
+                }
+//                sleep(2)
                 viewModel.ratingBook = nil
+                viewModel.detailBook = nil
+                print("SavedRecentBooks - \(coreData.savedRecentBooks)")
+                coreData.fetchRecentBooks()
             }
         }
     }
