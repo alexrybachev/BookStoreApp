@@ -127,6 +127,58 @@ class User: ObservableObject {
         fbWrite()
        
     }
+    func fireBaseWrite(addToFavorite listName: String, bookName: String, bookCode: String) {
+        
+        guard var currentUserData = self.userData else {return}
+        
+        guard var favsList = currentUserData[K.FAVS] as? [String: Any] else {
+            currentUserData[K.FAVS] = [
+                K.FAVS : [
+                    "name": K.FAVS
+                ]
+            ]
+            
+            self.userData = currentUserData
+            fbWrite()
+            return
+        }
+        
+        if var selectedList = favsList[K.FAVS] as? [String: Any] {
+            
+            var bookId = 1
+            
+            if var books = selectedList[K.BOOKS] as? [String: Any] {
+                var count = 0
+                for (_, _) in books {
+                    count += 1
+                }
+                bookId = count + 1
+                
+                books["book_id\(bookId)"] = [
+                    "title": bookName,
+                    "code": bookCode
+                ]
+                
+                
+                selectedList[K.BOOKS] = books
+            } else {
+                
+                selectedList[K.BOOKS] = [
+                    "book_id\(bookId)" : [
+                        "title": bookName,
+                        "code": bookCode
+                    ]
+                ]
+                
+            }
+            
+            favsList = selectedList
+            currentUserData[K.FAVS] = favsList
+            self.userData = currentUserData
+            fbWrite()
+            
+        }
+    }
     
     func fireBaseWrite(newBook bookName: String, bookCode: String, listIndex: Int) {
         
@@ -209,20 +261,23 @@ class User: ObservableObject {
         return tempArray
     }
     
-    func getBookArray() -> [FireBook]{
+    func getBookArray(for listID: Int, isFav: Bool? = false) -> [FireBook]{
         
         var tempArray: [FireBook] = []
         if let currentList = self.userData?[K.LISTS] as? [String: Any] {
             
-            for (_, value) in currentList {
-                
-                    if case let listItem as  [String: Any] = value {
+            for (key, value) in currentList {
+                print("key", key)
+                if (key == "list_id\(listID)") || (isFav ?? false && key == K.FAVS) {
+                    print ("I got inside")
+                    
+                    if case let listItem as [String: Any] = value {
                         
                         if case let booksArray as [String: Any] = listItem["books"] {
                             
                             
                             for (_, value) in booksArray {
-                  
+                                
                                 if case let book as [String: String] = value {
                                     
                                     tempArray.append(FireBook(name: book[K.TITLE] ?? "error", id: book[K.CODE] ?? "error"))
@@ -230,6 +285,7 @@ class User: ObservableObject {
                             }
                         }
                     }
+                }
                 
             }
         }
