@@ -31,11 +31,11 @@ final class BookAppViewModel: ObservableObject {
             do {
                 let trendsQuery = try await NetworkManager.shared.getTopTrends(trend: selectedTrend)
                 DispatchQueue.main.async {
-//                    print("WORKS:\n\(trendsQuery.works)")
+                    print("WORKS:\n\(trendsQuery.works)")
                     self.topTrends = trendsQuery.works
                 }
             } catch let error {
-//                print("Fetch Trends Error: \(error.localizedDescription)")
+                print("Fetch Trends Error: \(error.localizedDescription)")
             }
         }
     }
@@ -46,11 +46,11 @@ final class BookAppViewModel: ObservableObject {
             do {
                 let searchBooks = try await NetworkManager.shared.searchQuery(search: query)
                 DispatchQueue.main.async {
-//                    print("SEARCH WORKS:\n\(searchBooks.docs)")
+                    print("SEARCH WORKS:\n\(searchBooks.docs)")
                     self.searchBooksList = searchBooks.docs
                 }
             } catch let error {
-//                print("Fetch Trends Error: \(error.localizedDescription)")
+                print("Fetch Trends Error: \(error.localizedDescription)")
             }
         }
     }
@@ -61,11 +61,11 @@ final class BookAppViewModel: ObservableObject {
             do {
                 let categories = try await NetworkManager.shared.getCategories(name: category)
                 DispatchQueue.main.async {
-//                    print("CATEGORY WORKS:\n\(categories.works)")
+                    print("CATEGORY WORKS:\n\(categories.works)")
                     self.categoriesList = categories.works
                 }
             } catch let error {
-//                print("Fetch Trends Error: \(error.localizedDescription)")
+                print("Fetch Trends Error: \(error.localizedDescription)")
             }
         }
     }
@@ -75,11 +75,11 @@ final class BookAppViewModel: ObservableObject {
             do {
                 let detailBook = try await NetworkManager.shared.getDetailBook(id: id)
                 DispatchQueue.main.async {
-//                    print("DETAIL BOOK:\n\(detailBook)")
+                    print("DETAIL BOOK:\n\(detailBook)")
                     self.detailBook = detailBook
                 }
             } catch let error {
-//                print("Fetch Trends Error: \(error.localizedDescription)")
+                print("Fetch Trends Error: \(error.localizedDescription)")
             }
         }
     }
@@ -90,11 +90,11 @@ final class BookAppViewModel: ObservableObject {
             do {
                 let ratingBook = try await NetworkManager.shared.getRatingById(id: id)
                 DispatchQueue.main.async {
-//                    print("RAITING BOOK:\n\(ratingBook)")
+                    print("RAITING BOOK:\n\(ratingBook)")
                     self.ratingBook = ratingBook
                 }
             } catch let error {
-//                print("Fetch Trends Error: \(error.localizedDescription)")
+                print("Fetch Trends Error: \(error.localizedDescription)")
             }
         }
     }

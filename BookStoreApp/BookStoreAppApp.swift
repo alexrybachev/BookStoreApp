@@ -7,7 +7,6 @@
 
 import SwiftUI
 import FirebaseCore
-import FirebaseDatabase
 
 final class AppDelegate: NSObject, UIApplicationDelegate {
     
@@ -25,7 +24,6 @@ struct BookStoreAppApp: App {
     @AppStorage("isOnboarding") var isOnboarding: Bool = true
     
     @StateObject private var viewModel = BookAppViewModel()
-    @StateObject private var user = User()
     
     var appearanceSwitch: ColorScheme? {
         viewModel.isLightTheme ? .light : .dark
@@ -38,7 +36,6 @@ struct BookStoreAppApp: App {
             } else {
                 TabBarView(viewModel: viewModel)
                     .environmentObject(viewModel)
-                    .environmentObject(user)
             }
         }
     }

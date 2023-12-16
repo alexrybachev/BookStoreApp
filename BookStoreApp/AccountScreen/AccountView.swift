@@ -9,15 +9,23 @@
 // Registered Test User password: 123456
 
 import SwiftUI
+import FirebaseAuth
 
 struct AccountView: View {
     
     // MARK: - View params
-    @State var email = "1@2.ru"
-    @State var userName = "Filipp"
-    @State var password = "123456"
-        
-    @EnvironmentObject var user: User
+    @State var email = ""
+    @State var password = ""
+    @State var userIsRegistered = false {
+        didSet{
+            if userIsRegistered == false {
+                email = ""
+                password = ""
+            }
+        }
+    }
+    
+    @State var firebaseAuth = Auth.auth()
     
     // MARK: - ViewBuilder items
     @ViewBuilder private var tempAuthForm: some View {
@@ -26,11 +34,6 @@ struct AccountView: View {
                 Section ("Enter E-mail"){
                     TextField("E-mail", text: $email)
                 }
-                
-                Section ("Enter Name"){
-                    TextField("Name", text: $userName)
-                }
-                
                 Section ("Enter password"){
                     TextField("Password", text: $password)
                 }
@@ -43,25 +46,16 @@ struct AccountView: View {
         HStack{
             Spacer()
             Button {
-                if user.userIsAuthorized {
-                    user.logoutUser()
-                    email = ""
-                    userName = ""
-                    password = ""
-                } else {
-                    user.loginUser(email: email, password: password)
-                    email = user.getUserEmail()
-                    userName = user.getUserName()
-                }
+                userIsRegistered ? logoutUser() : loginUser()
             }
         label:{
-            Text(user.userIsAuthorized ? "Log out" : "Login")
+            Text(userIsRegistered ? "Log out" : "Login")
                 .font(Font.custom("Open Sans", size: 18))
                 .fontWeight(.bold)
         }
             Spacer()
             Button {
-                user.registerUser(email: email, userName: userName, password: password)
+                registerUser()
             } label: {
                 Text("Register")
                     .font(Font.custom("Open Sans", size: 18))
@@ -80,7 +74,7 @@ struct AccountView: View {
     
     var body: some View {
         NavigationView {
-            VStack {
+            VStack{
                 Image("account_circle")
                     .frame(width: 120, height: 120)
                     .padding()
@@ -88,7 +82,7 @@ struct AccountView: View {
                     Text("Name :")
                         .font(Font.custom("Open Sans", size: 14))
                     Spacer()
-                    Text(user.userIsAuthorized ? email : "John Doe")
+                    Text(userIsRegistered ? email : "John Doe")
                         .font(Font.custom("Open Sans", size: 16))
                         .fontWeight(.bold)
                     Spacer()
@@ -97,15 +91,6 @@ struct AccountView: View {
                 .padding()
                 .background(Color(red: 0.87, green: 0.87, blue: 0.87))
                 .cornerRadius(5)
-                .padding(.bottom)
-               
-                NavigationLink {
-                    AccountListsView()
-                } label: {
-                    AccountButton(displayText: "My Lists")
-                        .foregroundColor(.primary)
-                }
-
                 
                 Spacer()
                 
@@ -124,7 +109,34 @@ struct AccountView: View {
     
     // MARK: - Methods
     
-
+    func registerUser() {
+        firebaseAuth.createUser(withEmail: email, password: password) { authResult, error in
+            if let e = error {
+                print(e)
+            } else {
+                userIsRegistered = true
+            }
+        }
+    }
+    
+    func loginUser() {
+        firebaseAuth.signIn(withEmail: email, password: password) { authResult, error in
+            if let e = error {
+                print(e)
+            } else {
+                userIsRegistered = true
+            }
+        }
+    }
+    
+    func logoutUser() {
+        do {
+          try firebaseAuth.signOut()
+            userIsRegistered = false
+        } catch let signOutError as NSError {
+          print("Error signing out: %@", signOutError)
+        }
+    }
 }
 
 #Preview {
