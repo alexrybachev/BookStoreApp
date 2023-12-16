@@ -8,11 +8,8 @@
 import SwiftUI
 
 struct MainView: View {
-    
     @ObservedObject var viewModel: BookAppViewModel
     @ObservedObject var coreData: CoreData
-    
-//    @State private var selectedPicker = 1
     
     @State var seeMoreTop: Bool = true
     @State var seeMoreRecent: Bool = true
@@ -23,7 +20,11 @@ struct MainView: View {
                 TitleView(text: "Top Books", 
                           seeMore: $seeMoreTop)
                 
-                PickerView(viewModel: viewModel)
+                if viewModel.isLightTheme {
+                    PickerView(viewModel: viewModel)
+                } else {
+                    PickerViewDarkTheme(viewModel: viewModel)
+                }
                 
                 if seeMoreTop {
                     if viewModel.topTrends.isEmpty {

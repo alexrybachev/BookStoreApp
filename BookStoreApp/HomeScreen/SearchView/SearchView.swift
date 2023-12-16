@@ -9,44 +9,48 @@ import SwiftUI
 
 struct SearchView: View {
     @Binding var searchText: String
-    
     @ObservedObject var viewModel: BookAppViewModel
+   
+    var focusField: FocusState<Bool>.Binding
     
     var body: some View {
         HStack {
             HStack {
                 Image(systemName: "magnifyingglass")
-                    .font(.title)
-                    .foregroundColor(.black)
+                    .font(.title3)
+                    .foregroundColor(viewModel.isLightTheme ? .black : .gray)
                     .padding(10)
                 
                 TextField("Search books by title/author", text: $searchText)
-                    .font(Font.system(size: 14))
-                    .foregroundStyle(.black)
-                    .padding(.vertical, 18)
+                    .onTapGesture {
+                        focusField.wrappedValue = true
+                    }
+                    .foregroundColor(viewModel.isLightTheme ? .black : .gray)
+                    .frame(height: 56)
+                    .multilineTextAlignment(.center)
+                    .focused(focusField)
+                    .tint(viewModel.isLightTheme ? .black : .gray)
                 
                 Button {
                     searchText = ""
                     viewModel.searchBooksList = []
+                    focusField.wrappedValue = false
                 } label: {
                     Image(systemName: "x.circle")
                         .font(.title3)
                         .padding(.horizontal, 10)
                         .opacity(searchText.isEmpty ? 0 : 0.8)
+                        .foregroundStyle(viewModel.isLightTheme ? .black : .gray)
                 }
-                
             }
-            .background(.backgroundSearchBar)
-            .cornerRadius(10)
-            
-            Button("Search") {
+            .background(Color.gray.opacity(0.3))
+            .cornerRadius(4)
+            .onSubmit {
+                focusField.wrappedValue = false
                 viewModel.fetchSearchBooks(query: searchText)
             }
+            
         }
- 
+//        .animation(.bouncy, value: focusField.wrappedValue)
     }
-}
-
-#Preview {
-    SearchView(searchText: .constant("asd"), viewModel: BookAppViewModel())
 }

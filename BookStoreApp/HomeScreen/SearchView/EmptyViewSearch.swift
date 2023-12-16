@@ -16,15 +16,31 @@ struct EmptyViewSearch: View {
     ]
 
     var body: some View {
-        VStack {
-            LazyVGrid(columns: columns, alignment: .center, spacing: 20) {
-                ForEach(viewModel.searchBooksList, id: \.isbn) { book in
-                    NavigationLink(destination: ProductView(keyBook: book.key, iaBook: book.ia?[0] ?? "" , authorName: book.authorNames)) {
-                        ItemViewSearch(book: book)
+        ZStack {
+            
+            Color(.secondarySystemBackground).ignoresSafeArea()
+            
+            VStack {
+                LazyVGrid(columns: columns, alignment: .center, spacing: 20) {
+                    ForEach(viewModel.searchBooksList, id: \.isbn) { book in
+                        NavigationLink(destination: ProductView(keyBook: book.key, iaBook: book.ia?[0] ?? "" , authorName: book.authorNames)) {
+                            ItemViewSearch(book: book)
+                        }
                     }
+                }
             }
+            .preferredColorScheme(viewModel.isLightTheme ? .light : .dark)
         }
         
+    }
+}
+
+
+
+#Preview {
+    EmptyViewSearch(query: .constant("harry potter"), viewModel: BookAppViewModel())
+}
+
 //        NavigationView {
 //            ScrollView(showsIndicators: false) {
 //                LazyVGrid(columns: columns, alignment: .center, spacing: 20) {
@@ -35,12 +51,3 @@ struct EmptyViewSearch: View {
 //                .padding(.horizontal, 5)
 //            }
 //            .background(.yellow)
-        }
-    }
-}
-
-
-
-#Preview {
-    EmptyViewSearch(query: .constant("harry potter"), viewModel: BookAppViewModel())
-}
