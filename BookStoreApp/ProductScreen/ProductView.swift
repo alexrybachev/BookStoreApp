@@ -66,23 +66,14 @@ struct ProductView: View {
                     
                 }
             }
-//            .navigationTitle(viewModel.detailBook?.title ?? "No name")
             .navigationBarBackButtonHidden(true)
-            .navigationBarItems(
-                leading: CustomNavButton(image: Self.backButtonIbage, action: {
-                    presentationMode.wrappedValue.dismiss()
-                }),
-                trailing: user.userIsAuthorized
-                ? CustomNavButton(image: Self.likeButtonImage, action: { addToLikeTapped() })
-                : nil
+            .navigationBarItems(leading: CustomNavButton(image: Self.backButtonIbage,
+                                                         action: { presentationMode.wrappedValue.dismiss() }),
+                                trailing: user.userIsAuthorized
+                                ? CustomNavButton(image: Self.likeButtonImage,
+                                                  action: { addToLikeTapped() })
+                                : nil
             )
-            
-//            NavigationLink(
-//                destination: WebView(urlString: iaBook),
-//                isActive: $isWebViewPresented
-//            ) {
-//                EmptyView()
-//            }
             .padding()
             .preferredColorScheme(viewModel.isLightTheme ? .light : .dark)
             .onAppear {
@@ -105,6 +96,7 @@ struct ProductView: View {
     }
 
     private func addToLikeTapped() {
+        user.fireBaseWrite(addToFavorite: "Favorits", bookName: iaBook, bookCode: keyBook)
     }
 
     private func openWebView() {

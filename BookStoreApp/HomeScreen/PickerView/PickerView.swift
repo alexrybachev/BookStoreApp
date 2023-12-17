@@ -40,6 +40,7 @@ struct PickerView: View {
                 }
             }
         }
+        .preferredColorScheme(viewModel.isLightTheme ? .light : .dark)
         .onAppear {
             selectedTrend = viewModel.selectedTrend
         }
