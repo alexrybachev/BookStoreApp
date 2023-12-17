@@ -12,6 +12,8 @@ struct CartView: View {
     @EnvironmentObject var user: User
     @EnvironmentObject var coreData: CoreData
     
+    @State private var favoriteBooks: [FireBook]?
+    
     private let columns = [
         GridItem(.adaptive(minimum: 150))
     ]
@@ -23,47 +25,46 @@ struct CartView: View {
                 Color(.secondarySystemBackground)
                     .ignoresSafeArea()
                 
-                //                VStack {
-                
                 VStack {
                     Text("Likes")
                         .font(.title)
                         .fontWeight(.bold)
                     
-                    /*
-                     if user.userIsAuthorized {
-                     Text("User Is Authorized: \(user.getListArray().joined(separator: ", "))")
-                     } else {
-                     Text("User Isn't Authorized")
-                     }
-                     
-                     Spacer()
-                     */
                     ScrollView {
-                        LazyVGrid(columns: columns) {
-                            ForEach(coreData.savedRecentBooks.reversed(), id: \.self) { book in
-                                RecentBook(title: book.titleName ?? "",
-                                           author: book.author ?? "",
-                                           image: book.coverId ?? "")
+                        if !user.userIsAuthorized {
+                            Text("User Isn't Authorized")
+                        } else if let favoriteBooks = favoriteBooks {
+                            LazyVGrid(columns: columns) {
+                                ForEach(favoriteBooks, id: \.self) { book in
+                                    NavigationLink(destination: ProductView(keyBook: book.name, iaBook: book.iaBook, authorName: book.authorName)) {
+                                        RecentBook(title: book.name,
+                                                   author: book.authorName,
+                                                   image: book.id)
+                                    }
+                                }
                             }
+                            .padding(.horizontal, 5)
+                        } else {
+                            Text("No favorite books")
                         }
-                        .padding(.horizontal, 5)
                     }
                     
                 }
-                //                }
                 
             }
             
         }
         .onAppear {
-            user.fireBaseRead()
-            coreData.fetchRecentBooks()
+            if user.userIsAuthorized {
+                favoriteBooks = user.getBookArray(isFav: true)
+            } else {
+                print("User wasn't logined")
+            }
         }
     }
     
 }
 
-#Preview {
-    CartView()
-}
+//#Preview {
+//    CartView()
+//}

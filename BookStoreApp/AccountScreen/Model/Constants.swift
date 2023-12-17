@@ -16,4 +16,6 @@ struct K {
     static var BOOKS = "books"
     static var TITLE = "title"
     static var CODE = "code"
+    static var IABOOK = "iaBook"
+    static var AUTHOR_NAME = "authorName"
 }

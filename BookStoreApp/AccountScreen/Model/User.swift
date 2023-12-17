@@ -37,7 +37,7 @@ final class User: ObservableObject {
     private (set) var userData: [String: Any]?
     
     
-   
+    
     
     // MARK: - FB Auth methods
     
@@ -72,10 +72,10 @@ final class User: ObservableObject {
     
     func logoutUser() {
         do {
-          try firebaseAuth.signOut()
+            try firebaseAuth.signOut()
             userIsAuthorized = false
         } catch let signOutError as NSError {
-          print("Error signing out: %@", signOutError)
+            print("Error signing out: %@", signOutError)
         }
     }
     
@@ -95,11 +95,11 @@ final class User: ObservableObject {
     func fireBaseWrite(newList listName: String) {
         
         guard var currentUserData = self.userData else {return}
-            
-            print("value from userData ", currentUserData)
-            
-            var listId = 1
-            
+        
+        print("value from userData ", currentUserData)
+        
+        var listId = 1
+        
         
         if var currentListList = currentUserData[K.LISTS] as? [String: Any]{
             var count = 0
@@ -115,25 +115,29 @@ final class User: ObservableObject {
             
             currentUserData[K.LISTS] = currentListList
         } else {
-                        
+            
             currentUserData[K.LISTS] = [
                 "list_id\(listId)" : [
                     "name": listName
                 ]
             ]
         }
-            
+        
         self.userData = currentUserData
         
         fbWrite()
-       
+        
     }
     
-    func fireBaseWrite(addToFavorite listName: String, bookName: String, bookCode: String) {
+    func fireBaseWrite(addToFavorite bookName: String, bookCode: String, iaBook: String, authorName: String) {
         
-        guard var currentUserData = self.userData else {return}
+        guard var currentUserData = self.userData else {
+            print("didn't get any currentUserData")
+            return
+        }
         
         guard var favsList = currentUserData[K.FAVS] as? [String: Any] else {
+            print("didn't get favsList")
             currentUserData[K.FAVS] = [
                 K.FAVS : [
                     "name": K.FAVS
@@ -145,48 +149,58 @@ final class User: ObservableObject {
             return
         }
         
-        if var selectedList = favsList[K.FAVS] as? [String: Any] {
+        print("favsList: ", favsList)
+        
+        //        if var selectedList = favsList[K.FAVS] as? [String: Any] {
+        //            print("selectedList: ", selectedList)
+        
+        var bookId = 1
+        
+        if var books = favsList[K.BOOKS] as? [String: Any] {
+            print("books: ", books)
             
-            var bookId = 1
-            
-            if var books = selectedList[K.BOOKS] as? [String: Any] {
-                var count = 0
-                for (_, _) in books {
-                    count += 1
-                }
-                bookId = count + 1
-                
-                books["book_id\(bookId)"] = [
-                    "title": bookName,
-                    "code": bookCode
-                ]
-                
-                
-                selectedList[K.BOOKS] = books
-            } else {
-                
-                selectedList[K.BOOKS] = [
-                    "book_id\(bookId)" : [
-                        "title": bookName,
-                        "code": bookCode
-                    ]
-                ]
-                
+            var count = 0
+            for (_, _) in books {
+                count += 1
             }
+            bookId = count + 1
             
-            favsList = selectedList
-            currentUserData[K.FAVS] = favsList
-            self.userData = currentUserData
-            fbWrite()
+            books["book_id\(bookId)"] = [
+                K.TITLE: bookName,
+                K.CODE: bookCode,
+                K.IABOOK: iaBook,
+                K.AUTHOR_NAME: authorName
+            ]
+            
+            print("updated books: ", books)
+            
+            favsList[K.BOOKS] = books
+        } else {
+            
+            favsList[K.BOOKS] = [
+                "book_id\(bookId)" : [
+                    K.TITLE: bookName,
+                    K.CODE: bookCode,
+                    K.IABOOK: iaBook,
+                    K.AUTHOR_NAME: authorName
+                ]
+            ]
             
         }
+        
+        //            favsList = selectedList
+        currentUserData[K.FAVS] = favsList
+        self.userData = currentUserData
+        fbWrite()
+        
+        //        }
     }
     
-    func fireBaseWrite(newBook bookName: String, bookCode: String, listIndex: Int) {
+    func fireBaseWrite(newBook bookName: String, bookCode: String, listIndex: Int, iaBook: String, authorName: String) {
         
         guard var currentUserData = self.userData else {return}
-                        
-            
+        
+        
         if var currentListList = currentUserData[K.LISTS] as? [String: Any]{
             if var selectedList = currentListList["list_id\(listIndex+1)"] as? [String: Any] {
                 
@@ -202,8 +216,10 @@ final class User: ObservableObject {
                     bookId = count + 1
                     
                     books["book_id\(bookId)"] = [
-                        "title": bookName,
-                        "code": bookCode
+                        K.TITLE: bookName,
+                        K.CODE: bookCode,
+                        K.IABOOK: iaBook,
+                        K.AUTHOR_NAME: authorName
                     ]
                     print("updated books in selectedList: ", books)
                     
@@ -213,12 +229,13 @@ final class User: ObservableObject {
                     
                     selectedList[K.BOOKS] = [
                         "book_id\(bookId)" : [
-                            "title": bookName,
-                            "code": bookCode
+                            K.TITLE: bookName,
+                            K.CODE: bookCode,
+                            K.IABOOK: iaBook,
+                            K.AUTHOR_NAME: authorName
                         ]
                     ]
                 }
-                                
                 
                 currentListList["list_id\(listIndex+1)"] = selectedList
                 currentUserData[K.LISTS] = currentListList
@@ -226,10 +243,10 @@ final class User: ObservableObject {
                 fbWrite()
             }
         }
-                        
-            
         
-       
+        
+        
+        
     }
     
     func fireBaseRead(){
@@ -263,29 +280,75 @@ final class User: ObservableObject {
         return tempArray
     }
     
-    func getBookArray(for listID: Int, isFav: Bool? = false) -> [FireBook]{
+    func getBookArray(for listID: Int) -> [FireBook]{
         
         var tempArray: [FireBook] = []
         if let currentList = self.userData?[K.LISTS] as? [String: Any] {
             
             for (key, value) in currentList {
                 print("key", key)
-                if (key == "list_id\(listID)") || (isFav ?? false && key == K.FAVS) {
+                if (key == "list_id\(listID)") {
                     print ("I got inside")
                     
                     if case let listItem as [String: Any] = value {
                         
                         if case let booksArray as [String: Any] = listItem["books"] {
                             
-                            
                             for (_, value) in booksArray {
                                 
                                 if case let book as [String: String] = value {
                                     
-                                    tempArray.append(FireBook(name: book[K.TITLE] ?? "error", id: book[K.CODE] ?? "error"))
+                                    tempArray.append(
+                                        FireBook(name: book[K.TITLE] ?? "error",
+                                                 id: book[K.CODE] ?? "error",
+                                                 iaBook: book[K.IABOOK] ?? "error",
+                                                 authorName: book[K.AUTHOR_NAME] ?? "error"
+                                                )
+                                    )
                                 }
                             }
                         }
+                    }
+                }
+                
+            }
+        }
+        return tempArray
+    }
+    
+    func getBookArray(isFav: Bool) -> [FireBook]{
+        
+        var tempArray: [FireBook] = []
+        if let currentList = self.userData?[K.FAVS] as? [String: Any] {
+            
+            for (key, value) in currentList {
+                print("key: ", key, " - value: ", value)
+                if key == K.BOOKS {
+                    print ("I got inside")
+                    
+                    if case let listItem as [String: Any] = value {
+                        print("listItem: ", listItem)
+                        
+                        for (_, value) in listItem {
+                            if case let book as [String: String] = value {
+                                tempArray.append(FireBook(name: book[K.TITLE] ?? "error",
+                                                          id: book[K.CODE] ?? "error",
+                                                          iaBook: book[K.IABOOK] ?? "error",
+                                                          authorName: book[K.AUTHOR_NAME] ?? "error")
+                                )
+                            }
+                        }
+                        
+                        //                        if case let booksArray as [String: Any] = listItem["books"] {
+                        //
+                        //                            for (_, value) in booksArray {
+                        //
+                        //                                if case let book as [String: String] = value {
+                        //
+                        //                                    tempArray.append(FireBook(name: book[K.TITLE] ?? "error", id: book[K.CODE] ?? "error"))
+                        //                                }
+                        //                            }
+                        //                        }
                     }
                 }
                 
@@ -322,16 +385,16 @@ final class User: ObservableObject {
     }
     
     private func fillInUserDetails(email: String, userID: String) {
-         self.userIsAuthorized = true
-         self.email = email
-         self.userID = userID
-     }
-     
-     private func clearUserDetails() {
-         self.userIsAuthorized = false
-         self.userID = nil
-         self.email = nil
-         self.userID = nil
-         self.userData = nil
-     }
+        self.userIsAuthorized = true
+        self.email = email
+        self.userID = userID
+    }
+    
+    private func clearUserDetails() {
+        self.userIsAuthorized = false
+        self.userID = nil
+        self.email = nil
+        self.userID = nil
+        self.userData = nil
+    }
 }

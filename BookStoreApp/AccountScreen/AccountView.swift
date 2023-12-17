@@ -16,7 +16,7 @@ struct AccountView: View {
     @EnvironmentObject var viewModel: BookAppViewModel
     
     // MARK: - View params
-    @State var email = "1@2.ru"
+    @State var email = "21@2.ru"
     @State var userName = "Filipp"
     @State var password = "123456"
     
@@ -50,6 +50,7 @@ struct AccountView: View {
                     password = ""
                 } else {
                     user.loginUser(email: email, password: password)
+                    sleep(2)
                     email = user.getUserEmail()
                     userName = user.getUserName()
                 }

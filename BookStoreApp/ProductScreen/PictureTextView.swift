@@ -14,11 +14,16 @@ struct PictureTextView: View {
     
     @State private var showLoginAlert = false
     @State private var showSuccessAlert = false
+    @State private var isDetailViewActive = false
 
+    let titleBook: String
     let coverId: String
     let authorName: String
     let category: String
     let rating: String
+    let keyBook: String
+    let iaBook: String
+    
 
     let openWebViewAction: () -> ()
     let alertTitletoRead = "Добавили!"
@@ -55,10 +60,34 @@ struct PictureTextView: View {
                     Text(rating)
                         .font(.system(size: 14, weight: .bold))
                     
-                    PictureTextViewCustomButton(title: "Add to list", color: .gray) {
-                        !user.userIsAuthorized ? showGoToLoginAlert() : showAddedToListAlert()
+                    if user.userIsAuthorized {
+                        
+                        NavigationLink(
+                            destination: AccountListsView(titleBook: titleBook,
+                                                          keyBook: keyBook,
+                                                          iaBook: iaBook,
+                                                          authorName: authorName)
+                        ) {
+                            PictureTextViewCustomButton(title: "Add to list", color: .gray) {
+                                print("tap Add to list")
+                            }
+                            .disabled(true)
+                            .padding(.top, 21)
+                        }
+                        
+//                        NavigationLink(destination: AccountListsView()) {
+//                            PictureTextViewCustomButton(title: "Add to list", color: .gray) {
+////                                showAddedToListAlert()
+//                                print("tap Add to list")
+//                            }
+//                            .padding(.top, 21)
+//                        }
+                    } else {
+                        PictureTextViewCustomButton(title: "Add to list", color: .gray) {
+                            showGoToLoginAlert()
+                        }
+                        .padding(.top, 21)
                     }
-                    .padding(.top, 21)
                     
                     PictureTextViewCustomButton(title: "Read", color: .black) {
 //                        !user.userIsAuthorized ? showGoToLoginAlert() : openWebViewAction()
@@ -84,6 +113,11 @@ struct PictureTextView: View {
             }
             .padding()
         }
+//        .onAppear {
+//            if user.userIsAuthorized {
+//                isDetailViewActive = true
+//            }
+//        }
     }
 
     private func goToLoginTapped() {
@@ -95,27 +129,28 @@ struct PictureTextView: View {
     }
 
     private func showAddedToListAlert() {
-        showSuccessAlert = true
-        addToList()
+        print(#function)
+        isDetailViewActive = true
     }
 
-    private func addToList() {
-        // request to vm
-        // after - show success eee!
-        print("addToList")
-        
-    }
+//    private func addToList() {
+//        // request to vm
+//        // after - show success eee!
+//        print("addToList")
+//
+//        isDetailViewActive = true
+//    }
 }
 
-#Preview {
-    PictureTextView(
-        coverId: "test",
-        authorName: "authorName",
-        category: "category",
-        rating: "4/5",
-        openWebViewAction: {}
-    )
-}
+//#Preview {
+//    PictureTextView(
+//        coverId: "test",
+//        authorName: "authorName",
+//        category: "category",
+//        rating: "4/5",
+//        openWebViewAction: {}
+//    )
+//}
 
 struct PictureTextViewCustomButton: View {
     let title: String
