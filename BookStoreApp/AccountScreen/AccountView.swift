@@ -16,7 +16,7 @@ struct AccountView: View {
     @EnvironmentObject var viewModel: BookAppViewModel
     
     // MARK: - View params
-    @State var email = "19@2.ru"
+    @State var email = "21@2.ru"
     @State var userName = "Filipp"
     @State var password = "123456"
     

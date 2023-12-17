@@ -17,6 +17,11 @@ struct AccountListsView: View {
     @State private var newName = ""
     @State private var showModal = false
     
+    var titleBook: String = ""
+    var keyBook: String = ""
+    var iaBook: String = ""
+    var authorName: String = ""
+    
     // MARK: - ViewBuilder items
   
     
@@ -31,7 +36,14 @@ struct AccountListsView: View {
                     ForEach(0..<displayedListArray.count, id: \.self) { index in
                         
                         NavigationLink {
-                            AccountSelectedListView(listName: displayedListArray[index], listIndex: index)
+                            AccountSelectedListView(
+                                newName: titleBook,
+                                newCode: keyBook,
+                                newIaBook: iaBook,
+                                newAuthorBook: authorName,
+                                listName: displayedListArray[index],
+                                listIndex: index
+                            )
                         } label: {
                             AccountButton(displayText: displayedListArray[index])
                                 .foregroundColor(.primary)

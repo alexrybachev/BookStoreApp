@@ -10,8 +10,10 @@ import FirebaseDatabase
 
 
 struct FireBook: Hashable {
-    var name: String
-    var id: String
+    let name: String
+    let id: String
+    let iaBook: String
+    let authorName: String
 }
 
 struct AccountSelectedListView: View {
@@ -19,10 +21,12 @@ struct AccountSelectedListView: View {
     @Environment(\.dismiss) var dismiss
     @EnvironmentObject var user: User
     
-    @State private var displayedBooksArray: [FireBook] = []
-    @State private var newName = ""
-    @State private var newCode = "1111"
-    @State private var showModal = false
+    @State private var displayedBooksArray: [FireBook]?
+    
+    var newName = ""
+    var newCode = "1111"
+    var newIaBook = ""
+    var newAuthorBook = "1111"
     
     var listName: String
     var listIndex: Int
@@ -34,42 +38,40 @@ struct AccountSelectedListView: View {
                 AccountListNavigationBarView(title: listName, buttonAction: self.addButtonAction, dismiss: self._dismiss)
                 
                 VStack (spacing: 16){
-                    if !displayedBooksArray.isEmpty {
-                        
-                        ForEach(displayedBooksArray, id: \.self) {book in
-                            AccountButton(displayText: book.name)
+                    if let favoriteBooks = displayedBooksArray {
+                        ForEach(favoriteBooks, id: \.self) { book in
+                            NavigationLink(destination: ProductView(keyBook: book.name, iaBook: book.iaBook, authorName: book.authorName)) {
+                                RecentBook(title: book.name,
+                                           author: book.authorName,
+                                           image: book.id)
+                            }
                         }
+                        .padding(.horizontal, 5)
                     } else {
-                        Text("Please add books to your list")
+                        Text("No favorite books")
                     }
                 }
                 
                 Spacer()
             }
             .onAppear(){
-                
-                if displayedBooksArray.isEmpty {
-                    user.fireBaseRead()
-                    displayedBooksArray = user.getBookArray(for: listIndex+1)
-                }
-                
-            }
-            .alert("New Book", isPresented: $showModal) {
-                TextField("Enter new list name", text: $newName)
-                Button("Create list", action: addNewBook)
+                guard let displayedBooksArray = displayedBooksArray else { return }
+                user.fireBaseRead()
+                self.displayedBooksArray = user.getBookArray(for: listIndex+1)
             }
             .navigationBarBackButtonHidden(true)
         }
     }
     
     func addButtonAction() {
-        showModal.toggle()
+        addNewBook()
     }
     
     func addNewBook() {
-        displayedBooksArray.append(FireBook(name: newName, id: newCode))
-        user.fireBaseWrite(newBook: newName, bookCode: newCode, listIndex: listIndex)
-        newName = ""
+        guard var unwrappedArray = displayedBooksArray else { return }
+        unwrappedArray.append(FireBook(name: newName, id: newCode, iaBook: newIaBook, authorName: newAuthorBook))
+        displayedBooksArray = unwrappedArray
+        user.fireBaseWrite(newBook: newName, bookCode: newCode, listIndex: listIndex, iaBook: newIaBook, authorName: newAuthorBook)
     }
 }
 
