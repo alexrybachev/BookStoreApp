@@ -36,6 +36,7 @@ struct BookStoreAppApp: App {
         WindowGroup {
             if isOnboarding {
                 OnboardingView()
+                    .environmentObject(viewModel)
             } else {
                 TabBarView()
                     .environmentObject(viewModel)

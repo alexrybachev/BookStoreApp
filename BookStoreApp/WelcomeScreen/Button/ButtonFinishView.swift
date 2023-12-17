@@ -21,7 +21,6 @@ struct ButtonFinishView: View {
                 .frame(maxWidth: .infinity)
         }
         .customButton()
-        //.buttonStyle(.borderedProminent)
     }
 }
 

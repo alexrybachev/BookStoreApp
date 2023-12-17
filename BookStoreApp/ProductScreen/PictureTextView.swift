@@ -103,6 +103,7 @@ struct PictureTextView: View {
         // request to vm
         // after - show success eee!
         print("addToList")
+        
     }
 }
 

@@ -40,7 +40,8 @@ struct TabBarView: View {
                 }
                 .tag(3)
         }
-        .tint(.black)
+        .preferredColorScheme(viewModel.isLightTheme ? .light : .dark)
+        .tint(viewModel.isLightTheme ? .black : .white)
     }
 }
 

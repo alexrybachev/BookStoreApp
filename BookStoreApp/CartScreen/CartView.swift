@@ -10,39 +10,55 @@ import SwiftUI
 struct CartView: View {
     
     @EnvironmentObject var user: User
+    @EnvironmentObject var coreData: CoreData
+    
+    private let columns = [
+        GridItem(.adaptive(minimum: 150))
+    ]
     
     var body: some View {
         NavigationView {
+            
             ZStack {
-                
                 Color(.secondarySystemBackground)
                     .ignoresSafeArea()
                 
+                //                VStack {
+                
                 VStack {
+                    Text("Likes")
+                        .font(.title)
+                        .fontWeight(.bold)
                     
-                    VStack {
-                        Text("Likes")
-                        //                .font(.system(size: 20, weight: .heavy))
-                            .font(.title)
-                            .fontWeight(.bold)
-                        
-                        Spacer()
-                        
-                        if user.userIsAuthorized {
-                            Text("User Is Authorized: \(user.getListArray().joined(separator: ", "))")
-                        } else {
-                            Text("User Isn't Authorized")
+                    /*
+                     if user.userIsAuthorized {
+                     Text("User Is Authorized: \(user.getListArray().joined(separator: ", "))")
+                     } else {
+                     Text("User Isn't Authorized")
+                     }
+                     
+                     Spacer()
+                     */
+                    ScrollView {
+                        LazyVGrid(columns: columns) {
+                            ForEach(coreData.savedRecentBooks.reversed(), id: \.self) { book in
+                                RecentBook(title: book.titleName ?? "",
+                                           author: book.author ?? "",
+                                           image: book.coverId ?? "")
+                            }
                         }
-                        
-                        Spacer()
+                        .padding(.horizontal, 5)
                     }
+                    
                 }
+                //                }
                 
             }
             
         }
         .onAppear {
             user.fireBaseRead()
+            coreData.fetchRecentBooks()
         }
     }
     

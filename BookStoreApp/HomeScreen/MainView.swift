@@ -18,14 +18,14 @@ struct MainView: View {
     var body: some View {
         VStack {
             VStack {
-                TitleView(text: "Top Books", 
+                TitleView(text: "Top Books",
                           seeMore: $seeMoreTop)
                 
-                if viewModel.isLightTheme {
-                    PickerView()
-                } else {
-                    PickerViewDarkTheme()
-                }
+                //                if viewModel.isLightTheme {
+                PickerView()
+                //                } else {
+                //                    PickerViewDarkTheme()
+                //                }
                 
                 if seeMoreTop {
                     if viewModel.topTrends.isEmpty {
@@ -50,6 +50,7 @@ struct MainView: View {
                 }
             }
         }
+        .preferredColorScheme(viewModel.isLightTheme ? .light : .dark)
         .onAppear {
             viewModel.searchBooksList = []
             coreData.fetchRecentBooks()
