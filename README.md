@@ -8,6 +8,19 @@
 - API: https://openlibrary.org/developers/api
 - дизайн Figma: https://www.figma.com/file/INSIf4VR4wPaXeZn6meXSv/Bookstore-App?type=design&node-id=1102-436&mode=design&t=lzVdzy1XS9oPXYwu-0
 
+---
+
+# Разработчики / Developers *(team #9)*:
+
+* [alexrybachev *(teamleader)*](https://github.com/alexrybachev)
+* [Daniil](https://github.com/Senior-Pomidorr)
+* [MrMurman](https://github.com/MrMurman)
+* [Alex](https://github.com/ForestLamp)
+* [Michail_iOS](https://github.com/maestrocrash) 
+* [Daria](https://github.com/daryamoll)
+
+---
+
 # **Онбординг экран**
 
 **Сделать как минимум 3 страницы в онбординге**
