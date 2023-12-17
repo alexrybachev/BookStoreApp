@@ -57,7 +57,13 @@ struct CartView: View {
             
         }
         .onAppear {
-            user.fireBaseRead()
+            if user.userIsAuthorized {
+                print("User was logined")
+                user.fireBaseRead()
+                print("getListArray: \(user.getBookArray(isFav: true))")
+            } else {
+                print("User wasn't logined")
+            }
             coreData.fetchRecentBooks()
         }
     }

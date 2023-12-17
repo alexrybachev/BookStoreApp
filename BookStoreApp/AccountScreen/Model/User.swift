@@ -129,11 +129,15 @@ final class User: ObservableObject {
        
     }
     
-    func fireBaseWrite(addToFavorite listName: String, bookName: String, bookCode: String) {
+    func fireBaseWrite(addToFavorite bookName: String, bookCode: String) {
         
-        guard var currentUserData = self.userData else {return}
+        guard var currentUserData = self.userData else {
+            print("didn't get any currentUserData")
+            return
+        }
         
         guard var favsList = currentUserData[K.FAVS] as? [String: Any] else {
+            print("didn't get favsList")
             currentUserData[K.FAVS] = [
                 K.FAVS : [
                     "name": K.FAVS
@@ -145,11 +149,16 @@ final class User: ObservableObject {
             return
         }
         
-        if var selectedList = favsList[K.FAVS] as? [String: Any] {
+        print("favsList: ", favsList)
+        
+//        if var selectedList = favsList[K.FAVS] as? [String: Any] {
+//            print("selectedList: ", selectedList)
             
             var bookId = 1
             
-            if var books = selectedList[K.BOOKS] as? [String: Any] {
+            if var books = favsList[K.BOOKS] as? [String: Any] {
+                print("books: ", books)
+                
                 var count = 0
                 for (_, _) in books {
                     count += 1
@@ -161,11 +170,12 @@ final class User: ObservableObject {
                     "code": bookCode
                 ]
                 
+                print("updated books: ", books)
                 
-                selectedList[K.BOOKS] = books
+                favsList[K.BOOKS] = books
             } else {
                 
-                selectedList[K.BOOKS] = [
+                favsList[K.BOOKS] = [
                     "book_id\(bookId)" : [
                         "title": bookName,
                         "code": bookCode
@@ -174,12 +184,12 @@ final class User: ObservableObject {
                 
             }
             
-            favsList = selectedList
+//            favsList = selectedList
             currentUserData[K.FAVS] = favsList
             self.userData = currentUserData
             fbWrite()
             
-        }
+//        }
     }
     
     func fireBaseWrite(newBook bookName: String, bookCode: String, listIndex: Int) {
@@ -286,6 +296,44 @@ final class User: ObservableObject {
                                 }
                             }
                         }
+                    }
+                }
+                
+            }
+        }
+        return tempArray
+    }
+    
+    func getBookArray(isFav: Bool) -> [FireBook]{
+        
+        var tempArray: [FireBook] = []
+        if let currentList = self.userData?[K.FAVS] as? [String: Any] {
+            
+            for (key, value) in currentList {
+                print("key: ", key, " - value: ", value)
+                if key == K.BOOKS {
+                    print ("I got inside")
+                    
+                    if case let listItem as [String: Any] = value {
+                        print("listItem: ", listItem)
+                        
+                        for (_, value) in listItem {
+                            if case let book as [String: String] = value {
+                                tempArray.append(FireBook(name: book[K.TITLE] ?? "error", 
+                                                          id: book[K.CODE] ?? "error"))
+                            }
+                        }
+                        
+//                        if case let booksArray as [String: Any] = listItem["books"] {
+//                            
+//                            for (_, value) in booksArray {
+//                                
+//                                if case let book as [String: String] = value {
+//                                    
+//                                    tempArray.append(FireBook(name: book[K.TITLE] ?? "error", id: book[K.CODE] ?? "error"))
+//                                }
+//                            }
+//                        }
                     }
                 }
                 

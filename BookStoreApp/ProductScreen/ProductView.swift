@@ -96,7 +96,9 @@ struct ProductView: View {
     }
 
     private func addToLikeTapped() {
-        user.fireBaseWrite(addToFavorite: "Favorits", bookName: iaBook, bookCode: keyBook)
+        print(#function)
+        user.fireBaseWrite(addToFavorite: viewModel.detailBook?.title ?? "No book name",
+                           bookCode: keyBook)
     }
 
     private func openWebView() {
