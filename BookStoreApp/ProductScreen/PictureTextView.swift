@@ -75,13 +75,7 @@ struct PictureTextView: View {
                             .padding(.top, 21)
                         }
                         
-//                        NavigationLink(destination: AccountListsView()) {
-//                            PictureTextViewCustomButton(title: "Add to list", color: .gray) {
-////                                showAddedToListAlert()
-//                                print("tap Add to list")
-//                            }
-//                            .padding(.top, 21)
-//                        }
+
                     } else {
                         PictureTextViewCustomButton(title: "Add to list", color: .gray) {
                             showGoToLoginAlert()
@@ -113,11 +107,6 @@ struct PictureTextView: View {
             }
             .padding()
         }
-//        .onAppear {
-//            if user.userIsAuthorized {
-//                isDetailViewActive = true
-//            }
-//        }
     }
 
     private func goToLoginTapped() {

@@ -22,11 +22,12 @@ struct AccountSelectedListView: View {
     @EnvironmentObject var user: User
     
     @State private var displayedBooksArray: [FireBook]?
+    @State private var newBookAdded = false
     
-    var newName = ""
-    var newCode = "1111"
-    var newIaBook = ""
-    var newAuthorBook = "1111"
+    var titleBook: String
+    var keyBook: String
+    var iaBook: String
+    var authorName: String
     
     var listName: String
     var listIndex: Int
@@ -55,6 +56,9 @@ struct AccountSelectedListView: View {
                 Spacer()
             }
             .onAppear(){
+
+                
+
                 guard let displayedBooksArray = displayedBooksArray else { return }
                 user.fireBaseRead()
                 self.displayedBooksArray = user.getBookArray(for: listIndex+1)
@@ -66,12 +70,19 @@ struct AccountSelectedListView: View {
     func addButtonAction() {
         addNewBook()
     }
+        
     
     func addNewBook() {
-        guard var unwrappedArray = displayedBooksArray else { return }
-        unwrappedArray.append(FireBook(name: newName, id: newCode, iaBook: newIaBook, authorName: newAuthorBook))
-        displayedBooksArray = unwrappedArray
-        user.fireBaseWrite(newBook: newName, bookCode: newCode, listIndex: listIndex, iaBook: newIaBook, authorName: newAuthorBook)
+
+        if var unwrappedArray = displayedBooksArray {
+            
+            unwrappedArray.append(FireBook(name: titleBook, id: keyBook, iaBook: iaBook, authorName: authorName))
+            displayedBooksArray = unwrappedArray
+        } else {
+            displayedBooksArray = []
+            displayedBooksArray?.append(FireBook(name: titleBook, id: keyBook, iaBook: iaBook, authorName: authorName))
+        }
+        user.fireBaseWrite(newBook: titleBook, bookCode: keyBook, listIndex: listIndex, iaBook: iaBook, authorName: authorName)
     }
 }
 

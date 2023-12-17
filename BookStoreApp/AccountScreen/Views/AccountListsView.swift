@@ -17,10 +17,10 @@ struct AccountListsView: View {
     @State private var newName = ""
     @State private var showModal = false
     
-    var titleBook: String = ""
-    var keyBook: String = ""
-    var iaBook: String = ""
-    var authorName: String = ""
+    var titleBook: String
+    var keyBook: String
+    var iaBook: String
+    var authorName: String
     
     // MARK: - ViewBuilder items
   
@@ -37,10 +37,10 @@ struct AccountListsView: View {
                         
                         NavigationLink {
                             AccountSelectedListView(
-                                newName: titleBook,
-                                newCode: keyBook,
-                                newIaBook: iaBook,
-                                newAuthorBook: authorName,
+                                titleBook: titleBook,
+                                keyBook: keyBook,
+                                iaBook: iaBook,
+                                authorName: authorName,
                                 listName: displayedListArray[index],
                                 listIndex: index
                             )
@@ -56,6 +56,8 @@ struct AccountListsView: View {
                 Spacer()
             }
             .onAppear(){
+                           
+                
                 if displayedListArray.isEmpty {
                     user.fireBaseRead()
                     displayedListArray = user.getListArray()
@@ -84,6 +86,6 @@ struct AccountListsView: View {
     }
 }
 
-#Preview {
-    AccountListsView()
-}
+//#Preview {
+//    AccountListsView()
+//}

@@ -16,7 +16,7 @@ struct AccountView: View {
     @EnvironmentObject var viewModel: BookAppViewModel
     
     // MARK: - View params
-    @State var email = "21@2.ru"
+    @State var email = "31@2.ru"
     @State var userName = "Filipp"
     @State var password = "123456"
     
@@ -116,7 +116,7 @@ struct AccountView: View {
                     .padding(.bottom)
                     
                     NavigationLink {
-                        AccountListsView()
+                        AccountListsView(titleBook: "error", keyBook: "error", iaBook: "error", authorName: "error")
                     } label: {
                         AccountButton(displayText: "My Lists")
                             .foregroundColor(.primary)
