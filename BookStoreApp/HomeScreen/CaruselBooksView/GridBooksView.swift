@@ -9,7 +9,7 @@ import SwiftUI
 
 struct GridBooksView: View {
     
-    @ObservedObject var viewModel: BookAppViewModel
+    @EnvironmentObject var viewModel: BookAppViewModel
     
     let columns = [
         GridItem(.adaptive(minimum: 150))
@@ -31,5 +31,5 @@ struct GridBooksView: View {
 }
 
 #Preview {
-    GridBooksView(viewModel: BookAppViewModel())
+    GridBooksView()
 }

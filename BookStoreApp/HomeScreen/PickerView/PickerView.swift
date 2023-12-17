@@ -10,7 +10,7 @@ import SwiftUI
 
 struct PickerView: View {
     
-    @ObservedObject var viewModel: BookAppViewModel
+    @EnvironmentObject var viewModel: BookAppViewModel
     @State private var selectedTrend: SortTrends = .daily
     
     private let trends = SortTrends.allCases
@@ -48,5 +48,5 @@ struct PickerView: View {
 }
 
 #Preview {
-    PickerView(viewModel: BookAppViewModel())
+    PickerView()
 }

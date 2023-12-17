@@ -7,9 +7,11 @@
 
 import CoreData
 
-class CoreData: ObservableObject {
-    let container: NSPersistentContainer
+final class CoreData: ObservableObject {
+    
     @Published var savedRecentBooks: [BooksEntity] = []
+    
+    let container: NSPersistentContainer
     
     init() {
         container = NSPersistentContainer(name: "Container")
@@ -61,42 +63,17 @@ class CoreData: ObservableObject {
         }
     }
     
-//    func deleteData(_ sender: AnyObject?) {
-//        let context = container.viewContext
-//        let fetchRequest: NSFetchRequest<BooksEntity> = BooksEntity.fetchRequest()
-////            fetchRequest.predicate = Predicate.init(format: "profileID==\(withID)")
-//            let object = try! context.fetch(fetchRequest)
-//        context.delete(object)
-//        if let result = try? context.fetch(fetchRequest) {
-//            for object in result {
-//                context.delete(object)
-//            }
-//        }
-//
-//        do {
-//            try context.save()
-//        } catch {
-//            //Handle error
-//        
-//        }
-//    }
-    
     func deleteAllData() {
            let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "BooksEntity")
            let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
 
            do {
-               // Выполните запрос на удаление
                try container.viewContext.execute(deleteRequest)
-
-               // Сохраните контекст после удаления
                try container.viewContext.save()
-
-               // Обновите массив savedRecentBooks
                savedRecentBooks.removeAll()
 
            } catch let error {
-               print("Error deleting all data - (error)")
+               print("Error deleting all data - \(error)")
            }
        }
 

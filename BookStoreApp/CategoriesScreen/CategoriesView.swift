@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CategoriesView: View {
     
-    @ObservedObject var viewModel: BookAppViewModel
+    @EnvironmentObject var viewModel: BookAppViewModel
     @State private var isFiltered = false
     @State private var searchText = ""
     
@@ -22,7 +22,6 @@ struct CategoriesView: View {
                 HStack {
                     
                     SearchView(searchText: $searchText,
-                               viewModel: viewModel,
                                focusField: $isFocused)
                     
                     if isFocused {
@@ -50,9 +49,9 @@ struct CategoriesView: View {
                 }
                 
                 if searchText.isEmpty {
-                    CategoryListView(viewModel: viewModel, isFiltered: $isFiltered)
+                    CategoryListView(isFiltered: $isFiltered)
                 } else {
-                    EmptyViewSearch(query: $searchText, viewModel: viewModel)
+                    EmptyViewSearch(query: $searchText)
                 }
             }
             .padding()
@@ -64,5 +63,5 @@ struct CategoriesView: View {
 }
 
 #Preview {
-    CategoriesView(viewModel: BookAppViewModel())
+    CategoriesView()
 }

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CaruselBooksView: View {
     
-    @ObservedObject var viewModel: BookAppViewModel
+    @EnvironmentObject var viewModel: BookAppViewModel
     
     private let rows = [GridItem()]
     
@@ -28,5 +28,5 @@ struct CaruselBooksView: View {
 }
 
 #Preview {
-    CaruselBooksView(viewModel: BookAppViewModel())
+    CaruselBooksView()
 }

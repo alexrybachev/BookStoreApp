@@ -30,7 +30,9 @@ struct AccountSelectedListView: View {
     var body: some View {
         NavigationView{
             VStack{
+                
                 AccountListNavigationBarView(title: listName, buttonAction: self.addButtonAction, dismiss: self._dismiss)
+                
                 VStack (spacing: 16){
                     if !displayedBooksArray.isEmpty {
                         
@@ -72,5 +74,9 @@ struct AccountSelectedListView: View {
 }
 
 //#Preview {
-//    AccountSelectedListView()
+//    AccountSelectedListView(
+//        displayedBooksArray: [FireBook(name: "name", id: "id")],
+//                            listName: "listName",
+//                            listIndex: 10
+//    )
 //}

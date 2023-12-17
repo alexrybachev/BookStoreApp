@@ -9,8 +9,8 @@ import SwiftUI
 
 final class BookAppViewModel: ObservableObject {
 
-    @AppStorage("appearanceSelection") var isLightThemeStorage: Bool = true
-    @AppStorage("isOnboarding") var isOnboarding: Bool = true
+    @AppStorage("appearanceSelection") var isLightThemeStorage = true
+    @AppStorage("isOnboarding") var isOnboarding = true
     
     @Published var selectedTrend: SortTrends = .now
     

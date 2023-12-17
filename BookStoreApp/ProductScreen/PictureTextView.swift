@@ -10,17 +10,17 @@ import Kingfisher
 
 struct PictureTextView: View {
 
+    @EnvironmentObject var user: User
+    
     @State private var showLoginAlert = false
     @State private var showSuccessAlert = false
-    var isUserLoggedIn = true // vm
 
     let coverId: String
     let authorName: String
     let category: String
     let rating: String
-    
 
-    let openWebViewAction: ()->()
+    let openWebViewAction: () -> ()
     let alertTitletoRead = "Добавили!"
     let alertTitle = "Уважаемый"
     let alertMessage = "Войдите в аккаунт или зарегистрируйтесь"
@@ -56,12 +56,13 @@ struct PictureTextView: View {
                         .font(.system(size: 14, weight: .bold))
                     
                     PictureTextViewCustomButton(title: "Add to list", color: .gray) {
-                        !isUserLoggedIn ? showGoToLoginAlert() : showAddedToListAlert()
+                        !user.userIsAuthorized ? showGoToLoginAlert() : showAddedToListAlert()
                     }
                     .padding(.top, 21)
                     
                     PictureTextViewCustomButton(title: "Read", color: .black) {
-                        !isUserLoggedIn ? showGoToLoginAlert() : openWebViewAction()
+//                        !user.userIsAuthorized ? showGoToLoginAlert() : openWebViewAction()
+                        openWebViewAction()
                     }
                     .padding(.top, 5)
                 })

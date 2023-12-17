@@ -10,7 +10,7 @@ import SwiftUI
 
 struct CaruselRecentBooks: View {
     
-    @ObservedObject var coreData: CoreData
+    @EnvironmentObject var coreData: CoreData
     
     private let rows = [GridItem()]
     
@@ -20,7 +20,9 @@ struct CaruselRecentBooks: View {
             LazyHGrid(rows: rows, spacing: 20) {
                 ForEach(coreData.savedRecentBooks.reversed(), id: \.self) { book in
                     NavigationLink(destination: ProductView(keyBook: book.key ?? "", iaBook: book.iaBooks ?? "", authorName: book.author ?? "")) {
-                        RecentBook(coreData: coreData, title: book.titleName ?? "", author: book.author ?? "", image: book.coverId ?? "")
+                        RecentBook(title: book.titleName ?? "",
+                                   author: book.author ?? "",
+                                   image: book.coverId ?? "")
                     }
                 }
             }
@@ -30,6 +32,6 @@ struct CaruselRecentBooks: View {
 
 
 #Preview {
-    CaruselRecentBooks(coreData: CoreData())
+    CaruselRecentBooks()
 }
 

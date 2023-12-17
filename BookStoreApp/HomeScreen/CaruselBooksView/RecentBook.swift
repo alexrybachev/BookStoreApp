@@ -10,7 +10,8 @@ import Kingfisher
 
 struct RecentBook: View {
     
-    @ObservedObject var coreData: CoreData
+    @EnvironmentObject var coreData: CoreData
+    
     var title: String
     var author: String
     var image: String
@@ -62,5 +63,5 @@ struct RecentBook: View {
 }
 
 #Preview {
-    RecentBook(coreData: CoreData(), title: "Some title", author: "Some author", image: "6424160")
+    RecentBook(title: "Some title", author: "Some author", image: "6424160")
 }

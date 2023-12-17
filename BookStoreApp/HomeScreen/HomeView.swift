@@ -9,8 +9,9 @@ import SwiftUI
 
 struct HomeView: View {
     
-    @ObservedObject var viewModel: BookAppViewModel
-    @ObservedObject var coreData: CoreData
+    @EnvironmentObject var viewModel: BookAppViewModel
+    @EnvironmentObject var coreData: CoreData
+    
     @State private var searchText = ""
     @FocusState var isFocused: Bool
     
@@ -25,7 +26,6 @@ struct HomeView: View {
      
                     HStack {
                         SearchView(searchText: $searchText,
-                                   viewModel: viewModel,
                                    focusField: $isFocused)
                         
                         if !searchText.isEmpty {
@@ -53,9 +53,9 @@ struct HomeView: View {
                     .animation(.bouncy, value: searchText)
    
                     if searchText.isEmpty {
-                        MainView(viewModel: viewModel, coreData: coreData)
+                        MainView()
                     } else {
-                        EmptyViewSearch(query: $searchText, viewModel: viewModel)
+                        EmptyViewSearch(query: $searchText)
                     }
                 }
                 .onTapGesture {
@@ -79,5 +79,5 @@ struct HomeView: View {
 }
 
 #Preview {
-    HomeView(viewModel: BookAppViewModel(), coreData: CoreData())
+    HomeView()
 }

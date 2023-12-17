@@ -9,7 +9,7 @@ import SwiftUI
 
 struct GridRecentView: View {
     
-    @ObservedObject var viewModel: CoreData
+    @EnvironmentObject var coreData: CoreData
     
     private let columns = [
         GridItem(.adaptive(minimum: 150))
@@ -19,8 +19,10 @@ struct GridRecentView: View {
         NavigationView {
             ScrollView(showsIndicators: false) {
                 LazyVGrid(columns: columns) {
-                    ForEach(viewModel.savedRecentBooks.reversed(), id: \.self) { book in
-                        RecentBook(coreData: viewModel, title: book.titleName ?? "", author: book.author ?? "", image: book.coverId ?? "")
+                    ForEach(coreData.savedRecentBooks.reversed(), id: \.self) { book in
+                        RecentBook(title: book.titleName ?? "",
+                                   author: book.author ?? "",
+                                   image: book.coverId ?? "")
                     }
                 }
                 .padding(.horizontal, 5)
@@ -28,12 +30,12 @@ struct GridRecentView: View {
             .background(.backgroundApp)
         }
         .onAppear() {
-            viewModel.fetchRecentBooks()
+            coreData.fetchRecentBooks()
         }
     }
 }
 
 
 #Preview {
-    GridRecentView(viewModel: CoreData())
+    GridRecentView()
 }

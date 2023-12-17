@@ -13,12 +13,9 @@ struct AccountListsView: View {
     @Environment(\.dismiss) var dismiss
     @EnvironmentObject var user: User
     
-    
-    
     @State private var displayedListArray: [String] = []
     @State private var newName = ""
     @State private var showModal = false
-    
     
     // MARK: - ViewBuilder items
   
@@ -30,9 +27,8 @@ struct AccountListsView: View {
             VStack(spacing: 16) {
                 AccountListNavigationBarView(title: "Lists", buttonAction: self.addButtonAction, dismiss: self._dismiss)
                 
-                
                 if !displayedListArray.isEmpty {
-                    ForEach(0..<displayedListArray.count, id: \.self){ index in
+                    ForEach(0..<displayedListArray.count, id: \.self) { index in
                         
                         NavigationLink {
                             AccountSelectedListView(listName: displayedListArray[index], listIndex: index)

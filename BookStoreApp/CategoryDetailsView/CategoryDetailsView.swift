@@ -15,7 +15,7 @@ struct Book: Hashable {
 
 struct CategoryDetailsView: View {
     
-    @ObservedObject var viewModel: BookAppViewModel
+    @EnvironmentObject var viewModel: BookAppViewModel
     
     let category: String
     
@@ -69,6 +69,6 @@ struct CategoryDetailsView: View {
     ]
 
     let viewModel = BookAppViewModel()
-    return CategoryDetailsView(viewModel: viewModel, category: sampleBooks.first?.description ?? "no description")
+    return CategoryDetailsView(category: sampleBooks.first?.description ?? "no description")
         .environmentObject(viewModel)
 }

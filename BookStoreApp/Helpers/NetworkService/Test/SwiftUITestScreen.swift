@@ -19,7 +19,7 @@ struct SwiftUITestScreen: View {
             VStack {
                 List {
                     ForEach(networkAggregateModel.searchBooksList, id: \.key) { doc in
-                        NavigationLink(destination: TestDetailView(id: doc.key, networkAggregateModel: NetworkAggregateModel())) {
+                        NavigationLink(destination: TestDetailView(networkAggregateModel: NetworkAggregateModel(), id: doc.key)) {
                             HStack {
                                 let isbn = doc.isbn?.first ?? ""
                                 
@@ -27,6 +27,7 @@ struct SwiftUITestScreen: View {
                                     .resizable()
                                     .scaledToFill()
                                     .frame(width: 120, height: 160)
+                                
                                 Text(doc.title)
                             }
                         }

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct FinishView: View {
     
-    @ObservedObject var viewModel: BookAppViewModel
+    @EnvironmentObject var viewModel: BookAppViewModel
     
     var body: some View {
         VStack {
@@ -21,12 +21,12 @@ struct FinishView: View {
             
             FeatureCard(iconName: "person.2.crop.square.stack.fill",
                         description: "A complete description of the book with information about the author, genre and rating of the book.")
-            ButtonFinishView(viewModel: viewModel)
+            ButtonFinishView()
         }
         .padding()
     }
 }
 
 #Preview {
-    FinishView(viewModel: BookAppViewModel())
+    FinishView()
 }
