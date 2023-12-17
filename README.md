@@ -18,7 +18,7 @@
 - **Коллекция Top Book. Фильтрует результаты по - сегодня(дефолтное значение), на этой неделе, за это месяц, за год, за все время**
 - **Recent Book. Коллекция просмотренных книг**
 
-<img src="screenshots/screenshots1.png"/>
+<img src="screenshots/screenshots1.png" width="250"/>
 
 # **Экран Категорий**
 
@@ -27,7 +27,7 @@
 - **На Ячейки с категориями из api (рубрики)**
 - **При нажатии на ячейку с категорией открывается список книг**
 
-<img src="screenshots/screenshots2.png"/>
+<img src="screenshots/screenshots2.png" width="250"/>
 
 # **Экран “Книга”**
 
@@ -35,8 +35,8 @@
 - **Картинка обязательна (подсказка - cover грузится отдельно)**
 - **Книгу можно добавить в избранное**
 
-<img src="screenshots/screenshots3.png"/>
-<img src="screenshots/screenshots4.png"/>
+<img src="screenshots/screenshots3.png" width="250"/>
+<img src="screenshots/screenshots4.png" width="250"/>
 
 # **Экран “Избранное”**
 
