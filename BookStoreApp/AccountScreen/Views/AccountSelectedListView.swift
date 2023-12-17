@@ -58,9 +58,8 @@ struct AccountSelectedListView: View {
             .onAppear(){
 
                 
-
-                guard let displayedBooksArray = displayedBooksArray else { return }
                 user.fireBaseRead()
+                
                 self.displayedBooksArray = user.getBookArray(for: listIndex+1)
             }
             .navigationBarBackButtonHidden(true)
