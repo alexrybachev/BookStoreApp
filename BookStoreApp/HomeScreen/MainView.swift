@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct MainView: View {
-    @ObservedObject var viewModel: BookAppViewModel
-    @ObservedObject var coreData: CoreData
+    
+    @EnvironmentObject var viewModel: BookAppViewModel
+    @EnvironmentObject var coreData: CoreData
     
     @State var seeMoreTop: Bool = true
     @State var seeMoreRecent: Bool = true
@@ -21,9 +22,9 @@ struct MainView: View {
                           seeMore: $seeMoreTop)
                 
                 if viewModel.isLightTheme {
-                    PickerView(viewModel: viewModel)
+                    PickerView()
                 } else {
-                    PickerViewDarkTheme(viewModel: viewModel)
+                    PickerViewDarkTheme()
                 }
                 
                 if seeMoreTop {
@@ -31,11 +32,11 @@ struct MainView: View {
                         SkeletonView()
                     } else {
                         withAnimation {
-                            CaruselBooksView(viewModel: viewModel)
+                            CaruselBooksView()
                         }
                     }
                 } else {
-                    GridBooksView(viewModel: viewModel)
+                    GridBooksView()
                 }
             }
             
@@ -43,9 +44,9 @@ struct MainView: View {
                 TitleView(text: "Recent Books", seeMore: $seeMoreRecent)
                 
                 if seeMoreRecent {
-                    CaruselRecentBooks(coreData: coreData)
+                    CaruselRecentBooks()
                 } else {
-                    GridRecentView(viewModel: coreData)
+                    GridRecentView()
                 }
             }
         }
@@ -59,5 +60,5 @@ struct MainView: View {
 }
 
 #Preview {
-    MainView(viewModel: BookAppViewModel(), coreData: CoreData())
+    MainView()
 }

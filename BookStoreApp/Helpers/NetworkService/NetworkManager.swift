@@ -101,7 +101,6 @@ extension NetworkManager {
         return decodedData
     }
     
-    
     /// Request Search
     func searchQuery(search: String) async throws -> SearchBooks {
         let data = try await getPosts(endpoint: .getSearchQuery(search), with: search)

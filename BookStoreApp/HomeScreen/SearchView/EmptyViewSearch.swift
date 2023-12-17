@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct EmptyViewSearch: View {
+    
+    @EnvironmentObject var viewModel: BookAppViewModel
     @Binding var query: String
-    @ObservedObject var viewModel: BookAppViewModel
     
     let columns = [
         GridItem(.adaptive(minimum: 150))
@@ -38,7 +39,7 @@ struct EmptyViewSearch: View {
 
 
 #Preview {
-    EmptyViewSearch(query: .constant("harry potter"), viewModel: BookAppViewModel())
+    EmptyViewSearch(query: .constant("harry potter"))
 }
 
 //        NavigationView {

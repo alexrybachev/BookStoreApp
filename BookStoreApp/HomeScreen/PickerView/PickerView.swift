@@ -10,7 +10,7 @@ import SwiftUI
 
 struct PickerView: View {
     
-    @ObservedObject var viewModel: BookAppViewModel
+    @EnvironmentObject var viewModel: BookAppViewModel
     @State private var selectedTrend: SortTrends = .daily
     
     private let trends = SortTrends.allCases
@@ -32,7 +32,9 @@ struct PickerView: View {
                                 .foregroundStyle(selectedTrend == trend ? .white : .black)
                                 .background(selectedTrend == trend ? .black : .clear)
                                 .border(selectedTrend == trend ? .clear : .black)
-                            // .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
+//                                .clipShape(selectedTrend == trend
+//                                           ? RoundedRectangle(cornerRadius: 10, style: .continuous)
+//                                           : RoundedRectangle(cornerRadius: 10, style: .continuous).stroke(Color.black, lineWidth: 1))
                         }
                     }
                 }
@@ -46,5 +48,5 @@ struct PickerView: View {
 }
 
 #Preview {
-    PickerView(viewModel: BookAppViewModel())
+    PickerView()
 }

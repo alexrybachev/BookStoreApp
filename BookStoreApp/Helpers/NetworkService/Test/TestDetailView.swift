@@ -10,10 +10,12 @@ import Kingfisher
 //import CoreData
 
 struct TestDetailView: View {
+    
+    @EnvironmentObject var coreData: CoreData
+    @StateObject var networkAggregateModel: NetworkAggregateModel
+    
     let id: String
     var network = NetworkDataFetcher()
-    @ObservedObject var coreData = CoreData()
-    @StateObject var networkAggregateModel: NetworkAggregateModel
     
     var body: some View {
         VStack {
@@ -51,5 +53,5 @@ struct TestDetailView: View {
 
 
 #Preview {
-    TestDetailView(id: "OL82586W", networkAggregateModel: NetworkAggregateModel())
+    TestDetailView(networkAggregateModel: NetworkAggregateModel(), id: "id")
 }

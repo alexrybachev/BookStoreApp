@@ -17,7 +17,7 @@ struct WebView: UIViewRepresentable {
     }
 
     func updateUIView(_ uiView: WKWebView, context: Context) {
-        if let url = URL(string: urlString) {
+        if let url = URL(string: "https://archive.org/embed/\(urlString)") {
             let request = URLRequest(url: url)
             uiView.load(request)
         }

@@ -14,7 +14,7 @@ let gradientColors: [Color] = [
 
 struct OnboardingView: View {
     
-    @ObservedObject var viewModel: BookAppViewModel
+    @EnvironmentObject var viewModel: BookAppViewModel
     
     @State private var currentTab = 0
     
@@ -28,7 +28,7 @@ struct OnboardingView: View {
                     .tag(0)
                 FeatureView(currentTab: $currentTab)
                     .tag(1)
-                FinishView(viewModel: viewModel)
+                FinishView()
                     .tag(2)
             })
         }
@@ -40,5 +40,5 @@ struct OnboardingView: View {
 }
 
 #Preview {
-    OnboardingView(viewModel: BookAppViewModel())
+    OnboardingView()
 }

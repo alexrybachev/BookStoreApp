@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct SearchView: View {
+    
+    @EnvironmentObject var viewModel: BookAppViewModel
     @Binding var searchText: String
-    @ObservedObject var viewModel: BookAppViewModel
    
     var focusField: FocusState<Bool>.Binding
     

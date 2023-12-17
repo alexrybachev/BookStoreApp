@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct CategoryCell: View {
+    
     let category: String
     let image: String
 

@@ -25,7 +25,8 @@ var userDataModel: [String: Any] = [
 ]
 
 
-class User: ObservableObject {
+final class User: ObservableObject {
+    
     @Published var userIsAuthorized = false
     
     private var firebaseAuth = Auth.auth()
@@ -127,6 +128,7 @@ class User: ObservableObject {
         fbWrite()
        
     }
+    
     func fireBaseWrite(addToFavorite listName: String, bookName: String, bookCode: String) {
         
         guard var currentUserData = self.userData else {return}

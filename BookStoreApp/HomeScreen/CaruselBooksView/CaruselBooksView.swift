@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CaruselBooksView: View {
     
-    @ObservedObject var viewModel: BookAppViewModel
+    @EnvironmentObject var viewModel: BookAppViewModel
     
     private let rows = [GridItem()]
     
@@ -18,7 +18,7 @@ struct CaruselBooksView: View {
         ScrollView(.horizontal, showsIndicators: false) {
             LazyHGrid(rows: rows, spacing: 20) {
                 ForEach(viewModel.topTrends, id: \.key) { book in
-                    NavigationLink(destination: ProductView(keyBook: book.key, iaBook: book.urlBook, authorName: book.authorNames)) {
+                    NavigationLink(destination: ProductView(keyBook: book.key, iaBook: book.ia?.first ?? "", authorName: book.authorNames)) {
                         BookCaruselView(book: book)
                     }
                 }
@@ -28,5 +28,5 @@ struct CaruselBooksView: View {
 }
 
 #Preview {
-    CaruselBooksView(viewModel: BookAppViewModel())
+    CaruselBooksView()
 }

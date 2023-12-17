@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ButtonFinishView: View {
   
-    @ObservedObject var viewModel: BookAppViewModel
+    @EnvironmentObject var viewModel: BookAppViewModel
     
     var body: some View {
         Button {
@@ -26,5 +26,5 @@ struct ButtonFinishView: View {
 }
 
 #Preview {
-    ButtonFinishView(viewModel: BookAppViewModel())
+    ButtonFinishView()
 }

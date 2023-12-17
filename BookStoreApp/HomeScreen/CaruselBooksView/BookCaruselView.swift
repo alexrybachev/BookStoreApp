@@ -43,8 +43,8 @@ struct BookCaruselView: View {
                             .font(.headline)
                             .fontWeight(.bold)
                             .multilineTextAlignment(.leading)
-                        //                            .minimumScaleFactor(0.01)
                             .lineLimit(2)
+                        
                         Spacer()
                         
                         Text(book.authorNames)

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CategoryListView: View {
     
-    @ObservedObject var viewModel: BookAppViewModel
+    @EnvironmentObject var viewModel: BookAppViewModel
     
     @Binding var isFiltered: Bool
     
@@ -40,7 +40,7 @@ struct CategoryListView: View {
                 ForEach(isFiltered
                         ? categoriesList.sorted(by: <)
                         : categoriesList.sorted(by: >), id: \.self) { category in
-                    NavigationLink(destination: CategoryDetailsView(viewModel: viewModel, category: category)) {
+                    NavigationLink(destination: CategoryDetailsView(category: category)) {
                         CategoryCell(category: category, image: image)
                             .cornerRadius(8)
                     }

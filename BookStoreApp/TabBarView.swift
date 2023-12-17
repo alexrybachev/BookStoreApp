@@ -9,20 +9,20 @@ import SwiftUI
 
 struct TabBarView: View {
     
-    @ObservedObject var viewModel: BookAppViewModel
-    @ObservedObject var data: CoreData
+    @EnvironmentObject var viewModel: BookAppViewModel
+    @EnvironmentObject var coreData: CoreData
     
     @State private var selectedTab = 0
     
     var body: some View {
         TabView(selection: $selectedTab) {
-            HomeView(viewModel: viewModel, data: data)
+            HomeView()
                 .tabItem {
                     Label("Home", image: selectedTab == 0 ? "homeActive" : "homeInactive")
                 }
                 .tag(0)
             
-            CategoriesView(viewModel: viewModel)
+            CategoriesView()
                 .tabItem {
                     Label("Categories", image: selectedTab == 1 ? "categoryActive" : "categoryInactive")
                 }
@@ -31,10 +31,6 @@ struct TabBarView: View {
             CartView()
                 .tabItem {
                     Label("Likes", image: selectedTab == 2 ? "likesActive" : "likesInactive")
-                        .foregroundStyle(.red)
-                        .tint(.red)
-                        .background(.red)
-                        .accentColor(.blue)
                 }
                 .tag(2)
             
@@ -49,5 +45,5 @@ struct TabBarView: View {
 }
 
 #Preview {
-    TabBarView(viewModel: BookAppViewModel(), data: CoreData())
+    TabBarView()
 }

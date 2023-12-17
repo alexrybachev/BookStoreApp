@@ -26,8 +26,7 @@ struct BookStoreAppApp: App {
     
     @StateObject private var viewModel = BookAppViewModel()
     @StateObject private var user = User()
-    
-    @StateObject private var dataController = CoreData()
+    @StateObject private var coreData = CoreData()
     
     var appearanceSwitch: ColorScheme? {
         viewModel.isLightTheme ? .light : .dark
@@ -36,12 +35,12 @@ struct BookStoreAppApp: App {
     var body: some Scene {
         WindowGroup {
             if isOnboarding {
-                OnboardingView(viewModel: viewModel)
+                OnboardingView()
             } else {
-                TabBarView(viewModel: viewModel, data: dataController)
+                TabBarView()
                     .environmentObject(viewModel)
                     .environmentObject(user)
-                    .environmentObject(dataController)
+                    .environmentObject(coreData)
             }
         }
     }

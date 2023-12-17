@@ -10,7 +10,8 @@ import Kingfisher
 
 struct RecentBook: View {
     
-    @ObservedObject var coreData: CoreData
+    @EnvironmentObject var coreData: CoreData
+    
     var title: String
     var author: String
     var image: String
@@ -21,12 +22,7 @@ struct RecentBook: View {
             Color.gray.opacity(0.5)
             
             VStack(spacing: 0) {
-                //                if coreData.savedRecentBooks == nil {
-                //                    Image(.bookDef)
-                //                        .resizable()
-                //                        .scaledToFit()
-                //                        .padding(10)
-                //                } else {
+                
                 KFImage(URL(string: Kf.path(value: image, path: .id)))
                     .placeholder({
                         ProgressView()
@@ -36,7 +32,6 @@ struct RecentBook: View {
                     .resizable()
                     .scaledToFit()
                     .padding(10)
-                //                }
                 
                 ZStack(alignment: .leading) {
                     Color.black
@@ -47,9 +42,10 @@ struct RecentBook: View {
                             .font(.headline)
                             .fontWeight(.bold)
                             .multilineTextAlignment(.leading)
-//                            .minimumScaleFactor(0.01)
                             .lineLimit(2)
+                        
                         Spacer()
+                        
                         Text(author)
                             .font(.caption)
                             .multilineTextAlignment(.leading)
@@ -66,18 +62,6 @@ struct RecentBook: View {
     }
 }
 
-//#Preview {
-//    BookCaruselView(
-//        book: WorksTrends(key: "key",
-//                          title: "title",
-//                          authorName: ["authorName", "authorName"],
-//                          ia: ["ia", "ia"],
-//                          authorKey: ["authorKey", "authorKey"],
-//                          coverI: 10,
-//                          availability: Availability(isbn: "ISBN"))
-//    )
-//}
-
 #Preview {
-    RecentBook(coreData: CoreData(), title: "Some title", author: "Some author", image: "6424160")
+    RecentBook(title: "Some title", author: "Some author", image: "6424160")
 }

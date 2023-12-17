@@ -9,7 +9,7 @@ import SwiftUI
 
 struct PickerViewDarkTheme: View {
     
-    @ObservedObject var viewModel: BookAppViewModel
+    @EnvironmentObject var viewModel: BookAppViewModel
     @State private var selectedTrend: SortTrends = .daily
     
     private let trends = SortTrends.allCases
@@ -45,5 +45,5 @@ struct PickerViewDarkTheme: View {
 }
 
 #Preview {
-    PickerViewDarkTheme(viewModel: BookAppViewModel())
+    PickerViewDarkTheme()
 }

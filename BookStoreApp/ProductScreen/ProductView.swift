@@ -11,7 +11,8 @@ struct ProductView: View {
 
     @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject private var viewModel: BookAppViewModel
-    @ObservedObject var coreData = CoreData()
+    @EnvironmentObject var coreData: CoreData
+    @EnvironmentObject var user: User
 
     @State private var isWebViewPresented = false
     
@@ -19,32 +20,18 @@ struct ProductView: View {
     let iaBook: String
     let authorName: String
     
-    var isUserLoggedIn = true
     // static data
     static let backButtonIbage = "arrow.backward"
     static let likeButtonImage = "heart"
     static let likeButtonImageFill = "heart.fill"
     static let descriptionText = "Description:"
-//    // mock data
-//    let bookNameText = MockDataProductView.bookNameText
-//    let webViewURL = MockDataProductView.webViewURL
-//    let title = MockDataProductView.navTitle
-//    let fullDescriptionText = MockDataProductView.fullDescriptionText
 
     var body: some View {
         ZStack {
             Color(.secondarySystemBackground).ignoresSafeArea()
             VStack {
-                Text(viewModel.detailBook?.title ?? "No name")
+                Text(viewModel.detailBook?.title ?? "Loading name...")
                     .font(.system(size: 24, weight: .semibold))
-                
-                // Перенести на экран настроек - start
-                Button(action: {
-                    viewModel.isLightTheme.toggle()
-                }) {
-                    Text("Toggle Mode")
-                }
-                // - end
                 
                 PictureTextView(
                     coverId: String(viewModel.detailBook?.covers?.first ?? 0),
@@ -55,9 +42,9 @@ struct ProductView: View {
                     openWebView()
                 }
                 .padding(.top, 16)
-//                .sheet(isPresented: $isWebViewPresented) {
-//                    WebView(urlString: book.readUrl)
-//                }
+                .sheet(isPresented: $isWebViewPresented) {
+                    WebView(urlString: iaBook)
+                }
                 
                 Text(Self.descriptionText)
                 
@@ -85,17 +72,17 @@ struct ProductView: View {
                 leading: CustomNavButton(image: Self.backButtonIbage, action: {
                     presentationMode.wrappedValue.dismiss()
                 }),
-                trailing: isUserLoggedIn ?
-                CustomNavButton(image: Self.likeButtonImage, action: {
-                    addToLikeTapped()
-                }) : nil
+                trailing: user.userIsAuthorized
+                ? CustomNavButton(image: Self.likeButtonImage, action: { addToLikeTapped() })
+                : nil
             )
-            NavigationLink(
-                destination: WebView(urlString: iaBook),
-                isActive: $isWebViewPresented
-            ) {
-                EmptyView()
-            }
+            
+//            NavigationLink(
+//                destination: WebView(urlString: iaBook),
+//                isActive: $isWebViewPresented
+//            ) {
+//                EmptyView()
+//            }
             .padding()
             .preferredColorScheme(viewModel.isLightTheme ? .light : .dark)
             .onAppear {
@@ -136,7 +123,7 @@ struct CustomNavButton: View {
     @State var changeLikedState: Bool = false
 
     let image: String
-    let action: ()->()
+    let action: () -> ()
 
     var body: some View {
         Button(action: {
@@ -150,7 +137,7 @@ struct CustomNavButton: View {
         }
     }
 
-    func checkImage()-> String {
+    func checkImage() -> String {
         image == ProductView.likeButtonImage ? (changeLikedState ? (ProductView.likeButtonImageFill) : (ProductView.likeButtonImage)): (image)
     }
 }
